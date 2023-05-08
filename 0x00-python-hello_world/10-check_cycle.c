@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include "lists.h"
 /**
- * find_listint_loop - free node
+ * check_cycle - check for a cycle
  * @list: list of node
- * Return: node
+ * Return: 1 if cycle exists, 0 if no cycle
  */
 
 int check_cycle(listint_t *list)
