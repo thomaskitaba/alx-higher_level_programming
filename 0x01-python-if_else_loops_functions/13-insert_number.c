@@ -13,8 +13,6 @@ listint_t *insert_node(listint_t **head, int number)
 int j;
 listint_t *Next, *current, *new;
 current = *head;
-if (*head == NULL)
-return (NULL);
 new = malloc(sizeof(listint_t));
 if (new == NULL)
 {
@@ -22,6 +20,8 @@ return (NULL);
 }
 j = 0;
 new->n = number;
+if (current == NULL)
+return (new);
 while (current)
 {
 Next = current->next;
