@@ -21,7 +21,7 @@ return (NULL);
 }
 j = 0;
 new->n = number;
-if (!head)
+if (*head == NULL)
 return (new);
 while(current)
 {
