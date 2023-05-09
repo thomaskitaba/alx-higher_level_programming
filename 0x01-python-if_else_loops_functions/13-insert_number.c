@@ -22,6 +22,7 @@ j = 0;
 new->n = number;
 if (*head == NULL)
 {
+new->n = number;
 new->next = NULL;
 return (new);
 }
