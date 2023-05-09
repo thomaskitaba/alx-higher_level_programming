@@ -9,7 +9,9 @@ def print_last_digit(number):
         last_digit = number - 10 * main_num
     else:
         last_digit = 0
+        return last_digit
     if revert != 0:
         last_digit *= -1
         number *= -1
+        return last_digit
     return last_digit
