@@ -1,3 +1,6 @@
 #!/usr/bin/python3
-for i in range(99):
-    print(f"{i:d} = {hex(i)}")
+for i in range(100):
+    if i < 99:
+        print(f"{i:2d}, ")
+    else:
+        print(f"{i:2d}")
