@@ -4,8 +4,7 @@
 #include "lists.h"
 /**
  * insert_node - free node
- * @str: string passed
- * @head: node head recived
+ * @number: node head recived
  * Return: node
  */
 listint_t *insert_node(listint_t **head, int number)
