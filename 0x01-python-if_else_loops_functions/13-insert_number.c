@@ -21,7 +21,10 @@ return (NULL);
 j = 0;
 new->n = number;
 if (current == NULL)
+{
+new->next = NULL;
 return (new);
+}
 while (current)
 {
 Next = current->next;
