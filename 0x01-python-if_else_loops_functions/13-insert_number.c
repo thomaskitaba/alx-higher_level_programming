@@ -14,8 +14,6 @@ int j;
 listint_t *Next, *current, *new;
 current = *head;
 new = NULL;
-if (!head)
-return (new);
 new = malloc(sizeof(listint_t));
 if (new == NULL)
 {
@@ -23,6 +21,8 @@ return (NULL);
 }
 j = 0;
 new->n = number;
+if (!head)
+return (new);
 while(current)
 {
 Next = current->next;
