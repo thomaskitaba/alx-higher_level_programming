@@ -5,7 +5,10 @@ def remove_char_at(str, n):
             if i == len(str) - 1:
                 str[i] = ''
             else:
-                for j in range(i, len(str) - 1):
-                    str[j] = str[j + 1]
+                for j in range(i, len(str)):
+                    if j == len(str) - 1:
+                        str[j] = ''
+                    else:
+                        str[j] = str[j + 1]
                 break
     return str
