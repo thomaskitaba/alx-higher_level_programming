@@ -14,18 +14,17 @@ int j;
 listint_t *Next, *current, *new;
 current = *head;
 
+if (!head)
+return (NULL);
 new = malloc(sizeof(listint_t));
 if (new == NULL)
 {
   return (NULL);
 }
 j = 0;
-
 new->n = number;
-
 while(current)
 {
-  j++;
   Next = current->next;
   if (number < current->n && j == 0)
   {
@@ -45,6 +44,7 @@ while(current)
     new->next = Next;
     break;
   }
+  j++;
   current = Next;
 }
 return (*head);
