@@ -3,12 +3,12 @@
 #include <string.h>
 #include "lists.h"
 /**
- * add_node - free node
+ * insert_node - free node
  * @str: string passed
  * @head: node head recived
  * Return: node
  */
-listint_t *add_node(listint_t **head, int number)
+listint_t *insert_node(listint_t **head, int number)
 {
 int j;
 listint_t *Next, *current, *new;
