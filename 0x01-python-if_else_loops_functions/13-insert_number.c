@@ -23,26 +23,26 @@ j = 0;
 new->n = number;
 if (*head == NULL)
 return (new);
-while(current)
+while (current)
 {
 Next = current->next;
 if (number < current->n && j == 0)
 {
-  new->next = *head;
-  *head = new; /*check latter*/
-  return (*head);
+new->next = *head;
+*head = new; /*check latter*/
+return (*head);
 }
 if (Next == NULL && number >= current->n)
 {
-  new->next = NULL;
-  current->next = new;
-  break;
+new->next = NULL;
+current->next = new;
+break;
 }
 if (number >= current->n && number < Next->n)
 {
-  current->next = new;
-  new->next = Next;
-  break;
+current->next = new;
+new->next = Next;
+break;
 }
 j++;
 current = Next;
