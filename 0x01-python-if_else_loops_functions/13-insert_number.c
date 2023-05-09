@@ -14,7 +14,7 @@ int j;
 listint_t *Next, *current, *new;
 current = *head;
 
-if (!head)
+if (!*head)
 return (NULL);
 new = malloc(sizeof(listint_t));
 if (new == NULL)
