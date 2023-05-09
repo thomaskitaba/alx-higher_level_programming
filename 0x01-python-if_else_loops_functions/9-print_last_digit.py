@@ -10,8 +10,5 @@ def print_last_digit(number):
     else:
         last_digit = 0
 
-    if revert != 0:
-        last_digit *= -1
-        number *= -1
     print("{}".format(last_digit), end='')
     return last_digit
