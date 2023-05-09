@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 for i in range(100):
     if i < 99:
-        print(f"{i:2d}, ")
+        print("{:02d},".fromat(i), end=' ')
     else:
-        print(f"{i:2d}")
+        print("{:02d}".fromat(i))
