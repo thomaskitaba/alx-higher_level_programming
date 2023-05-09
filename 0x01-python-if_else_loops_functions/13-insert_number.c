@@ -4,7 +4,7 @@
 #include "lists.h"
 /**
  * insert_node - free node
- * @head: pointer to head node of linked list
+ * @head: pointer to head node of linked
  * @number: node head recived
  * Return: node
  */
@@ -13,8 +13,7 @@ listint_t *insert_node(listint_t **head, int number)
 int j;
 listint_t *Next, *current, *new;
 current = *head;
-if (*head == NULL || !number)
-return (NULL);
+new = NULL;
 new = malloc(sizeof(listint_t));
 if (new == NULL)
 {
@@ -22,6 +21,8 @@ return (NULL);
 }
 j = 0;
 new->n = number;
+if (*head == NULL)
+return (new);
 while (current)
 {
 Next = current->next;
@@ -29,7 +30,7 @@ if (number < current->n && j == 0)
 {
 new->next = *head;
 *head = new; /*check latter*/
-return (*head);
+return (new);
 }
 if (Next == NULL && number >= current->n)
 {
@@ -46,5 +47,5 @@ break;
 j++;
 current = Next;
 }
-return (*head);
+return (new);
 }
