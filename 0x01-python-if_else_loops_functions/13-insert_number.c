@@ -4,6 +4,7 @@
 #include "lists.h"
 /**
  * insert_node - free node
+ * @head: pointer to head node of linked list
  * @number: node head recived
  * Return: node
  */
