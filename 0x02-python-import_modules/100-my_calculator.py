@@ -14,13 +14,10 @@ if __name__ == "__main__":
         sys.exit(1)
     if op[0] == '+':
         result = add(a, b)
-        print("{} {} {} = {}".format(int(a), "+", int(b), int(result)))
     if op[0] == '-':
         result = sub(a, b)
-        print("{} {} {} = {}".format(int(a), "-", int(b), int(result)))
     if op[0] == '*':
         result = mul(a, b)
-        print("{} {} {} = {}".format(int(a), "*", int(b), int(result)))
     if op[0] == '/':
         result = div(a, b)
-        print("{} {} {} = {}".format(int(a), "/", int(b), int(result)))
+    print("{} {} {} = {}".format(int(a), op[0], int(b), int(result)))
