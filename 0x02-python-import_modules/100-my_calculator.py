@@ -12,15 +12,15 @@ if __name__ == "__main__":
     if op != '+' and op != '-' and op != '*' and op != '/':
         print("Unknown operator. Available operators: +, -, * and /")
         sys.exit(1)
-    if op == '+':
+    if op[0] == '+':
         result = add(a, b)
         print("{} {} {} = {}".format(int(a), "+", int(b), int(result)))
-    if op == '-':
+    if op[0] == '-':
         result = sub(a, b)
         print("{} {} {} = {}".format(int(a), "-", int(b), int(result)))
-    if op == '*':
+    if op[0] == '*':
         result = mul(a, b)
         print("{} {} {} = {}".format(int(a), "*", int(b), int(result)))
-    if op == '/':
+    if op[0] == '/':
         result = div(a, b)
         print("{} {} {} = {}".format(int(a), "/", int(b), int(result)))
