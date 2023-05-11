@@ -20,4 +20,4 @@ if __name__ == "__main__":
         result = mul(a, b)
     if op == '/':
         result = div(a, b)
-    print("{} {} {} = {}".format(int(a), int(op), int(b), int(result)))
+    print("{} {} {} = {}".format(int(a), op, int(b), int(result)))
