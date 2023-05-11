@@ -4,9 +4,10 @@
 # from calculator_1 import mul
 # from calculator_1 import div
 if __name__ == "__main__":
-a = 10
-b = 5
-print(calculator_1.add)
-print(calculator_1.sub)
-print(calculator_1.mul)
-print(calculator_1.div)
+    from calculator_1 import add, sub, mul, div
+    a = 10
+    b = 5
+    print(add)
+    print(sub)
+    print(mul)
+    print(div)
