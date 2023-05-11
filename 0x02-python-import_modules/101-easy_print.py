@@ -1,5 +1,5 @@
 #!/usr/bin/python3
 import sys
 
-sys.write.stdout("#pythoniscool\n")
+sys.stdout.write("#pythoniscool\n")
 sys.exit(1)
