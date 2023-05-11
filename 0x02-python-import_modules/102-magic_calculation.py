@@ -1,4 +1,9 @@
 #!/usr/bin/python3
-def magic_calculation_1(a, b):
+def magic_calculation(a, b):
     if a < b:
-        add(a, b)
+        c = add(a, b)
+        for i in range(90):
+            c = add(c + i)
+        return c
+    else:
+        return (sub(a, b))
