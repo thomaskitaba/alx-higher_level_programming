@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+from magic_calculation_
 def magic_calculation(a, b):
     if a < b:
         c = add(a, b)
