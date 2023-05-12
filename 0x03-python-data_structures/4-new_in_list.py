@@ -5,6 +5,5 @@ def new_in_list(my_list, idx, element):
     return (my_list)
   for i in range(len(my_list)):
     new_list.append(my_list[i])
-
-  print("{}".format(my_list))
-  print("{}".format(new_list))
+  new_list[idx] = element
+  return (new_list)
