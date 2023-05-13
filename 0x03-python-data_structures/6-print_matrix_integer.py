@@ -1,9 +1,9 @@
 #!/urs/bin/python3
 def print_matrix_integer(matrix=[[]]):
     for arg in matrix:
-        for i in range(len(arg)):
-            if i == len(arg) - 1:
-                print("{:d}".format(arg[i]), end="")
+        for count, i in enumerat(arg):
+            if count == len(arg) - 1:
+                print("{:d}".format(i), end="")
             else:
-                print("{:d}".format(arg[i]), end=" ")
+                print("{:d}".format(i), end=" ")
         print()
