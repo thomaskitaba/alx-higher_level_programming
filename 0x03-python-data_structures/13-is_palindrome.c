@@ -5,10 +5,10 @@
 * Return: head of reversed list
 */
 
-listint_t *reverse_linked_list(listint_t **list)
+listint_t *reverse_linked_list(listint_t *list)
 {
 listint_t *previous, *Next, *current;
-current = *list;
+current = list;
 previous = Next = NULL;
 while (current)
 {
@@ -17,8 +17,8 @@ while (current)
 	previous = current;
 	current = Next;
 }
-*list = previous;
-return (*list);
+list = previous;
+return (list);
 }
 /**
 * is_palindrome - check if palindrome
@@ -31,7 +31,7 @@ listint_t *reversed_list, *current;
 current = *head;
 if (*head == NULL || (*head)->next->next == NULL)
 	return (1);
-reversed_list = reverse_linked_list(head);
+reversed_list = reverse_linked_list(current);
 while (!reversed_list->next)
 {
 	if (reversed_list->n != current->n)
