@@ -41,7 +41,7 @@ while (temp)
 	temp = temp->next;
 }
 temp = *head;
-for (i = 0; i < size / 2; i++)
+for (i = 0; i < size / 2 - 1; i++)
 {
 	temp = temp->next;
 }
