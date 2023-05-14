@@ -54,7 +54,7 @@ else
 
 reversed_list = reverse_linked_list(&temp);
 list_backup = reversed_list;
-while (!reversed_list)
+while (reversed_list)
 {
 	if (reversed_list->n != current->n)
 		return (0);
