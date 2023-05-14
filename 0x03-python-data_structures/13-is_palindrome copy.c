@@ -51,7 +51,6 @@ if (size % 2 == 0 && temp->n != temp->next->n)
 temp = temp->next->next;
 
 reversed_list = reverse_linked_list(&temp);
-list_copy = reversed_list;
 temp = reversed_list;
 while (!reversed_list->next)
 {

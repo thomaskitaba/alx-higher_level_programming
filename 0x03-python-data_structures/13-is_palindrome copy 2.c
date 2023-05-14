@@ -29,28 +29,16 @@ int is_palindrome(listint_t **head)
 {
 listint_t *reversed_list, *current, *temp;
 current = *head;
-int i, size;
 if (*head == NULL || (*head)->next == NULL)
 	return (1);
-
-size = i = 0;
-temp = *head;
-while (!temp)
+/*while (p)
 {
-    size++;
-    temp = temp->next;
-}
-temp = *head;
-for (i = 0; i < size / 2; i++)
-{
-    temp = temp->next;
-}
-if (size % 2 == 0 && temp->n != temp->next->n)
-    return (0);
-
-temp = temp->next->next;
-
-reversed_list = reverse_linked_list(&temp);
+q = q->next;
+p = p->next->next;
+if (p == NULL)
+	reversed_list = reverse_linked_list(&(q->next->next));
+}*/
+reversed_list = reverse_linked_list(head);
 temp = reversed_list;
 while (!reversed_list->next)
 {
@@ -59,6 +47,6 @@ while (!reversed_list->next)
 	reversed_list = reversed_list->next;
 	current = current->next;
 }
-reverse_linked_list(&temp);
+ reverse_linked_list(&temp);
 return (1);
 }

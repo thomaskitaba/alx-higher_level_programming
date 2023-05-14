@@ -1,7 +1,7 @@
 #include "lists.h"
 /**
 * reverse_linked_list - reverse a list
-* @list:  head of linked list
+* @head:  head of linked list
 * Return: head of reversed list
 */
 
@@ -37,16 +37,16 @@ if (*head == NULL || (*head)->next == NULL)
 
 while (!temp)
 {
-    size++;
-    temp = temp->next;
+	size++;
+	temp = temp->next;
 }
 temp = *head;
 for (i = 0; i < size / 2; i++)
 {
-    temp = temp->next;
+	temp = temp->next;
 }
 if (size % 2 == 0 && temp->n != temp->next->n)
-    return (0);
+	return (0);
 
 temp = temp->next->next;
 
