@@ -34,12 +34,10 @@ if (*head == NULL || (*head)->next == NULL)
 while (p)
 {
 q = q->next;
-p =p->next->next;
+p = p->next->next;
 if (p == NULL)
 	reversed_list = reverse_linked_list(&q);
 }
-
-
 
 while (!reversed_list->next)
 {
