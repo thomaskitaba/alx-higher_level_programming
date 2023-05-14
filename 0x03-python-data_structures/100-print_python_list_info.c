@@ -5,7 +5,7 @@
 * @p: pointer to a pythonlistobject
 * Return: nothing
 */
-void print_python_list_info(PyObject *p);
+void print_python_list_info(PyObject *p)
 {
     printf("Hello Thomas Kitaba");
 }
