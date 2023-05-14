@@ -27,11 +27,20 @@ return (*list);
 */
 int is_palindrome(listint_t **head)
 {
-listint_t *reversed_list, *current;
-current = *head;
+listint_t *reversed_list, *current, *p, *q;
+current = p = q = *head;
 if (*head == NULL || (*head)->next == NULL)
 	return (1);
-reversed_list = reverse_linked_list(head);
+while (p)
+{
+q = q->next;
+p =p->next->next;
+if (p == NULL)
+	reversed_list = reverse_linked_list(&q);
+}
+
+
+
 while (!reversed_list->next)
 {
 	if (reversed_list->n != current->n)
