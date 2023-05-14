@@ -7,9 +7,9 @@
 */
 void print_python_list_info(PyObject *p)
 {
-    Py_ssize_t length, i;
+    Py_ssize_t len, i;
     /* to iteraate*/
-    Py_ssize_t length = PyList_Size(list);
+    Py_ssize_t len = PyList_Size(list);
     for (i = 0; i < lenght; i++)
     {
         printf("index %d:  %s\n", i, Py_Type(Pylist_GetItem(p, i)->tp_name);
