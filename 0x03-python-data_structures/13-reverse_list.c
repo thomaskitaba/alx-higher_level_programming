@@ -15,6 +15,6 @@ while (current)
   previous = current;
   current = Next;
 }
-list = previous
+list = previous;
 return (list);
 }
