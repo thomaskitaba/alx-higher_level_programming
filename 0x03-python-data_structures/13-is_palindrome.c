@@ -33,6 +33,7 @@ if (*head == NULL || (*head)->next == NULL)
 	return (1);
 reversed_list = reverse_linked_list(head);
 temp = reversed_list;
+
 while (!temp->next)
 {
 	if (temp->n != current->n)
