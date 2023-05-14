@@ -7,16 +7,16 @@
 */
 void print_python_list_info(PyObject *p)
 {
-	int len, allocatedated, i;
+	int size, alloc, i;
 	PyObject *obj;
 
-	length = Py_length(p);
-	allocated = ((PyListObject *)p)->allocated;
+	size = Py_SIZE(p);
+	alloc = ((PyListObject *)p)->allocated;
 
-	printf("[*] length of the Python List = %d\n", length);
-	printf("[*] allocatedated = %d\n", allocated);
+	printf("[*] Size of the Python List = %d\n", size);
+	printf("[*] Allocated = %d\n", alloc);
 
-	for (i = 0; i < length; i++)
+	for (i = 0; i < size; i++)
 	{
 		printf("Element %d: ", i);
 
@@ -24,5 +24,4 @@ void print_python_list_info(PyObject *p)
 		printf("%s\n", Py_TYPE(obj)->tp_name);
 	}
 
-	/*once we get length or length of the list we can traverse it*/
 }
