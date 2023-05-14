@@ -40,7 +40,7 @@ if (p == NULL)
 }*/
 reversed_list = reverse_linked_list(head);
 list_temp = reversed_list;
-while (!reversed_list->next)
+while (reversed_list->next)
 {
 	if (reversed_list->n != current->n)
 		return (0);
