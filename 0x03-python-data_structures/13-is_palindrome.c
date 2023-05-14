@@ -47,8 +47,10 @@ for (i = 0; i < size / 2; i++)
 }
 if (size % 2 == 0 && temp->n != temp->next->n)
 	return (0);
-
-temp = temp->next->next;
+if (size % 2 != 0)
+	temp = temp->next->next;
+else
+	temp = temp->next;
 
 reversed_list = reverse_linked_list(&temp);
 list_backup = reversed_list;
