@@ -27,7 +27,7 @@ return (*head);
 */
 int is_palindrome(listint_t **head)
 {
-listint_t *reversed_list, *current, *temp, *list_temp;
+listint_t *reversed_list, *current, *list_temp;
 current = *head;
 if (*head == NULL || (*head)->next == NULL)
 	return (1);
