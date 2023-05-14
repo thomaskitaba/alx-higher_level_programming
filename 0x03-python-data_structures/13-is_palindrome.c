@@ -36,7 +36,7 @@ while (p)
 q = q->next;
 p = p->next->next;
 if (p == NULL)
-	reversed_list = reverse_linked_list(&q);
+	reversed_list = reverse_linked_list(&(q->next));
 }
 
 while (!reversed_list->next)
