@@ -1,7 +1,7 @@
 #include "lists.h"
 /**
 * reverse_linked_list - reverse a list
-* @list:  head of linked list
+* @head:  head of linked list
 * Return: head of reversed list
 */
 
@@ -27,26 +27,40 @@ return (*head);
 */
 int is_palindrome(listint_t **head)
 {
-listint_t *reversed_list, *current, *temp, *list_temp;
-current = *head;
+listint_t *reversed_list, *current, *temp, *list_backup;
+int i, size;
+size = i = 0;
+current = temp = *head;
+
 if (*head == NULL || (*head)->next == NULL)
 	return (1);
-/*while (p)
+
+while (temp)
 {
-q = q->next;
-p = p->next->next;
-if (p == NULL)
-	reversed_list = reverse_linked_list(&(q->next->next));
-}*/
-reversed_list = reverse_linked_list(head);
-list_temp = reversed_list;
-while (!reversed_list->next)
+	size++;
+	temp = temp->next;
+}
+temp = *head;
+for (i = 0; i < size / 2 - 1; i++)
+{
+	temp = temp->next;
+}
+if (size % 2 == 0 && temp->n != temp->next->n)
+	return (0);
+if (size % 2 != 0)
+	temp = temp->next->next;
+else
+	temp = temp->next;
+
+reversed_list = reverse_linked_list(&temp);
+list_backup = reversed_list;
+while (reversed_list)
 {
 	if (reversed_list->n != current->n)
 		return (0);
 	reversed_list = reversed_list->next;
 	current = current->next;
 }
- reverse_linked_list(&list_temp);
+reverse_linked_list(&list_backup);
 return (1);
 }
