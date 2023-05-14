@@ -53,7 +53,7 @@ else
 	temp = temp->next;
 
 reversed_list = reverse_linked_list(&temp);
-temp = reversed_list;
+list_backup = reversed_list;
 while (reversed_list)
 {
 	if (reversed_list->n != current->n)
@@ -61,6 +61,6 @@ while (reversed_list)
 	reversed_list = reversed_list->next;
 	current = current->next;
 }
-reverse_linked_list(&temp);
+reverse_linked_list(&list_backup);
 return (1);
 }
