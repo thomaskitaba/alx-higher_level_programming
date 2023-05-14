@@ -1,7 +1,8 @@
 #include "lists.h"
 /**
-*
-*
+* reverse_linked_list - reverse a list
+* @list:  head of linked list
+* Return: head of reversed list
 */
 
 listint_t *reverse_linked_list(listint_t *list)
@@ -23,8 +24,9 @@ list = previous;
 return (list);
 }
 /**
-*
-*
+* is_palindrome - check if palindrome
+* @head:   head of orignal list
+* Return: 0 if palinderome, 1 if not palinderome
 */
 int is_palindrome(listint_t **head)
 {
