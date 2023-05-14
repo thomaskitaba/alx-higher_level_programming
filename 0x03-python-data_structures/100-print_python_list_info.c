@@ -19,8 +19,11 @@ void print_python_list_info(PyObject *p)
 
 	for (i = 0; i < length; i++)
 	{
+
+		printf("Element %d: ", i);
+
 		item = PyList_GetItem(p, i);
-		printf("Element %d: %s\n", i, Py_TYPE(item)->tp_name);
+		printf("%s\n", Py_TYPE(item)->tp_name);
 	}
 	/*once we get size or length of the list we can traverse it*/
 }
