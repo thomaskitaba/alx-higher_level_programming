@@ -7,15 +7,20 @@
 */
 void print_python_list_info(PyObject *p)
 {
-	Py_ssize_t length;
-	int i;
+	int length, i, allocated;
 	PyObject *item;
-	/* to iteraate*/
+
+	/* to iterate*/
 	length = Py_Size(p);
+	/* cast to PYlistobject pointer*/
+	allocated = (PyListObject *)p->allocated;
+	printf("[*] Size of the Python List = %d", length);
+	printf("[*] Allocated = %d", allocated);
+
 	for (i = 0; i < length; i++)
 	{
 		item = PyList_GetItem(p, i);
-		printf("index %d:  %s\n", i, Py_TYPE(item)->tp_name);
+		printf("Element %d: %s\n", i, Py_TYPE(item)->tp_name);
 	}
 	/*once we get size or length of the list we can traverse it*/
 }
