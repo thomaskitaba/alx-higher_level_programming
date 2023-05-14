@@ -28,13 +28,13 @@ return (*head);
 int is_palindrome(listint_t **head)
 {
 listint_t *reversed_list, *current, *temp;
+current = *head;
 int i, size;
-size = i = 0;
-current = temp = *head;
-
 if (*head == NULL || (*head)->next == NULL)
 	return (1);
 
+size = i = 0;
+temp = *head;
 while (!temp)
 {
     size++;
@@ -51,6 +51,7 @@ if (size % 2 == 0 && temp->n != temp->next->n)
 temp = temp->next->next;
 
 reversed_list = reverse_linked_list(&temp);
+list_copy = reversed_list;
 temp = reversed_list;
 while (!reversed_list->next)
 {
