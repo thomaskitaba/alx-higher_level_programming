@@ -52,7 +52,7 @@ temp = temp->next->next;
 
 reversed_list = reverse_linked_list(&temp);
 temp = reversed_list;
-while (!reversed_list->next)
+while (!reversed_list)
 {
 	if (reversed_list->n != current->n)
 		return (0);
