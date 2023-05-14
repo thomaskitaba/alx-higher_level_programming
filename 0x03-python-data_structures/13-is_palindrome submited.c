@@ -35,24 +35,26 @@ current = temp = *head;
 if (*head == NULL || (*head)->next == NULL)
 	return (1);
 
-while (!temp)
+while (temp)
 {
 	size++;
 	temp = temp->next;
 }
 temp = *head;
-for (i = 0; i < size / 2; i++)
+for (i = 0; i < size / 2 - 1; i++)
 {
 	temp = temp->next;
 }
 if (size % 2 == 0 && temp->n != temp->next->n)
 	return (0);
-
-temp = temp->next->next;
+if (size % 2 != 0)
+	temp = temp->next->next;
+else
+	temp = temp->next;
 
 reversed_list = reverse_linked_list(&temp);
 list_backup = reversed_list;
-while (!reversed_list)
+while (reversed_list)
 {
 	if (reversed_list->n != current->n)
 		return (0);

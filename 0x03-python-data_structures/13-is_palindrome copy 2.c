@@ -27,7 +27,7 @@ return (*head);
 */
 int is_palindrome(listint_t **head)
 {
-listint_t *reversed_list, *current, *temp;
+listint_t *reversed_list, *current, *temp, *list_temp;
 current = *head;
 if (*head == NULL || (*head)->next == NULL)
 	return (1);
@@ -39,7 +39,7 @@ if (p == NULL)
 	reversed_list = reverse_linked_list(&(q->next->next));
 }*/
 reversed_list = reverse_linked_list(head);
-temp = reversed_list;
+list_temp = reversed_list;
 while (!reversed_list->next)
 {
 	if (reversed_list->n != current->n)
@@ -47,6 +47,6 @@ while (!reversed_list->next)
 	reversed_list = reversed_list->next;
 	current = current->next;
 }
- reverse_linked_list(&temp);
+ reverse_linked_list(&list_temp);
 return (1);
 }
