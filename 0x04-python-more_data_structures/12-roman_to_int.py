@@ -12,7 +12,7 @@ def roman_to_int(roman_string):
 
             if roman == roman_key[i]:
                 if current < Next and roman_key[i] == 'I':
-                    sum -= 1
+                    sum -= d_r[roman_key[i]]
                 else:
                     sum += d_r[roman_key[i]]
     return (sum)
