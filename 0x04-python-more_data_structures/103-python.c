@@ -31,5 +31,16 @@ void print_python_list_info(PyObject *p)
 */
 void print_python_bytes(PyObject *p)
 {
+    Py_ssize_t bytes;
+    PyObject obj;
+    int size;
 
+    size = (PyVarObject *)p->ob_size;
+    if (!p)
+        printf("Error")
+    /*Py_ssize_t_ob_refcnt */
+    obj = ((PyListObject *)p);
+    printf("[.] bytes object info");
+    printf("size: %d", size);
+    printf("first %d bytes", size);
 }
