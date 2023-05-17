@@ -8,7 +8,7 @@ def roman_to_int(roman_string):
         for i in range(len(roman_key)):
             current = d_r[roman_key[i]]
             if j < len(roman_string) - 1:
-                Next = d_r[roman_string[j + 1]] #change it to roman string
+                Next = d_r[roman_string[j + 1]]
 
             if roman_string[j] == roman_key[i]:
                 if current < Next:
