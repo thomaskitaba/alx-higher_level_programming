@@ -13,11 +13,13 @@ def complex_delete(a_dictionary, value):
         if list_value[i] == value:
             found = 1
             value_of_index = i
-            break
+            key_to_delet = list_key[value_of_index]
+            del a_dictionary[key_to_delet]
+
     if found == 0:
         return (a_dictionary)
 
-    key_to_delet = list_key[value_of_index]
-    del a_dictionary[key_to_delet]
+    # key_to_delet = list_key[value_of_index]
+    # del a_dictionary[key_to_delet]
 
     return (a_dictionary)
