@@ -4,14 +4,14 @@ def roman_to_int(roman_string):
     roman_key = list(d_r.keys())
     sum = 0
     Next = 0
-    for roman in roman_string:
+    for j in range(len(roman_string)):
         for i in range(len(roman_key)):
             current = d_r[roman_key[i]]
-            if i < len(roman_key) - 1:
-                Next = d_r[roman_key[i + 1]]
+            if j < len(roman_string) - 1:
+                Next = d_r[roman_string[j + 1]] #change it to roman string
 
-            if roman == roman_key[i]:
-                if current < Next and roman_key[i] == 'I':
+            if roman_string[j] == roman_key[i]:
+                if current < Next:
                     sum -= d_r[roman_key[i]]
                 else:
                     sum += d_r[roman_key[i]]
