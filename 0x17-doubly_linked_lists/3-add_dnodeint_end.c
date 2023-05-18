@@ -1,7 +1,7 @@
 #include "lists.h"
 /**
 * add_dnodeint_end - add node at the end of d_list
-* @head: head of the double linked list
+* @head: head of the doublec
 * @n: number to be inserted
 * Return: inserted node address, or NUll
 */
