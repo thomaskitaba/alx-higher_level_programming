@@ -10,12 +10,12 @@ dlistint_t *current, *Next;
 current = Next = head;
 
 if (head == NULL)
-    return;
+	return;
 
 while (Next)
 {
-    current = Next;
-    Next = Next->next;
-    free(current);
+	current = Next;
+	Next = Next->next;
+	free(current);
 }
 }
