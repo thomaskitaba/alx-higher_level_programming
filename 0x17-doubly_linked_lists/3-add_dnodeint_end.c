@@ -1,6 +1,7 @@
 #include "lists.h"
 /**
 * add_dnodeint_end - add node at the end of d_list
+* @head: head of the double linked list
 * @n: number to be inserted
 * Return: inserted node address, or NUll
 */
@@ -12,24 +13,24 @@ list = NULL;
 
 list = (dlistint_t *)malloc(sizeof(dlistint_t));
 if (list == NULL)
-    return (NULL);
+	return (NULL);
 list->n = n;
 /*handle empty head*/
 if (*head == NULL)
 {
-list->prev = NULL;
-list->next = NULL;
-*head = list;
-return (*head);
+	list->prev = NULL;
+	list->next = NULL;
+	*head = list;
+	return (*head);
 }
 /*go to the end of the node*/
 while (Next)
 {
-current = Next;
-Next = Next->next;
+	current = Next;
+	Next = Next->next;
 }
-current->next = list;
-list->prev = current;
-list->next = NULL;
-return (*head);
+	current->next = list;
+	list->prev = current;
+	list->next = NULL;
+	return (*head);
 }
