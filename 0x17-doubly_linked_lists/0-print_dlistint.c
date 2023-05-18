@@ -14,7 +14,7 @@ i = 0;
 while (list)
 {
 	i++;
-	printf("%d", list->n);
+	printf("%d\n", list->n);
 	list = list->next;
 }
 return (i);
