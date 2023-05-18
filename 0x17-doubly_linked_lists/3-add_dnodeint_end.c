@@ -1,4 +1,4 @@
-#include "list.h"
+#include "lists.h"
 /**
 * add_dnodeint_end - add node at the end of d_list
 * @n: number to be inserted
@@ -11,7 +11,7 @@ current = Next = *head;
 list = NULL;
 
 list = (dlistint_t *)malloc(sizeof(dlistint_t));
-if (list == Null)
+if (list == NULL)
     return (NULL);
 list->n = n;
 /*handle empty head*/
