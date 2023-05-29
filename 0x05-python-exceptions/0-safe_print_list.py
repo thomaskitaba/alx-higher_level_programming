@@ -5,8 +5,8 @@ def safe_print_list(my_list=[], x=0):
 
     for i in x:
         try:
-            new_list.append(new_list[i])
-            count += 1
+            new_list.append(my_list[i])
+                count += 1
         except IndexError:
             break
     for new_row in new_list:
