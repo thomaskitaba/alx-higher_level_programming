@@ -13,6 +13,6 @@ def safe_print_list_integers(my_list=[], x=0):
 					continue
 
 		except IndexError:
-			print()
 			print("IndexError: list index out of range", end = '')
+	print()
 	return (count)
