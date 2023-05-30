@@ -21,3 +21,18 @@ class Square:
 
     def area(self):
         return (self.__size * self.__size)
+
+    def equal_to(self, second):
+        return self.area() == second.area()
+    def less_than(self, second):
+        return self.area() == second.area()
+    def less_than_equal_to(self, second):
+        return self.area() == second.area()
+    def grater_than(self, second):
+        return self.area() == second.area()
+    def grater_than_equal(self, second):
+        return self.area() == second.area()
+    def equal(self, second):
+        return self.area() == second.area()
+    def equal(self, second):
+        return self.area() == second.area()
