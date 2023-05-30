@@ -1,39 +1,45 @@
 #!/usr/bin/python3
+"""create square class"""
+
+
 class Square:
-
-    def __init__(self, size=0, position=(0, 0)):
+    """attributes go here."""
+    def __init__(self, size=0):
         self.size = size
-        self.position = position
 
+    @property
     def size(self):
         return (self.__size)
 
+    @size.setter
     def size(self, value):
-        if type(size) not int:
+        if type(value) != int:
             raise TypeError("size must be an integer")
-        if type(size) is int and size < 0:
+        elif value < 0:
             raise ValueError("size must be >= 0")
-        self.__ size = value
+        self.__size = value
 
     def area(self):
-        return (self.__size ** 2)
+        return (self.__size * self.__size)
 
+    @property
     def position(self):
         return (self.__position)
 
+    @size.setter
     def position(self, position):
         if isinstance(position, tuple):
             if postion[0] < 0 or position[1] < 0:
-                raise TypeError("position must be a tuple of
-                2 positive integers")
+                raise TypeError("position must be a tuple of 2 positive integers")
         raise TypeError("position must be a tuple of 2 positive integers")
-        self.__position = tuple
+        self.__position = position
 
     def my_print(self):
-        for row in range(size()):
-            for k in range(position()):
+        for row in range(self.__position):
+            for k in range(self.__position):
                 print(" ")
-            for col in range(size()):
+            for col in range(self.__size):
                 print("#", end='')
             print()
-        print()
+        if self.__size == 0:
+            print()
