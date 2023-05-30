@@ -36,7 +36,7 @@ class Square:
         return self.area() <= other.area()
     def __gt__(self, other):
         """ greater or equal to"""
-        return self.area() >= other.area()
+        return self.area() > other.area()
     def __ge__(self, other):
         """ greater or equal to"""
         return self.area() >= other.area()
