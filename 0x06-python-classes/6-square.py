@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-class square:
+class Square:
 
     def __init__(self, size=0, position=(0, 0)):
         self.size = size
@@ -24,7 +24,7 @@ class square:
     def position(self, position):
         if isinstance(position, tuple):
             if postion[0] < 0 or position[1] < 0:
-                raise TypeError("position must be a tuple of 
+                raise TypeError("position must be a tuple of
                 2 positive integers")
         raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = tuple
