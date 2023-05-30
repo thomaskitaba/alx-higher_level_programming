@@ -4,7 +4,6 @@
 
 class Square:
     """attributes go here."""
-
     def __init__(self, size=0):
         self.size = size
 
@@ -18,10 +17,11 @@ class Square:
             raise TypeError("size must be an integer")
         elif value < 0:
             raise ValueError("size must be >= 0")
-        self.__ size = value
+        self.__size = value
 
     def area(self):
-        return (self.__size ** self.__size)
+        return (self.__size * self.__size)
+
 
     def my_print(self):
         for row in range(size()):
