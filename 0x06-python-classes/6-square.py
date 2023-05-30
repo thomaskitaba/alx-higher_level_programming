@@ -28,9 +28,9 @@ class Square:
         return (self.__position)
 
     @size.setter
-    def position(self, position):
-        if isinstance(position, tuple):
-            if self.__postion[0] < 0 or self.__position[1] < 0:
+    def position(self, value):
+        if isinstance(value, tuple):
+            if len(value) != 2 or value[0] < 0 or value[1] < 0:
                 raise TypeError("position must be a tuple of 2 positive integers")
         raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = position
