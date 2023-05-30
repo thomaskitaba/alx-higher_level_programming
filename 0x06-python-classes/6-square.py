@@ -35,9 +35,9 @@ class Square:
         self.__position = position
 
     def my_print(self):
-        for row in range(self.__position):
-            for k in range(self.__position):
-                print(" ")
+        for row in range(self.__size):
+            for k in range(self.__position[0]):
+                print(" ", end='')
             for col in range(self.__size):
                 print("#", end='')
             print()
