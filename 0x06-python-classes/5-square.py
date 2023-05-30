@@ -23,8 +23,8 @@ class Square:
         return (self.__size * self.__size)
 
     def my_print(self):
-        for row in range(size()):
-            for col in range(size()):
+        for row in range(size(self)):
+            for col in range(size(self)):
                 print("#", end='')
             print()
         if (self.__size == 0):
