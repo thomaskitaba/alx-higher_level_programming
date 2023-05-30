@@ -5,6 +5,7 @@ import math
 
 class MagicClass:
     """ do the initialization and calcutlation"""
+
     def __init__(self, radius=0):
         self.__radius = 0
         if not isinstance(radius, int) or not isinstance(radius, float):
