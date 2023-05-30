@@ -25,18 +25,23 @@ class Square:
     def __eq__(self, other):
         """ equal to method """
         return self.area() == other.area()
+
     def __ne__(self, other):
         """ not equal to"""
         return self.area() != other.area()
+
     def __lt__(self, other):
         """ less than """
         return self.area() < other.area()
+
     def __le__(self, other):
         """ less or equal to """
         return self.area() <= other.area()
+
     def __gt__(self, other):
         """ greater or equal to"""
         return self.area() > other.area()
+
     def __ge__(self, other):
         """ greater or equal to"""
         return self.area() >= other.area()
