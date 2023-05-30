@@ -41,7 +41,7 @@ class Square:
             print()
             return
         for j in range(self.__position[1]):
-            print("")
+            print()
         for row in range(self.__size):
             for k in range(self.__position[0]):
                 print(" ", end='')
