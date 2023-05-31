@@ -1,8 +1,10 @@
 #!/usr/bin/python3
-""" linked list implementaion using class"""
+"""Define classes for a singly-linked list."""
+
 
 
 class Node:
+    """ create Node """
 
     def __init__(self, data, next_node=None):
 
@@ -11,6 +13,7 @@ class Node:
 
     @property
     def data(self):
+        """getter data"""
         return (self.__data)
 
     @data.setter
@@ -26,6 +29,7 @@ class Node:
 
     @next_node.setter
     def next_node(self, value):
+        """setter next_node"""
         if not isinstance(value, Node) and value is not None:
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
