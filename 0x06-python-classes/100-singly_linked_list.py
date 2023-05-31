@@ -38,4 +38,23 @@ class SinglyLinkedList:
 
     def sorted_insert(self, value):
         """ insert node on sorted position"""
-        pass
+        new_node = (value, head)
+        if self.head == None:
+            self.head == new_node
+        else:
+            """ check the head first """
+            current = self.head
+            Next = self.head
+            Next = Next.next_node
+
+            if value < current.data:
+                new_node.next_node = self.head
+                self.head = new_node
+
+            while Next.next:
+                if value < Next.data:
+                    current.next_node = new_node
+                    new_node.next_node = Next
+                    return
+            """ means it reaced the end of the list"""
+            Next.next_node = new_node
