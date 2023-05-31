@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ linked list implementaion using """
 
+
 class Node:
 
     def __init__(self, data, next_node=None):
@@ -17,16 +18,18 @@ class Node:
             raise TypeError("data must be an integer")
         else:
             self.__data = value
+
     @property
     def next_node(self):
         return (self.__next_node)
 
     @data.setter
     def next_node(self, value):
-        if type(value) !=  Node(): #check for node()
+        if type(value) != Node():  # check for node()
             raise TypeError("data must be an integer")
         else:
             self.__next_node = value
+
 
 class SinglyLinkedList:
 
@@ -34,4 +37,5 @@ class SinglyLinkedList:
         self.head = None
 
     def sorted_insert(self, value):
-        """ insert node on sorted position"
+        """ insert node on sorted position"""
+        pass
