@@ -3,7 +3,6 @@
 
 
 class Node:
-
     def __init__(self, data, next_node=None):
         self.data = data
         self.next_node = next_node
@@ -14,7 +13,7 @@ class Node:
 
     @data.setter
     def data(self, value):
-        if isinstance(value, int):
+        if not isinstance(value, int):
             raise TypeError("data must be an integer")
         self.__data = value
 
@@ -24,10 +23,9 @@ class Node:
 
     @next_node.setter
     def next_node(self, value):
-        if not isinstance(value, Node) and value is not None:
-            raise TypeError("next_node must be a Node object")
-        else:
-            self.__next_node = value
+        if value is not None and not isinstance(value, Node):
+            raise TypeError("next_node must be a Node or None")
+        self.__next_node = value
 
 
 class SinglyLinkedList:
@@ -38,31 +36,24 @@ class SinglyLinkedList:
     def sorted_insert(self, value):
         """ insert node on sorted position"""
         new_node = Node(value)
-        if self.__head is None:
+        if self.__head is None or value < self.__head.data:
+            new_node.next_node = self.__head
             self.__head = new_node
         else:
             """ check the head first """
             current = self.__head
-            Next = self.__head
-            Next = Next.next_node
 
-            if value < self.__head.data:
-                new_node.next_node = self.__head
-                self.__head = new_node
-
-            while Next.next_node:
-                if value < Next.data:
-                    current.next_node = new_node
-                    new_node.next_node = Next
-                    return
+            while current.next_node is not None and value > current.next_node.data:
+                current = current.next_node
+            new_node.next_node = current.next_node
+            current.next_node = new_node
             """ means it reaced the end of the list"""
-            Next.next_node = new_node
 
     def __str__(self):
         current = self.__head
         temp_list = []
 
         while current is not None:
-            temp_list.append(str(current.data_))
+            temp_list.append(str(current.data))
             current = current.next_node
         return ('\n'.join(temp_list))
