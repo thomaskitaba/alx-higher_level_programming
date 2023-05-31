@@ -49,7 +49,7 @@ class Square:
                 print("#", end='')
             print()
 
-    def __str__ (self):
+    def __str__(self):
         """ print instance of a class """
         if self.__size == 0:
             return ""
