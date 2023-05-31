@@ -2,7 +2,6 @@
 """linked list implementaion using class."""
 
 
-
 class Node:
     """ create Node """
 

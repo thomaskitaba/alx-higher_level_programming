@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """linked list implementaion using class."""
 
-
 class Node:
     """ create Node """
     def __init__(self, data, next_node=None):
