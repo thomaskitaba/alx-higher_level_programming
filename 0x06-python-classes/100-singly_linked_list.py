@@ -39,8 +39,9 @@ class SinglyLinkedList:
     def sorted_insert(self, value):
         """ insert node on sorted position"""
         new_node = (value, head)
-        if self.head == None:
-            self.head == new_node
+
+        if self.head is None:
+            self.head = new_node
         else:
             """ check the head first """
             current = self.head
