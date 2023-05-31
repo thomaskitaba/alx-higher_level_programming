@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-"""Define classes for a singly-linked list."""
+""" linked list implementaion using class"""
 
 
 class Node:
-    """Represent a node in a singly-linked list."""
 
     def __init__(self, data, next_node=None):
 
@@ -12,7 +11,6 @@ class Node:
 
     @property
     def data(self):
-        """Get/set the data of the Node."""
         return (self.__data)
 
     @data.setter
@@ -23,7 +21,7 @@ class Node:
 
     @property
     def next_node(self):
-        """Get/set the next_node of the Node."""
+        """ setter for next node """
         return (self.__next_node)
 
     @next_node.setter
@@ -34,40 +32,38 @@ class Node:
 
 
 class SinglyLinkedList:
-    """Represent a singly-linked list."""
-
+    """ create and mangage a singly linked list """
     def __init__(self):
-        """Initalize a new SinglyLinkedList."""
         self.__head = None
 
     def sorted_insert(self, value):
-        """Insert a new Node to the SinglyLinkedList.
-
-        The node is inserted into the list at the correct
-        ordered numerical position.
-
-        Args:
-            value (Node): The new Node to insert.
+        """ insert node on sorted position"""
+        new_node = Node(value)
+        """ if self.__head is None or value < self.__head.data:
+            new_node.next_node = self.__head
+            self.__head = new_node
         """
-        new = Node(value)
         if self.__head is None:
-            new.next_node = None
-            self.__head = new
-        elif self.__head.data > value:
-            new.next_node = self.__head
-            self.__head = new
+            new_node.next_node = None
+            self.__head = new_node
+        elif value < self.__head.data:
+            new_node.next_node = self.__head
+            self.__head = new_node
         else:
-            tmp = self.__head
-            while (tmp.next_node is not None and tmp.next_node.data < value):
-                tmp = tmp.next_node
-            new.next_node = tmp.next_node
-            tmp.next_node = new
+            """ continue checking the other nodes """
+            current = self.__head
+
+            while (current.next_node is not None and value > current.next_node.data):
+                current = current.next_node
+            new_node.next_node = current.next_node
+            current.next_node = new_node
 
     def __str__(self):
-        """Define the print() representation of a SinglyLinkedList."""
-        values = []
-        tmp = self.__head
-        while tmp is not None:
-            values.append(str(tmp.data))
-            tmp = tmp.next_node
-        return ('\n'.join(values))
+        """ print the linked list using print method """
+        current = self.__head
+        temp_list = []
+
+        while current is not None:
+            temp_list.append(str(current.data))
+            current = current.next_node
+        return ('\n'.join(temp_list))
