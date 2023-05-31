@@ -24,7 +24,7 @@ class Node:
     @next_node.setter
     def next_node(self, value):
         if value is not None and not isinstance(value, Node):
-            raise TypeError("next_node must be a Node or None")
+            raise TypeError("next_node must be a Node object")
         self.__next_node = value
 
 
@@ -47,7 +47,7 @@ class SinglyLinkedList:
                 current = current.next_node
             new_node.next_node = current.next_node
             current.next_node = new_node
-            """ means it reaced the end of the list"""
+
 
     def __str__(self):
         current = self.__head
