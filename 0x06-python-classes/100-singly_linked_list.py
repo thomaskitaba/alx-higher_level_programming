@@ -35,31 +35,35 @@ class Node:
 
 
 class SinglyLinkedList:
-    """ create and manage a linked list """
+    """ singly-linked list."""
+
     def __init__(self):
+        """Initalize the linked list."""
         self.__head = None
 
     def sorted_insert(self, value):
-        """ insert node on sorted position"""
-        new_node = Node(value)
-        if self.__head is None or value < self.__head.data:
-            new_node.next_node = self.__head
-            self.__head = new_node
+        """
+        manage linked list.
+        """
+        new = Node(value)
+        if self.__head is None:
+            new.next_node = None
+            self.__head = new
+        elif self.__head.data > value:
+            new.next_node = self.__head
+            self.__head = new
         else:
-            """ check the head first """
-            current = self.__head
-
-            while current.next_node is not None and value > current.next_node.data:
-                current = current.next_node
-            new_node.next_node = current.next_node
-            current.next_node = new_node
+            tmp = self.__head
+            while (tmp.next_node is not None and tmp.next_node.data < value):
+                tmp = tmp.next_node
+            new.next_node = tmp.next_node
+            tmp.next_node = new
 
     def __str__(self):
-        """ print the linked list """
-        current = self.__head
-        temp_list = []
-
-        while current is not None:
-            temp_list.append(str(current.data))
-            current = current.next_node
-        return ('\n'.join(temp_list))
+        """print"""
+        values = []
+        tmp = self.__head
+        while tmp is not None:
+            values.append(str(tmp.data))
+            tmp = tmp.next_node
+        return ('\n'.join(values))
