@@ -55,7 +55,7 @@ class Square:
             return ""
         temp_str = ""
         for j in range(0, self.__position[1]):
-            temp_str += "\n"
+            temp_str += ""
         for row in range(self.__size):
             for k in range(self.__position[0]):
                 temp_str += " "
