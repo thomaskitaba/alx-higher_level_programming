@@ -51,15 +51,12 @@ class Square:
 
     def __str__(self):
         """ print instance of a class """
-        if self.__size == 0:
-            return ""
         temp_str = ""
-        for j in range(0, self.__position[1]):
-            temp_str += ""
-        for row in range(self.__size):
-            for k in range(self.__position[0]):
-                temp_str += " "
-            for col in range(self.__size):
-                temp_str += "#"
-            temp_str += "\n"
+        if self.__size != 0:
+
+            temp_str += "\n" * self.__position[1]
+            for _ in range(self.__size):
+                tem_str += " " * self.__position[0]:
+                tem_str += " " * self.__size
+                temp_str += "\n"
         return (temp_str)
