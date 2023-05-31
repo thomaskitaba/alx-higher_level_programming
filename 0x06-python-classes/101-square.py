@@ -62,4 +62,3 @@ class Square:
             for col in range(self.__size):
                 print("#", end= "")
             print("")
-        return (temp_str)
