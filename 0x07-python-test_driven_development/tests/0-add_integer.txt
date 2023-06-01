@@ -1,6 +1,6 @@
-""" 
-    doctest for add_integer funtion
+doctest for add_integer funtion
 
+>>>add_integer = __import__(0-add_integer).add_integer
 
 test case for integers
 >>>add_integer(1, 2)
@@ -25,12 +25,13 @@ test case for float
 test for exceptions
 >>>add_integer('a', 1)
 Traceback (most recent call last):
+    ...
 TypeError: a must be an integer
 
 >>>add_integer(1, "b")
 Traceback (most recent call last):
+    ...
 TypeError: b must be an integer
-"""
 
 
 
