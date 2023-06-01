@@ -1,38 +1,35 @@
-doctest for add_integer funtion
-
->>>add_integer = __import__(0-add_integer).add_integer
+"""
+doctest for add_integer function
+>>> add_integer = __import__('0-add_integer').add_integer
 
 test case for integers
->>>add_integer(1, 2)
+>>> add_integer(1, 2)
 3
 
->>>add_integer(-1, -2)
+>>> add_integer(-1, -2)
 -3
 
->>>add_integer(100, -1)
+>>> add_integer(100, -1)
 99
 
 test case for float
->>>add_integer(3.1, 4.5)
+>>> add_integer(3.1, 4.5)
 7
 
->>>add_integer(3.6, 4.5)
+>>> add_integer(3.6, 4.5)
 7
 
->>>add_integer(-0.5, -0.5)
+>>> add_integer(-0.5, -0.5)
 0
 
 test for exceptions
->>>add_integer('a', 1)
+>>> add_integer('a', 1)
 Traceback (most recent call last):
     ...
 TypeError: a must be an integer
 
->>>add_integer(1, "b")
+>>> add_integer(1, "ball")
 Traceback (most recent call last):
     ...
 TypeError: b must be an integer
-
-
-
-
+"""
