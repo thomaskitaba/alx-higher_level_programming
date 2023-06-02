@@ -1,0 +1,44 @@
+"""
+Text indentaion with 2 new lines
+
+>>> text_indentation = __import__("5-text_indentation").text_indentation
+
+Test if integer is passed
+>>> text_indentation(678798)
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
+
+Test if float is passed
+>>> text_indentation(45.4)
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
+
+Test with string
+>>> test_string = "When the: going ? gets tough. only the tough gets going:"
+>>> text_indentation(test_string)
+When the:
+<BLANKLINE>
+going ?
+<BLANKLINE>
+gets tough.
+<BLANKLINE>
+only the tough gets going:
+<BLANKLINE>
+
+Test with string made of integer
+>>> test_string = ".123 .45: ? 789:"
+>>> text_indentation(test_string)
+.
+<BLANKLINE>
+123 .
+<BLANKLINE>
+45:
+<BLANKLINE>
+?
+<BLANKLINE>
+789:
+<BLANKLINE>
+
+"""
