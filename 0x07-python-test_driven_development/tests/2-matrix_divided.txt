@@ -60,4 +60,5 @@ Check if divisor is zero
 Traceback (most recent call last):
     ...
 ZeroDivisionError: division by zero
+
 """
