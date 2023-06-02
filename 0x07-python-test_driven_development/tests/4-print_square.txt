@@ -1,0 +1,43 @@
+"""
+Print square using # as brick
+>>> print_square = __import__ ('4-print_square').print_square
+
+Test for working square
+>>> print_square(4)
+####
+####
+####
+####
+
+Test for a bigger square size
+>>> print_square(10)
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+
+Test for float
+>>> print_square(4.5)
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
+
+Test for string
+>>> print_square("thomas")
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
+
+Test for negative integer
+>>> print_square(-2)
+Traceback (most recent call last):
+    ...
+ValueError: size must be >= 0
+
+"""

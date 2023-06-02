@@ -1,0 +1,18 @@
+"""
+Divide values inside of a matrix with a give number
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+check for float passed as first_name
+>>> say_my_name(0.11, "Kitaba")
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
+
+check for non string passed as last_name
+>>> say_my_name("Thomas", 7)
+Traceback (most recent call last):
+    ...
+TypeError: last_name must be a string
+
+"""
