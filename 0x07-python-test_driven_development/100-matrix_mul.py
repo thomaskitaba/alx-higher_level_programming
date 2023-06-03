@@ -24,7 +24,6 @@ def matrix_mul(m_a, m_b):
     result = 0
     m_c = []
     c_value = []
-
     for i in range (len(m_a)):
         c_value = []
         for k in range(len(m_a[i])):
