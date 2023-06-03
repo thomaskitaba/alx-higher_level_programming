@@ -8,15 +8,17 @@ def matrix_mul(m_a, m_b):
         raise ValueError("m_a can't be empty")
     if len(m_b) == 0 or m_b == [] or any(len(row) == 0 for row in m_b):
         raise ValueError("m_b can't be empty")
+    len_ma_row = len(m_a[0])
     for rows in m_a:
         if not all(isinstance(val, (int, float)) for val in rows):
             raise TypeError("m_a should contain only integers or floats")
-        if len(m_a) != len(rows):
+        if len_ma_row != len(rows):
             raise TypeError("each row of m_a must be of the same size")
+    len_mb_row = len(m_b[0])
     for rows in m_b:
         if not all(isinstance(val, (int, float)) for val in rows):
             raise TypeError("m_b should contain only integers or floats")
-        if len(m_b) != len(rows):
+        if len_mb_row != len(rows):
             raise TypeError("each row of m_b must be of the same size")
 
     #TODO: If m_a and m_b can’t be multiplied: raise a ValueError exception with the message m_a and m_b can't be multiplied

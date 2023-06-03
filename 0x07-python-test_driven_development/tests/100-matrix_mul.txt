@@ -78,7 +78,7 @@ Traceback (most recent call last):
 ValueError: m_b can't be empty
 
 Test if matrix_a is square
->>> m_a = [[1, 2], [3, 4], [5, 6]]
+>>> m_a = [[1, 2], [3, 4, 5, 6]]
 >>> m_b = [[1, 2], [3, 4]]
 >>> matrix_mul(m_a, m_b)
 Traceback (most recent call last):
@@ -87,7 +87,7 @@ TypeError: each row of m_a must be of the same size
 
 Test if matrix_b is square
 >>> m_a = [[1, 2], [3, 4]]
->>> m_b = [[1, 2], [3, 4], [5, 6]]
+>>> m_b = [[1, 2, 3], [3, 4], [5, 6]]
 >>> matrix_mul(m_a, m_b)
 Traceback (most recent call last):
     ...
