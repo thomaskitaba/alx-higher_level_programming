@@ -28,19 +28,13 @@ def matrix_mul(m_a, m_b):
 
     for i in range (len(m_a)):
         c_value = []
-
         for k in range(len(m_b[i])):
             result = 0
-            # row_a[count][j]
-
-            # for row_b in m_b:
             for j in range(len(m_a[i])):
                 result += m_a[i][j] * m_b[j][k]
-
             c_value.append(result)
         m_c.append(c_value)
     print(m_c)
 a = [[1, 2], [3, 4]]
 b = [[1, 2], [3, 4]]
-
 matrix_mul(a, b)
