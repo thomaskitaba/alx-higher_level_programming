@@ -5,22 +5,24 @@ max_integer = __import__('6-max_integer').max_integer
 
 class max_integer_test(unittest.TestCase):
 
-    """ check the list itself """
+    """ ---------------------------------------------- """
+    """ -----------check the list itself-------------- """
 
     def check_if_list(self):
         """ check if list is of type list """
         self.assertTrue(isinstance(list, list))
 
     def check_empty_list(self):
-        """ check if list is empty """
+        """ check if list is empty or with zero elements """
         self.assertEqual(len(list), 0)
         self.assertListEqual(list, [])
 
     def check_list_content(self):
-        """ check if list content is only number """
-        self.assertTrue(all (isinstance(val, (int, float)) for val in list))
+        """ check if list content is integer or float number """
+        self.assertTrue(all(isinstance(val, (int, float)) for val in list))
 
-    """ Check for ordering of list elements """
+    """ ---------------------------------------------- """
+    """ -------Check for ordering of list elements---- """
     def identical_elements(self):
         """ List with identical_elements """
         test_list = [3, 3, 3, 3, 3]
@@ -31,7 +33,13 @@ class max_integer_test(unittest.TestCase):
         test_list = [1, 3, 5, 7, 9]
         self.assertEqual(max_integer(test_list), 9)
 
-    """ Check lsit with positive and negative content  """
+    def unordered_elements(self):
+        """ List with unordered_elements """
+        test_list = [5, 7, 9, 3, 1]
+        self.assertEqual(max_integer(test_list), 9)
+
+    """ ---------------------------------------------- """
+    """ Check list with positive and negative content  """
     def list_with_positive_num(self):
         """ list with positive num """
         test_list = [1, 3, 5, 7, 9]
@@ -51,3 +59,16 @@ class max_integer_test(unittest.TestCase):
         """ max for a single number """
         test_list = [4]
         self.assertEqual(max_integer(test_list), 4)
+
+    """ ---------------------------------------------- """
+    """ ----------Check for float ---------"""
+    def list_of_float(self):
+        """ list with only floats """
+        test_list = [-0.1, -0.5, -9.0, -7.2]
+        self.assertEqual(max_integer(test_list), -0.1)
+
+    def list_of_integers_and_float(self):
+        """ list with float and inteter """
+        test_list = [1, 3.3, 3.5, -7, -9]
+        self.assertEqual(max_integer(test_list), 3.5)
+    """ ---------------------------------------------- """
