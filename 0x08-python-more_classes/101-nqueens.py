@@ -20,6 +20,7 @@ def set_queen(N):
     row = 0
     col = 1
     ans = []
+
     def backtrack(row):
         if row == N:
             print(ans)
