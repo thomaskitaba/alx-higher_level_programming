@@ -26,13 +26,13 @@ def set_queen(N):
                 ans.append(location[0])
                 continue
             for col in range(0, N):
-
                 # check if Vertical
+                if row == 2 and col == 0:
+                    continue
                 if valid_VHD(ans, row, col):
                     ans.append([row, col])
-
-        if len(ans) == N:
-            print(ans)
+                    break
+        print(ans)
 
                 # check if Horizontal
                 # check if diagonal
