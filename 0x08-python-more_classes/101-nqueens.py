@@ -1,12 +1,35 @@
 #!/usr/bin/python3
 import sys
 
+valid_VHD(ans, row, col):
+    return True
 def set_queen(N):
     row = 0
     col = 1
-    ans = [[0, 1]]
-    for row in range(N):
-        for col in range(1, N - 1):
+    ans = []
+    for y in range (1, N - 1):
+        location = [[0, y]]
+
+        for row in range(0, N): # we can start checking from 1
+            if row == 0:
+                ans.append(location[0])
+                continue
+            for col in range(0, N - 1):
+
+                # check if Vertical
+                if valid_VHD(ans, row, col):
+                    ans.append(row, col)
+                    break
+        print(ans)
+
+                # check if Horizontal
+                # check if diagonal
+
+                #if not dieagonal H  or V append to answer
+
+
+
+
 
 if __name__ == "__main__":
     print(sys.argv)
