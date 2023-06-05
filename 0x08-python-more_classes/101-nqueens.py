@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import sys
 
-valid_VHD(ans, row, col):
+def valid_VHD(ans, row, col):
     return True
 def set_queen(N):
     row = 0
@@ -9,7 +9,7 @@ def set_queen(N):
     ans = []
     for y in range (1, N - 1):
         location = [[0, y]]
-
+        ans.clear()
         for row in range(0, N): # we can start checking from 1
             if row == 0:
                 ans.append(location[0])
@@ -18,7 +18,7 @@ def set_queen(N):
 
                 # check if Vertical
                 if valid_VHD(ans, row, col):
-                    ans.append(row, col)
+                    ans.append([row, col])
                     break
         print(ans)
 
