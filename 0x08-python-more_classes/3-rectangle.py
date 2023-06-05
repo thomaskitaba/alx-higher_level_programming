@@ -43,6 +43,8 @@ class Rectangle:
     def __str__(self):
         """ print instance of a class """
         block = ''
+        if self.__width == 0 or self.__height == 0:
+            return (block)
         for height in range(self.__height):
             for width in range(self.__width):
                 block += "#"
