@@ -30,7 +30,7 @@ def set_queen(N):
                 # check if Vertical
                 if valid_VHD(ans, row, col):
                     ans.append([row, col])
-                    break
+
         if len(ans) == N:
             print(ans)
 
