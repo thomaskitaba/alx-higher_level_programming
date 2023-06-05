@@ -2,7 +2,11 @@
 import sys
 
 def set_queen(N):
-    print(N ** N)
+    row = 0
+    col = 1
+    ans = [[0, 1]]
+    for row in range(N):
+        for col in range(1, N - 1):
 
 if __name__ == "__main__":
     print(sys.argv)
@@ -20,5 +24,6 @@ if __name__ == "__main__":
     except ValueError:
         print("N must be a number")
         sys.exit(1)
+
     print('Create {} by {} board'.format(N, N))
-    # answer = set_queen(n)
+    answer = set_queen(N)
