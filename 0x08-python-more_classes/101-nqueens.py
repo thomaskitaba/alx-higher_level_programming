@@ -20,21 +20,17 @@ def set_queen(N):
     row = 0
     col = 1
     ans = []
-    for y in range(1, N - 1):
-        location = [[0, y]]
-        ans = []
-        for row in range(0, N):
-            if row == 0:
-                ans.append(location[0])
-                continue
-            for col in range(0, N):
+    def backtrack(row):
+        if row == N:
+            print(ans)
+            return
+        for col in range(N):
+            if valid_VHD(ans, row, col):
+                ans.append([row, col])
+                backtrack(row + 1)
+                ans.pop()
 
-                # check if Vertical
-                if valid_VHD(ans, row, col):
-                    ans.append([row, col])
-                    break
-            # if it can not be place on position
-        print(ans)
+    backtrack(0)
 
 
 if __name__ == "__main__":
