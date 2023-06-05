@@ -51,7 +51,7 @@ class Rectangle:
             return (block)
         for height in range(self.__height):
             for width in range(self.__width):
-                block += str(self.print_symbol)
+                block += str(Rectangle.print_symbol)
             if height < self.__height - 1:
                 block += '\n'
         return (block)
