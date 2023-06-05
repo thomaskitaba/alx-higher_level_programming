@@ -11,7 +11,6 @@ class Rectangle:
         self.width = width
         self.height = height
         type(self).number_of_instances += 1
-        type(self).print_symbol = '#'
 
     @property
     def width(self):
@@ -48,11 +47,12 @@ class Rectangle:
     def __str__(self):
         """ print instance of a class """
         block = ''
+        brick = str(self.print_symbol)
         if self.__width == 0 or self.__height == 0:
             return (block)
         for height in range(self.__height):
             for width in range(self.__width):
-                block += str(self.print_symbol)
+                block += brick
             if height < self.__height - 1:
                 block += '\n'
         return (block)
