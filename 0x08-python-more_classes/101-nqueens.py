@@ -11,23 +11,25 @@ def valid_VHD(ans, row, col):
             return False
         # check if diagornal
         if abs(row - row_ans[0]) == abs(col - row_ans[1]):
+            is_diag = True
             return False
     return True
 
 
 def set_queen(N):
+    row = 0
     col = 1
     ans = []
-    for y in range(1, N):
+    for y in range(1, N - 1):
         location = [[0, y]]
         ans = []
-        for row in range(0, N):  # we can start checking from 1
+        for row in range(0, N):
             if row == 0:
                 ans.append(location[0])
                 continue
             for col in range(0, N):
-                # check if Vertical
 
+                # check if Vertical
                 if valid_VHD(ans, row, col):
                     ans.append([row, col])
                     break
@@ -43,11 +45,10 @@ if __name__ == "__main__":
     """ check number of queens """
     try:
         N = int(sys.argv[1])
-        if N < 4:
+        if int(sys.argv[1]) < 4:
             print("N must be at least 4")
             sys.exit(1)
     except ValueError:
         print("N must be a number")
         sys.exit(1)
-
     set_queen(N)
