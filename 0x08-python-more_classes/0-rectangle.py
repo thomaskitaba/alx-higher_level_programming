@@ -3,5 +3,5 @@
 
 
 class Rectangle:
-    """ def Rectangel with width and height """
+    """ define an empty class Rectangle """
     pass
