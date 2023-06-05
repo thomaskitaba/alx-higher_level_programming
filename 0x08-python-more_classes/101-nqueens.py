@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 import sys
 
+def set_queen(N):
+    print(N ** N)
+
 if __name__ == "__main__":
     print(sys.argv)
     """ check number of arguments """
