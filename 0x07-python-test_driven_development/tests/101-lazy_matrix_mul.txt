@@ -1,0 +1,96 @@
+"""
+doctest for matrix multiplication
+>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+test case for integers
+>>> m_a = [[1, 2], [3, 4]]
+>>> m_b = [[1, 2], [3, 4]]
+>>> matrix_mul(m_a, m_b)
+[[7, 10], [15, 22]]
+
+Test case for invalid m_a
+>>> m_a = ([1, 2], [3, 4])
+>>> m_b = [[1, 2], [3, 4]]
+>>> matrix_mul(m_a, m_b)
+Traceback (most recent call last):
+    ...
+TypeError: m_a must be a list
+
+Test case for invalid m_b
+>>> m_a = [[1, 2], [3, 4]]
+>>> m_b = ([1, 2], [3, 4])
+>>> matrix_mul(m_a, m_b)
+Traceback (most recent call last):
+    ...
+TypeError: m_b must be a list
+
+Test case for zero length list
+>>> m_a = []
+>>> m_b = [[1, 2], [3, 4]]
+>>> matrix_mul(m_a, m_b)
+Traceback (most recent call last):
+    ...
+ValueError: m_a can't be empty
+
+Test case for non integer and non float values
+>>> m_a = [[1, "thomas"], [3, 4]]
+>>> m_b = [[1, 2], [3, 4]]
+>>> matrix_mul(m_a, m_b)
+Traceback (most recent call last):
+    ...
+TypeError: m_a should contain only integers or floats
+
+>>> m_a = [[1, 2], [3, 4]]
+>>> m_b = [[1, "thomas"], [3, 4]]
+>>> matrix_mul(m_a, m_b)
+Traceback (most recent call last):
+    ...
+TypeError: m_b should contain only integers or floats
+
+Test case for non zero len rows
+>>> m_a = [[], [], []]
+>>> m_b = [[1, 2], [3, 4]]
+>>> matrix_mul(m_a, m_b)
+Traceback (most recent call last):
+    ...
+ValueError: m_a can't be empty
+
+>>> m_a = []
+>>> m_b = [[1, 2], [3, 4]]
+>>> matrix_mul(m_a, m_b)
+Traceback (most recent call last):
+    ...
+ValueError: m_a can't be empty
+
+Test case for non zero len rows
+>>> m_a = [[1, 2], [3, 4]]
+>>> m_b = [[], [], []]
+>>> matrix_mul(m_a, m_b)
+Traceback (most recent call last):
+    ...
+ValueError: m_b can't be empty
+
+>>> m_a = [[1, 2], [3, 4]]
+>>> m_b = []
+>>> matrix_mul(m_a, m_b)
+Traceback (most recent call last):
+    ...
+ValueError: m_b can't be empty
+
+Test if matrix_a is square
+>>> m_a = [[1, 2], [3, 4, 5, 6]]
+>>> m_b = [[1, 2], [3, 4]]
+>>> matrix_mul(m_a, m_b)
+Traceback (most recent call last):
+    ...
+TypeError: each row of m_a must be of the same size
+
+Test if matrix_b is square
+>>> m_a = [[1, 2], [3, 4]]
+>>> m_b = [[1, 2, 3], [3, 4], [5, 6]]
+>>> matrix_mul(m_a, m_b)
+Traceback (most recent call last):
+    ...
+TypeError: each row of m_b must be of the same size
+
+...
