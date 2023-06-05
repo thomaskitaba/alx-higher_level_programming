@@ -18,7 +18,7 @@ def set_queen(N):
     row = 0
     col = 1
     ans = []
-    for y in range (1, N - 1):
+    for y in range (1, N):
         location = [[0, y]]
         ans = []
         for row in range(0, N): # we can start checking from 1
