@@ -2,8 +2,19 @@
 import sys
 
 def valid_VHD(ans, row, col):
-    return True
 
+    is_vert = True
+    is_horiz = True
+    is_diag = True
+    for row in ans:
+        # check horizontal and vertical
+        pass
+
+
+    if is_vert and is_horiz and is_diag:
+        return True
+    else:
+        return False
 def set_queen(N):
     row = 0
     col = 1
