@@ -51,10 +51,10 @@ class Rectangle:
             return (block)
         for height in range(self.__height):
             for width in range(self.__width):
-                block += str(Rectangle.print_symbol)
+                block += str(self.print_symbol)
             if height < self.__height - 1:
                 block += '\n'
-        return (block)
+        return (''.join(block))
 
     def __repr__(self):
         return ("Rectangle({}, {})".format(self.__width, self.__height))
