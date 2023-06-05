@@ -3,36 +3,36 @@ import sys
 
 def valid_VHD(ans, row, col):
 
-    is_vert = True
-    is_horiz = True
-    is_diag = True
-    for row in ans:
-        # check horizontal and vertical
-        pass
+    for row_ans in ans:
+        # check horizontal
+        if row_ans[0] == row or row_ans[1] == col:
 
+            return False
+        # check if diagornal
+        if abs(row - row_ans[0]) == abs(col - row_ans[1]):
+            is_diag = True
+            return False
 
-    if is_vert and is_horiz and is_diag:
-        return True
-    else:
-        return False
+    return True
 def set_queen(N):
     row = 0
     col = 1
     ans = []
     for y in range (1, N - 1):
         location = [[0, y]]
-        ans.clear()
+        ans = []
         for row in range(0, N): # we can start checking from 1
             if row == 0:
                 ans.append(location[0])
                 continue
-            for col in range(0, N - 1):
+            for col in range(0, N):
 
                 # check if Vertical
                 if valid_VHD(ans, row, col):
                     ans.append([row, col])
                     break
-        print(ans)
+        if len(ans) == N:
+            print(ans)
 
                 # check if Horizontal
                 # check if diagonal
@@ -40,12 +40,11 @@ def set_queen(N):
                 #if not dieagonal H  or V append to answer
 
 if __name__ == "__main__":
-    print(sys.argv)
     """ check number of arguments """
     N = 1
     if len(sys.argv) != 2:
         print("Usage: nqueens N")
-
+        sys.exit(1)
     """ check number of queens """
     try:
         N = int(sys.argv[1])
@@ -56,5 +55,4 @@ if __name__ == "__main__":
         print("N must be a number")
         sys.exit(1)
 
-    print('Create {} by {} board'.format(N, N))
     answer = set_queen(N)
