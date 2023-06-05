@@ -29,7 +29,6 @@ def set_queen(N):
                 ans.append([row, col])
                 backtrack(row + 1)
                 ans.pop()
-
     backtrack(0)
 
 
