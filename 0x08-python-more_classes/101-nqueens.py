@@ -3,6 +3,7 @@ import sys
 
 def valid_VHD(ans, row, col):
     return True
+
 def set_queen(N):
     row = 0
     col = 1
@@ -26,10 +27,6 @@ def set_queen(N):
                 # check if diagonal
 
                 #if not dieagonal H  or V append to answer
-
-
-
-
 
 if __name__ == "__main__":
     print(sys.argv)
