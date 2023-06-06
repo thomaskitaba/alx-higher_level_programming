@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"""Module to find the max integer in a list
+""" max_integer
+Parameters:
+- list (list): list to be iterated.
+
 """
 
 

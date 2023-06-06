@@ -1,4 +1,11 @@
 #!/usr/bin/python3
+""" print_square
+Parameters:
+- size (int): Size of square.
+
+"""
+
+
 import numpy as np
 
 

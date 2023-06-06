@@ -1,4 +1,11 @@
 #!/usr/bin/python3
+""" print_square
+Parameters:
+- size (int): Size of square.
+
+"""
+
+
 def print_square(size):
     if isinstance(size, float) and size < 0:
         raise TypeError("size must be an integer")

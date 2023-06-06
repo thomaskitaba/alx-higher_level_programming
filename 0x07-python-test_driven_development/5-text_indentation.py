@@ -1,4 +1,11 @@
 #!/usr/bin/python3
+""" text_indentation
+Parameters:
+- text (string): text to be manuplated.
+
+"""
+
+
 def text_indentation(text):
     all_text = []
     line_text = []

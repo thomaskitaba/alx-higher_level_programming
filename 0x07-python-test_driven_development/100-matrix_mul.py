@@ -1,4 +1,12 @@
 #!/usr/bin/python3
+""" matrix_mul
+Parameters:
+- m_a (list): 2D list matrix.
+- m_b (list): 2D list matrix.
+
+"""
+
+
 def matrix_mul(m_a, m_b):
     if not isinstance(m_a, list):
         raise TypeError("m_a must be a list")
