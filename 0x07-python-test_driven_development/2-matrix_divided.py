@@ -7,6 +7,8 @@ Parameters:
 
 
 def matrix_divided(matrix, div):
+    """ divides all elements of a matrix. """
+
     length = 0
     new_matrix = []
     col = []

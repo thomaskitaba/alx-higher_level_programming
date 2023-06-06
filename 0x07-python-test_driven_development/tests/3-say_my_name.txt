@@ -15,4 +15,10 @@ Traceback (most recent call last):
     ...
 TypeError: last_name must be a string
 
+>>> say_my_name("Thomas", "Kitaba")
+My name is Thomas Kitaba
+
+>>> say_my_name("Thomas")
+My name is Thomas
+
 """
