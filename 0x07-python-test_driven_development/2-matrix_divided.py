@@ -1,4 +1,10 @@
 #!/usr/bin/python3
+""" Divide matrix
+Parameters:
+- matrix (list): The 2D list
+- div (int): The The divisor must be greater than 0.
+"""
+
 
 def matrix_divided(matrix, div):
     length = 0
