@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 import unittest
+""" unittest for max_integer function """
 
 max_integer = __import__('6-max_integer').max_integer
 
 class max_integer_test(unittest.TestCase):
 
-    """ ---------------------------------------------- """
+    """Diffrent catagories to test diffrent cases"""
     """ -----------check the list itself-------------- """
 
     def check_if_list(self):
@@ -19,7 +20,7 @@ class max_integer_test(unittest.TestCase):
 
     def check_list_content(self):
         """ check if list content is integer or float number """
-        self.assertTrue(all(isinstance(val, (int, float)) for val in list))
+        self.assertTrue(not all(isinstance(val, (int, float)) for val in list))
 
     """ ---------------------------------------------- """
     """ -------Check for ordering of list elements---- """
