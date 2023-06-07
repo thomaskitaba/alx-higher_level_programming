@@ -17,10 +17,12 @@ def text_indentation(text):
 
     """ iterate and create list of strings"""
     for i in range(len(text)):
-        line_text.append(text[i])
+
         if text[i] == '.' or text[i] == '?' or text[i] == ':':
             all_text.append([''.join(line_text)])
             line_text.clear()
+        else:
+            line_text.append(text[i])
         if i == len(text) - 1:
             all_text.append([''.join(line_text)])
     """ strip inital space for a string """
