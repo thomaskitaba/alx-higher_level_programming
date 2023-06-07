@@ -1,4 +1,6 @@
-import "Python.h"
+#include "Python.h"
+#include <stdio.h>
+#include <stdlib.h>
 /**
  * print_python_string - print length and value of a string
  * @p: string passed as pyobject
