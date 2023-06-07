@@ -32,6 +32,22 @@ Traceback (most recent call last):
     ...
 ValueError: m_a can't be empty
 
+Test case for m_a as list of list
+>>> m_a = [[1, 2], (3, 4)]
+>>> m_b = [[1, 2], [3, 4]]
+>>> matrix_mul(m_a, m_b)
+Traceback (most recent call last):
+    ...
+TypeError: m_a must be a list of lists
+
+Test case for m_b as list of list
+>>> m_a = [[1, 2], [3, 4]]
+>>> m_b = [(1, 2), [3, 4]]
+>>> matrix_mul(m_a, m_b)
+Traceback (most recent call last):
+    ...
+TypeError: m_b must be a list of lists
+
 Test case for non integer and non float values
 >>> m_a = [[1, "thomas"], [3, 4]]
 >>> m_b = [[1, 2], [3, 4]]
