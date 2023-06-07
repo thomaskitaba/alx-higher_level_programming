@@ -10,7 +10,7 @@ def add_integer(a, b=98):
     """ function that adds two numbers """
     result = 0
     if a is None:
-        raise TypeError("add_integer() missing 1 required positional argument: 'a'")
+        raise TypeError("a must be an integer")
     if a is None and b is None:
         raise TypeError("a must be an integer")
     if (not isinstance(a, int) and not isinstance(a, float)):
