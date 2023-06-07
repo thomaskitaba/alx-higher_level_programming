@@ -38,4 +38,9 @@ Traceback (most recent call last):
     ...
     ...
 
+>>> add_integer(float('inf'))
+Traceback (most recent call last):
+    ...
+OverflowError: cannot convert float infinity to integer
+
 """
