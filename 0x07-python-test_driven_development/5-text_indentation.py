@@ -27,6 +27,9 @@ def text_indentation(text):
         all_text.append([''.join(line_text)])
     """ strip inital space for a string """
     for count, row in enumerate(all_text):
-        print(row[0].lstrip())
+
         if count != len(all_text) - 1:
+            print(row[0].lstrip())
             print('')
+        else:
+            print(row[0].lstrip(), end='')
