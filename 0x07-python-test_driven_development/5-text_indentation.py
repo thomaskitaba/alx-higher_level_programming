@@ -7,6 +7,7 @@ Parameters:
 
 
 def text_indentation(text):
+    """ indent text when . : or ? is found """
     all_text = []
     line_text = []
 
