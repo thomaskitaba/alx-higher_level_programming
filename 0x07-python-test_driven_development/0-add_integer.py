@@ -19,15 +19,15 @@ def add_integer(a, b=98):
         try:
             a = int(a)
         except Exception as e:
-            raise OverflowError("cannot convert float infinity to integer") from e
+            raise OverflowError("float Overflow") from e
     if (not isinstance(b, int) and not isinstance(b, float)):
         raise TypeError("b must be an integer")
     else:
         try:
             b = int(b)
         except Exception as e:
-            raise OverflowError("cannot convert float infinity to integer") from e
+            raise OverflowError("float Overflow") from e
     result = a + b
     if result > float('inf') or result < float('-inf'):
-        raise OverflowError("cannot convert float infinity to integer")
+        raise OverflowError("float Overflow")
     return (result)
