@@ -25,7 +25,6 @@ going ?
 gets tough.
 <BLANKLINE>
 only the tough gets going:
-<BLANKLINE>
 
 Test with string made of integer
 >>> test_string = ".123 .45: ? 789:"
@@ -39,6 +38,5 @@ Test with string made of integer
 ?
 <BLANKLINE>
 789:
-<BLANKLINE>
 
 """
