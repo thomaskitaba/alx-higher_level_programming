@@ -5,7 +5,7 @@ import unittest
 max_integer = __import__('6-max_integer').max_integer
 
 
-class maxintegertest(unittest.TestCase):
+class TestMaxInteger(unittest.TestCase):
 
     """Diffrent catagories to test diffrent cases"""
     """ -----------check the list itself-------------- """
