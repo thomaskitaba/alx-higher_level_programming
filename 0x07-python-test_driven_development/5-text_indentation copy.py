@@ -23,6 +23,8 @@ def text_indentation(text):
         if text[i] == '.' or text[i] == '?' or text[i] == ':':
             all_text.append([''.join(line_text)])
             line_text.clear()
+    if line.text:
+        all_text.append([''.join(line_text)])
     """ strip inital space for a string """
     for row in all_text:
         print(row[0].lstrip())
