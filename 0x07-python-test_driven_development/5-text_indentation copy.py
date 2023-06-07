@@ -15,14 +15,14 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
+    if text is None:
+        raise ValueError("text must be a string")
     """ iterate and create list of strings"""
     for i in range(len(text)):
         line_text.append(text[i])
         if text[i] == '.' or text[i] == '?' or text[i] == ':':
             all_text.append([''.join(line_text)])
             line_text.clear()
-        if i == len(text) - 1:
-            all_text.append([''.join(line_text)])
     """ strip inital space for a string """
     for row in all_text:
         print(row[0].lstrip())
