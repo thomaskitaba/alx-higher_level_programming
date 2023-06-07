@@ -37,7 +37,9 @@ def matrix_mul(m_a, m_b):
             raise TypeError("m_b should contain only integers or floats")
         if len_mb_row != len(rows):
             raise TypeError("each row of m_b must be of the same size")
-
+    # Check if m_a and m_b can be multiplied
+    if len(m_a[0]) != len(m_b):
+        raise ValueError("m_a and m_b can't be multiplied")
     result = 0
     m_c = []
     c_value = []
