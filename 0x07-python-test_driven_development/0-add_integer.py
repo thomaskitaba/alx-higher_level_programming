@@ -22,4 +22,6 @@ def add_integer(a, b=98):
     else:
         b = int(b)
     result = a + b
+    if result > float('inf'):
+        raise OverflowError("Overflow Occured")
     return (result)
