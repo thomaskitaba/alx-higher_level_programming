@@ -50,7 +50,7 @@ TypeError: invalid data type for einsum
 >>> lazy_matrix_mul(m_a, m_b)
 Traceback (most recent call last):
     ...
-numpy.core._exceptions._UFuncNoLoopError: ufunc 'matmul' did not contain a loop with signature matching types (dtype('int64'), dtype('<U21')) -> None
+TypeError: invalid data type for einsum
 
 Test case for non zero len rows
 >>> m_a = [[], [], []]
