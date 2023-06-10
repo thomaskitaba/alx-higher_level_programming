@@ -88,7 +88,7 @@ Test if matrix_a is square
 >>> lazy_matrix_mul(m_a, m_b)
 Traceback (most recent call last):
     ...
-ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (2,) + inhomogeneous part.
+ValueError: setting an array element with a sequence.
 
 Test if matrix_b is square
 >>> m_a = [[1, 2], [3, 4]]
