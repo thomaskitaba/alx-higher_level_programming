@@ -22,10 +22,8 @@ test case for float
 >>> add_integer(-0.5, -0.5)
 0
 
->>> add_integer(0.5)
-Traceback (most recent call last):
-    ...
-TypeError: add_integer() missing 1 required positional argument: 'a'
+>>> add_integer (1)
+99
 
 test for exceptions
 >>> add_integer("a", 1)
