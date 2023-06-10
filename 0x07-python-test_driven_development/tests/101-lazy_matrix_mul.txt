@@ -80,7 +80,7 @@ ValueError: shapes (2,2) and (3,0) not aligned: 2 (dim 1) != 3 (dim 0)
 >>> lazy_matrix_mul(m_a, m_b)
 Traceback (most recent call last):
     ...
-ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 0 is different from 2)
+ValueError: shapes (2,2) and (0,) not aligned: 2 (dim 1) != 0 (dim 0)
 
 Test if matrix_a is square
 >>> m_a = [[1, 2], [3, 4, 5, 6]]
