@@ -43,7 +43,7 @@ Test case for non integer and non float values
 >>> lazy_matrix_mul(m_a, m_b)
 Traceback (most recent call last):
     ...
-numpy.core._exceptions._UFuncNoLoopError: ufunc 'matmul' did not contain a loop with signature matching types (dtype('<U21'), dtype('int64')) -> None
+TypeError: invalid data type for einsum
 
 >>> m_a = [[1, 2], [3, 4]]
 >>> m_b = [[1, "thomas"], [3, 4]]
