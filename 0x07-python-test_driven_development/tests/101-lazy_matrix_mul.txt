@@ -35,7 +35,7 @@ Test case for zero length list
 >>> lazy_matrix_mul(m_a, m_b)
 Traceback (most recent call last):
     ...
-ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 2 is different from 0)
+ValueError: shapes (0,) and (2,2) not aligned: 0 (dim 0) != 2 (dim 0)
 
 Test case for non integer and non float values
 >>> m_a = [[1, "thomas"], [3, 4]]
