@@ -19,7 +19,7 @@ check if matrix is list
 >>> matrix_divided(matrix, 2)
 Traceback (most recent call last):
     ...
-TypeError: matrix must be a matrix (list of lists) of integers/floats
+TypeError: matrix must be a matrix (list of lists) of                         integers/floats
 
 check if matrix contains only lists
 >>> matrix = [
@@ -29,7 +29,7 @@ check if matrix contains only lists
 >>> matrix_divided(matrix, 2)
 Traceback (most recent call last):
     ...
-TypeError: matrix must be a matrix (list of lists) of integers/floats
+TypeError: matrix must be a matrix (list of lists) of                         integers/floats
 
 check if values in the metrix are integer or float
 >>> matrix = [
@@ -39,7 +39,7 @@ check if values in the metrix are integer or float
 >>> matrix_divided(matrix, 2)
 Traceback (most recent call last):
     ...
-TypeError: matrix must be a matrix (list of lists) of integers/floats
+TypeError: matrix must be a matrix                     (list of lists) of integers/floats
 
 check if length of row are equal in matrix
 >>> matrix = [
