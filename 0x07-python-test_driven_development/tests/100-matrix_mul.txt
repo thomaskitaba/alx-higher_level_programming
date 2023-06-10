@@ -129,5 +129,5 @@ Test if matrix_b is square
 >>> matrix_mul(m_a, m_b)
 Traceback (most recent call last):
     ...
- ValueError: ma and mb can’t be multiplied
+ValueError: ma and mb can’t be multiplied
 ...
