@@ -6,7 +6,7 @@ test case-1 for integers
 >>> m_a = [[1, 2], [3, 4]]
 >>> m_b = [[1, 2], [3, 4]]
 >>> lazy_matrix_mul(m_a, m_b)
-[[7, 10], [15, 22]]
+array([[ 7, 10], [15, 22]])
 
 test case-2 for integers
 >>> m_a = [[1, 2, 3], [4, 5, 6]]
