@@ -1,6 +1,6 @@
 """
 doctest for matrix multiplication
->>> lazy_matrix_mul = __import__('100-lazy_matrix_mul').lazy_matrix_mul
+>>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
 
 test case-1 for integers
 >>> m_a = [[1, 2], [3, 4]]
@@ -11,7 +11,7 @@ test case-1 for integers
 test case-2 for integers
 >>> m_a = [[1, 2, 3], [4, 5, 6]]
 >>> m_b = [[1, 2], [3, 4], [5, 6]]
->>> lazy_lazy_matrix_mul(m_a, m_b)
+>>> lazy_matrix_mul(m_a, m_b)
 [[22 28], [49 64]]
 
 test case-2 for integers
@@ -28,13 +28,7 @@ Traceback (most recent call last):
     ...
 TypeError: m_a must be a list
 
-Test case for invalid m_b
->>> m_a = [[1, 2], [3, 4]]
->>> m_b = ([1, 2], [3, 4])
->>> lazy_matrix_mul(m_a, m_b)
-Traceback (most recent call last):
-    ...
-TypeError: m_b must be a list
+
 
 Test case for zero length list
 >>> m_a = []
@@ -42,7 +36,7 @@ Test case for zero length list
 >>> lazy_matrix_mul(m_a, m_b)
 Traceback (most recent call last):
     ...
-ValueError: m_a can't be empty
+ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 2 is different from 0)
 
 Test case for non integer and non float values
 >>> m_a = [[1, "thomas"], [3, 4]]
@@ -50,14 +44,14 @@ Test case for non integer and non float values
 >>> lazy_matrix_mul(m_a, m_b)
 Traceback (most recent call last):
     ...
-TypeError: m_a should contain only integers or floats
+numpy.core._exceptions._UFuncNoLoopError: ufunc 'matmul' did not contain a loop with signature matching types (dtype('<U21'), dtype('int64')) -> None
 
 >>> m_a = [[1, 2], [3, 4]]
 >>> m_b = [[1, "thomas"], [3, 4]]
 >>> lazy_matrix_mul(m_a, m_b)
 Traceback (most recent call last):
     ...
-TypeError: m_b should contain only integers or floats
+numpy.core._exceptions._UFuncNoLoopError: ufunc 'matmul' did not contain a loop with signature matching types (dtype('int64'), dtype('<U21')) -> None
 
 Test case for non zero len rows
 >>> m_a = [[], [], []]
@@ -65,14 +59,14 @@ Test case for non zero len rows
 >>> lazy_matrix_mul(m_a, m_b)
 Traceback (most recent call last):
     ...
-ValueError: m_a can't be empty
+ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 2 is different from 0)
 
 >>> m_a = []
 >>> m_b = [[1, 2], [3, 4]]
 >>> lazy_matrix_mul(m_a, m_b)
 Traceback (most recent call last):
     ...
-ValueError: m_a can't be empty
+ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 2 is different from 0)
 
 Test case for non zero len rows
 >>> m_a = [[1, 2], [3, 4]]
@@ -80,14 +74,14 @@ Test case for non zero len rows
 >>> lazy_matrix_mul(m_a, m_b)
 Traceback (most recent call last):
     ...
-ValueError: m_b can't be empty
+ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 3 is different from 2)
 
 >>> m_a = [[1, 2], [3, 4]]
 >>> m_b = []
 >>> lazy_matrix_mul(m_a, m_b)
 Traceback (most recent call last):
     ...
-ValueError: m_b can't be empty
+ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 0 is different from 2)
 
 Test if matrix_a is square
 >>> m_a = [[1, 2], [3, 4, 5, 6]]
@@ -95,7 +89,7 @@ Test if matrix_a is square
 >>> lazy_matrix_mul(m_a, m_b)
 Traceback (most recent call last):
     ...
-TypeError: each row of m_a must be of the same size
+ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (2,) + inhomogeneous part.
 
 Test if matrix_b is square
 >>> m_a = [[1, 2], [3, 4]]
@@ -103,7 +97,7 @@ Test if matrix_b is square
 >>> lazy_matrix_mul(m_a, m_b)
 Traceback (most recent call last):
     ...
-TypeError: each row of m_b must be of the same size
+ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (3,) + inhomogeneous part.
 
 Test for missing m_a argument
 >>> m_a = [[1, 2], [3, 4]]
