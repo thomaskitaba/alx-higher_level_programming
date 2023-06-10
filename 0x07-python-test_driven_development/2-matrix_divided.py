@@ -15,8 +15,12 @@ def matrix_divided(matrix, div):
     new_matrix = []
     col = []
 
-    if not isinstance(matrix, list) or not all(isinstance(row, list) for row in matrix):
-        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+    if not isinstance(matrix, list):
+        raise TypeError("matrix must be a matrix (list of lists) "
+                        "of integers/floats")
+    if not all(isinstance(row, list) for row in matrix):
+        raise TypeError("matrix must be a matrix (list of lists) "
+                        "of integers/floats")
     if div == 0:
         raise ZeroDivisionError("division by zero")
     if not isinstance(div, (int, float)):
