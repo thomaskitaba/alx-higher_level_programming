@@ -12,13 +12,13 @@ test case-2 for integers
 >>> m_a = [[1, 2, 3], [4, 5, 6]]
 >>> m_b = [[1, 2], [3, 4], [5, 6]]
 >>> lazy_matrix_mul(m_a, m_b)
-[[22 28], [49 64]]
+array([[22 28], [49 64]])
 
 test case-2 for integers
 >>> m_a = [[1, 2]]
 >>> m_b = [[3, 4], [5, 6]]
 >>> lazy_matrix_mul(m_a, m_b)
-[[13, 16]]
+array([[13, 16]])
 
 Test case for invalid m_a
 >>> m_a = ([1, 2], [3, 4])
