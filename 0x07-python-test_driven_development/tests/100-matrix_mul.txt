@@ -114,13 +114,13 @@ Test for missing m_a argument
 >>> matrix_mul(m_a)
 Traceback (most recent call last):
     ...
- TypeError: matrix_mul() missing 1 required positional argument: 'm_b'
+TypeError: matrix_mul() missing 1 required positional argument: 'm_b'
 
 Test for missing m_b argument
 >>> m_b = [[1, 2], [3, 4]]
 >>> matrix_mul(m_b)
 Traceback (most recent call last):
     ...
- TypeError: matrix_mul() missing 1 required positional argument: 'm_b'
+TypeError: matrix_mul() missing 1 required positional argument: 'm_b'
 
 ...
