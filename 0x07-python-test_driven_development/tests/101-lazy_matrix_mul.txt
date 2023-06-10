@@ -2,11 +2,17 @@
 doctest for matrix multiplication
 >>> matrix_mul = __import__('100-matrix_mul').matrix_mul
 
-test case for integers
+test case-1 for integers
 >>> m_a = [[1, 2], [3, 4]]
 >>> m_b = [[1, 2], [3, 4]]
 >>> matrix_mul(m_a, m_b)
 [[7, 10], [15, 22]]
+
+test case-2 for integers
+>>> m_a = [[1, 2, 5], [3, 4, 6]]
+>>> m_b = [[1, 2], [3, 4], [5, 6]]
+>>> matrix_mul(m_a, m_b)
+
 
 Test case for invalid m_a
 >>> m_a = ([1, 2], [3, 4])
