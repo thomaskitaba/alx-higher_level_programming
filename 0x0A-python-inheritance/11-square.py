@@ -15,10 +15,6 @@ class Square(Rectangle):
         super().__init__(size, size)
         self.__size = size
 
-    def area(self):
-        """ calculate area """
-        return (self.__size * self.__size)
-
     def __str__(self):
         string = '[' + type(self).__name__ + ']'
         string += str(self.__size) + '/' + str(self.__size)
