@@ -5,10 +5,11 @@ Create an empty class called BaseGeometry
 
 
 class BaseGeometry:
-    """ This is an empty class """
-
+    """
+        this is an empty class
+    """
     def area(self):
-        """ area of basegeometry """
+
         e = Exception("area() is not implemented")
         raise e
 
