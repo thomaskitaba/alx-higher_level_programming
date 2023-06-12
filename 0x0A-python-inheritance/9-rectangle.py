@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""" Create an empty class called BaseGeometry"""
+""" Create a class called Rectangle that
+    inherits from BaseGeometry
+"""
 
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
