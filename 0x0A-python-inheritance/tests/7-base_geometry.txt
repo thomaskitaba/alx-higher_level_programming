@@ -1,0 +1,35 @@
+...
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+
+Test-0:  test for normal output
+>>> bg.integer_validator("my_int", 12)
+
+Test_1: test for string
+>>> bg.integer_validator("width", "tom")
+Traceback (most recent call last):
+TypeError: width must be an integer
+
+
+Test_2: Test for value less than zero
+>>> bg.integer_validator("Age", -4)
+Traceback (most recent call last):
+ValueError: Age must be greater than 0
+
+Test_3: Test for value equal to zero
+>>> bg.integer_validator("Age", 0)
+Traceback (most recent call last):
+ValueError: Age must be greater than 0
+
+Test_4: Test for 2 arguments missing
+>>> bg.integer_validator()
+Traceback (most recent call last):
+TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+Test_5: Test for one argument missing
+>>> bg.integer_validator("Age")
+Traceback (most recent call last):
+TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+
+...
