@@ -37,16 +37,44 @@ Test_5: Test for one argument missing
 Traceback (most recent call last):
 TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
 
-Test_6: Test for one argument missing
+Test_6: Test for None passed as argument
 >>> bg = BaseGeometry()
 >>> bg.integer_validator("Age", None)
 Traceback (most recent call last):
 TypeError: Age must be an integer
+
+Test_ : Test 1 arg passed to integer validator
+
+Test_ : Test 0 arg passed to integer validator
+
+Test_ : Test 3 arg passed to integer validator
+
+-------------------------------------------------
+TEST AREA METHOD
 
 Test_7: Test for area
 >>> bg = BaseGeometry()
 >>> bg.area()
 Traceback (most recent call last):
 Exception: area() is not implemented
+
+Test_ : Test > 1 arg passed to area
+>>> bg = BaseGeometry()
+>>> bg.area(5, 5)
+Traceback (most recent call last):
+TypeError: BaseGeometry.area() takes 1 positional argument but 3 were given
+
+Test_ : Test > 1 arg passed to area
+
+
+---------------------------------------
+TEST WITH DATASTRUCTURE AS ARGUMENTS
+Test_ : tuple passed to argument to integer validator
+
+
+Test_ : list passed to argument to integer validator
+
+
+Test_ : dictionary passed to argument to integer validator
 
 ...
