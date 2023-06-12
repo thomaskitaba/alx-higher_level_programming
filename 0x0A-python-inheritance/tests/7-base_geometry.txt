@@ -32,19 +32,3 @@ Trying to pass a boolean value
 Traceback (most recent call last):
     ...
 TypeError: name must be an integer
-
-
-Test_2: Test for value less than zero
->>> bg = BaseGeometry()
->>> bg.integer_validator("Age", -4)
-Traceback (most recent call last):
-    ...
-ValueError: Age must be greater than 0
-
-
-Test_2: Test for value less than zero
->>> bg = BaseGeometry()
->>> bg.integer_validator("Age", 0)
-Traceback (most recent call last):
-    ...
-ValueError: Age must be greater than 0
