@@ -57,11 +57,15 @@ Exception: area() is not implemented
 
 # Test_ : Test > 1 arg passed to area
 >>> bg = BaseGeometry()
+>>> bg.area(5)
+Traceback (most recent call last):
+TypeError: BaseGeometry.area() takes 1 positional argument but 2 were given
+
+# Test_ : Test > 1 arg passed to area
+>>> bg = BaseGeometry()
 >>> bg.area(5, 5)
 Traceback (most recent call last):
 TypeError: BaseGeometry.area() takes 1 positional argument but 3 were given
-
-# Test_ : Test > 1 arg passed to area
 
 
 ---------------------------------------
