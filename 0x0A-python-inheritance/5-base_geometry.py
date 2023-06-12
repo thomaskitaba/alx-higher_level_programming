@@ -4,7 +4,7 @@ Create an empty class called BaseGeometry
 """
 
 
-class BaseGeometry():
+class BaseGeometry:
     """
         this is an empty class
     """
