@@ -8,7 +8,8 @@ class BaseGeometry():
     """ This is an empty class """
 
     def area(self):
-        raise Exception("area() is not implemented")
+        e = Exception("area() is not implemented")
+        raise e
 
     def integer_validator(self, name, value):
         if not isinstance(value, int):
