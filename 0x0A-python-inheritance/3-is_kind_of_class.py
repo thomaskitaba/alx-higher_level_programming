@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-return True or False based on the object type
+return True or False based on the object instance
 """
 
 
