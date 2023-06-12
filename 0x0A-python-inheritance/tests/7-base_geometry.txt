@@ -32,4 +32,9 @@ Test_5: Test for one argument missing
 Traceback (most recent call last):
 TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
 
+Test_6: Test for one argument missing
+>>> bg.integer_validator("Age", None)
+Traceback (most recent call last):
+TypeError: Age must be an integer
+
 ...
