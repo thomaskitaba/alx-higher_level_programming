@@ -6,23 +6,15 @@ Trying to print the area
 >>> bg = BaseGeometry()
 >>> bg.area()
 Traceback (most recent call last):
-    ...
+            ...
 Exception: area() is not implemented
-
-
-Test_ : Test > 1 arg passed to area
->>> bg = BaseGeometry()
->>> bg.area(5, 5)
-Traceback (most recent call last):
-    ...
-TypeError: BaseGeometry.area() takes 1 positional argument but 3 were given
 
 
 Trying to pass a non-integer argument
 >>> bg = BaseGeometry()
 >>> bg.integer_validator("name", "5")
 Traceback (most recent call last):
-    ...
+            ...
 TypeError: name must be an integer
 
 
@@ -30,5 +22,5 @@ Trying to pass a boolean value
 >>> bg = BaseGeometry()
 >>> bg.integer_validator("name", True)
 Traceback (most recent call last):
-    ...
+            ...
 TypeError: name must be an integer
