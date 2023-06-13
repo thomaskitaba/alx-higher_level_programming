@@ -20,7 +20,7 @@ try:
         status = ""
         content = ""
         for line in sys.stdin:
-            line = line.strip()
+            size_count = 0
             if '200' in line:
                 count_200 += 1
             if '301' in line:
