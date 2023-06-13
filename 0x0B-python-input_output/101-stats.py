@@ -1,52 +1,42 @@
-#!/usr/bin/python3
-""" Read from standard input """
 import sys
 
-
-def print_status(status):
-    for key, value in status.items():
-        print("{}: {}".format(key, value))
-
+def print_stats(size, status_codes):
+    print("Total file size: {}".format(size))
+    for code in sorted(status_codes):
+        count = status_codes[code]
+        print("{}: {}".format(code, count))
 
 if __name__ == "__main__":
-    line_count = 0
     size = 0
-    status = {
-        "File size": 0,
-        "200": 0,
-        "301": 0,
-        "400": 0,
-        "401": 0,
-        "403": 0,
-        "404": 0,
-        "405": 0,
-        "500": 0
-    }
-    possible_codes = {"200", "301", "400", "401", "403", "404", "405", "500"}
+    status_codes = {}
 
     try:
+        count = 0
         for line in sys.stdin:
-            line = line.split()
-            line_count += 1
+            count += 1
+            line = line.strip().split()
 
-            if line_count == 10:
-                print_status(status)
-                line_count = 1
-
-            if len(line) > 0 and line[-1].isdigit():
-                try:
-                    size = int(line[-1])
-                    status["File size"] += size
-                except Exception:
-                    pass
             try:
-                if len(line) > 1 and line[-2] in possible_codes:
-                    status[line[-2]] += 1
+                size += int(line[-1])
+            except (IndexError, ValueError):
+                pass
+
+            try:
+                code = line[-2]
+                if code in ['200', '301', '400', '401', '403', '404', '405', '500']:
+                    if code not in status_codes:
+                        status_codes[code] = 1
+                    else:
+                        status_codes[code] += 1
             except IndexError:
                 pass
 
-        print_status(status)
+            if count == 10:
+                print_stats(size, status_codes)
+                count = 0
+
+        print_stats(size, status_codes)
 
     except KeyboardInterrupt:
-        print_status(status)
+        print_stats(size, status_codes)
         raise
