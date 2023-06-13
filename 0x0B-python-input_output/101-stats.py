@@ -21,6 +21,7 @@ if __name__ == "__main__":
                 line_count += 1
                 if line_count == 10:
                     print_status(status)
+                    count = 1
 
                 if int(line[-1]) > 0:
                     status["File size"] += 1
