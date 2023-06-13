@@ -33,8 +33,9 @@ if __name__ == "__main__":
                 print_status(status)
                 line_count = 1
 
-            if len(line) > 0 and line[-1].isdigit():
-                try:
+            try:
+                if len(line) > 0 and line[-1].isdigit():
+
                     size = int(line[-1])
                     status["File size"] += size
                 except Exception:
