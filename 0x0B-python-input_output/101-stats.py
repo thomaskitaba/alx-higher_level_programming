@@ -4,6 +4,7 @@ import sys
 
 
 size_count = 0
+line_count = 0
 count_200 = 0
 count_301 = 0
 count_400 = 0
@@ -35,7 +36,7 @@ for line in sys.stdin:
         count_500 += 1
 
     size_count += len(line)
-
+    line_count += 1
     status += '200:' + str(count_200) + '\n'
     status += '301:' + str(count_200) + '\n'
     status += '400:' + str(count_200) + '\n'
@@ -44,9 +45,9 @@ for line in sys.stdin:
     status += '404:' + str(count_200) + '\n'
     status += '405:' + str(count_200) + '\n'
     status += '500:' + str(count_200) + '\n'
-
-status = 'File size:' + str(size_count) + status
-print(status)
+    if line_count == 10:
+        status = 'File size:' + str(size_count) + status
+        print(status)
 # try:
 #     while True:
 
