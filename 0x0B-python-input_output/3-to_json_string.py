@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-    Write a function that writes
-    a string to a text file
+    convert object to json string
 """
 import json
 
