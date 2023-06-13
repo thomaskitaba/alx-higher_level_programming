@@ -30,5 +30,4 @@ for item in args:
     save the python object to
     a json file
 """
-
 json_string = save_to_json_file(loaded_string, "add_item.json")
