@@ -11,8 +11,11 @@ def write_file(filename="", text=""):
     step-2 Read from the opend file
     step-3 print it on the stdout
     """
-    with open(filename, 'r', encoding='utf-8') as fr:
-        with open(text, 'w', encoding='utf-8') as fw:
-            fr_read = fr.read()
-            fw.write(fr_read)
-            return (len(fr_read))
+
+    count = 0
+    with open(filename, 'r') as fr:
+        with open(text, 'a') as fw:
+            for line in fr:
+                fw.write(line)
+                count += len(line)
+            return (count)
