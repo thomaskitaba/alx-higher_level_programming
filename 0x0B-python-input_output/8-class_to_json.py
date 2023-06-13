@@ -10,4 +10,4 @@ def class_to_json(obj):
     """ get dictionary description """
 
     my_dict = obj.__dict__
-    return (my_dict)
+    return(json.dumps(my_dict))
