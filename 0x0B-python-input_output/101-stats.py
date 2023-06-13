@@ -21,14 +21,15 @@ if __name__ == "__main__":
                 line_count += 1
                 if line_count == 10:
                     print_status(status)
-                    count = 1
+                    line_count = 1
 
                 if int(line[-1]) > 0:
-                    status["File size"] += 1
+                    status["File size"] += int(line[-1])
 
                 for code in possible_codes:
-                    if int(code) == int(line[-2]):
+                    if code == line[-2]:
                         status[code] += 1
-
+        print_status(status)
     except KeyboardInterrupt:
         print_status(status)
+        raise
