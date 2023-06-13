@@ -19,4 +19,4 @@ def save():
 args = sys.argv[1:]
 file_name = "add_item.json"
 json_string = save_to_json_file(args, "add_item.json")
-print(json_string)
+print(type(json_string))
