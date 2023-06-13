@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """ Read from standard input """
-import sys
 
 
 def print_status(status):
@@ -9,6 +8,9 @@ def print_status(status):
 
 
 if __name__ == "__main__":
+    import sys
+
+
     line_count = 0
     size = 0
     status = {
