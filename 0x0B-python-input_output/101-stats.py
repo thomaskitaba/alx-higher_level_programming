@@ -25,26 +25,25 @@ if __name__ == "__main__":
     possible_codes = {"200", "301", "400", "401", "403", "404", "405", "500"}
 
     try:
-        while True:
-            for line in sys.stdin:
-                line = line.split()
-                line_count += 1
+        for line in sys.stdin:
+            line = line.split()
+            line_count += 1
 
-                if line_count == 10:
-                    print_status(status)
-                    line_count = 1
+            if line_count == 10:
+                print_status(status)
+                line_count = 1
 
-                if len(line) > 0 and line[-1].isdigit():
-                    try:
-                        size = int(line[-1])
-                        status["File size"] += size
-                    except Exception:
-                        pass
+            if len(line) > 0 and line[-1].isdigit():
                 try:
-                    if len(line) > 1 and line[-2] in possible_codes:
-                        status[line[-2]] += 1
-                except IndexError:
+                    size = int(line[-1])
+                    status["File size"] += size
+                except Exception:
                     pass
+            try:
+                if len(line) > 1 and line[-2] in possible_codes:
+                    status[line[-2]] += 1
+            except IndexError:
+                pass
 
         print_status(status)
 
