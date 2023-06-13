@@ -2,8 +2,6 @@
 """
     get object discription
 """
-import json
-
 
 
 def class_to_json(obj):
