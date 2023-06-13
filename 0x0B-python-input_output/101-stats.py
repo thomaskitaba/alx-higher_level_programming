@@ -46,7 +46,7 @@ for line in sys.stdin:
     status += '405:' + str(count_200) + '\n'
     status += '500:' + str(count_200) + '\n'
     if line_count == 10:
-        status = 'File size:' + str(size_count) + status
+        status = 'File size:' + str(size_count) + '\n' + status
         print(status)
 # try:
 #     while True:
