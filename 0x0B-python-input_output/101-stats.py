@@ -4,8 +4,8 @@ import sys
 
 
 def print_status(status):
-    for key in sorted(status):
-        print("{}: {}".format(key, status[key]))
+    for key, value in status.items():
+        print("{}: {}".format(key, value))
 
 
 if __name__ == "__main__":
@@ -33,9 +33,8 @@ if __name__ == "__main__":
                 print_status(status)
                 line_count = 1
 
-            try:
-                if len(line) > 0 and line[-1].isdigit():
-
+            if len(line) > 0 and line[-1].isdigit():
+                try:
                     size = int(line[-1])
                     status["File size"] += size
                 except Exception:
