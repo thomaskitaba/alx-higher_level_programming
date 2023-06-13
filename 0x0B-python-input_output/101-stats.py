@@ -4,8 +4,8 @@ import sys
 
 
 def print_status(status):
-    for key, value in status.items():
-        print("{}: {}".format(key, value))
+    for key in sorted(status_codes):
+        print("{}: {}".format(key, status_codes[key]))
 
 
 if __name__ == "__main__":
