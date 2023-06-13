@@ -32,4 +32,3 @@ for item in args:
 """
 
 json_string = save_to_json_file(loaded_string, "add_item.json")
-print(json_string)
