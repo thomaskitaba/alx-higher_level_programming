@@ -12,13 +12,15 @@ args = sys.argv[1:]
 """ load json file convert
     json string to python object
 """
+f = open("add_item.json", 'w')
+f.close()
 
 loaded_string = load_from_json_file("add_item.json")
 
 """ add arguments to the loaded
     python object
 """
-
+print(loaded_string)
 args += loaded_string
 
 """
