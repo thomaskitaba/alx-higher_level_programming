@@ -12,10 +12,5 @@ def write_file(filename="", text=""):
     step-3 print it on the stdout
     """
 
-    count = 0
-    with open(filename, 'r') as fr:
-        with open(text, 'a') as fw:
-            for line in fr:
-                fw.write(line)
-                count += len(line)
-            return (count)
+    with open(filename, 'w') as f:
+        return f.write(text)
