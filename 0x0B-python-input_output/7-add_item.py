@@ -19,8 +19,7 @@ loaded_string = load_from_json_file("add_item.json")
     python object
 """
 
-if len(loaded_string) > 0:
-    args += loaded_string
+args += loaded_string
 
 """
     save the python object to
@@ -28,4 +27,4 @@ if len(loaded_string) > 0:
 """
 
 json_string = save_to_json_file(args, "add_item.json")
-# print(type(json_string))
+print(json_string)
