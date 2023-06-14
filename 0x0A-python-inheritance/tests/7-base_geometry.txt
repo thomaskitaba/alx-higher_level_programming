@@ -74,6 +74,7 @@ NameError: name 'bg3' is not defined
 
 
 Trying to pass no argument
+>>> bg = BaseGeometry()
 >>> bg.integer_validator()
 Traceback (most recent call last):
         ...
