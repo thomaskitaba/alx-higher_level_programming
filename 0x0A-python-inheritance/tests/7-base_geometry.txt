@@ -17,6 +17,12 @@ Traceback (most recent call last):
             ...
 TypeError: name must be an integer
 
+Trying to pass no argument
+>>> bg = BaseGeometry()
+>>> bg.integer_validator()
+Traceback (most recent call last):
+        ...
+TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
 Trying to pass a boolean value
 >>> bg = BaseGeometry()
@@ -71,11 +77,3 @@ Trying to pass undefined object value
 Traceback (most recent call last):
             ...
 NameError: name 'bg3' is not defined
-
-
-Trying to pass no argument
->>> bg = BaseGeometry()
->>> bg.integer_validator()
-Traceback (most recent call last):
-        ...
-TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
