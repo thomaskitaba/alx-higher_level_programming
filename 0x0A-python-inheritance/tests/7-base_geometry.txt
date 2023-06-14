@@ -71,3 +71,10 @@ Trying to pass undefined object value
 Traceback (most recent call last):
             ...
 NameError: name 'bg3' is not defined
+
+
+Trying to pass no argument
+>>> bg.integer_validator()
+Traceback (most recent call last):
+        ...
+TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
