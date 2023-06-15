@@ -76,11 +76,11 @@ class Rectangle(Base):
             raise ValueError("y must be > 0")
         self.__y = value
 
-    def area(self):
+    def area(self): #TODO: 4. Area first
         """ Calculates area of the rectangle """
         return (self.__width * self.__height)
 
-    def display(self):
+    def display(self): #TODO: 5. Display #0
         """ Display the Rectangle """
         for y in range(self.__y):
             print('|')
@@ -92,7 +92,7 @@ class Rectangle(Base):
                 print("#", end='')
             print()
 
-    def __str__(self):
+    def __str__(self):  #TODO: 6. __str__
         """ print instance of a class """
         s = '[' + (str(self.__class__.__name__)) + ']' + ' '
         s += '(' + (str(self.id)) + ')' + ' '
@@ -100,7 +100,7 @@ class Rectangle(Base):
         s += str(self.__width) + '/' + str(self.__height)
         return s
 
-    def update(self, *args, **kwargs):    # TODO: task 8. Update #0
+    def update(self, *args, **kwargs):
         """ update attributes using *args """
         """ we can also use this one
         if args and len(args) > 0:
@@ -121,7 +121,7 @@ class Rectangle(Base):
             except:
                 pass
             """
-        if args and len(args) > 0:
+        if args and len(args) > 0: # TODO: task 8. Update #0
 
             for count, arg in enumerate(args):
                 if count == 0:
@@ -151,10 +151,10 @@ class Rectangle(Base):
                         self.id = kwargs[key]
                 if key == "width":
                     self.width = kwargs[key]
-                if key == "height":
+                elif key == "height":
                     self.height = kwargs[key]
-                if key == "x":
+                elif key == "x":
                     self.x = kwargs[key]
-                if key == "y":
+                elif key == "y":
                     self.y = kwargs[key]
                 count += 1
