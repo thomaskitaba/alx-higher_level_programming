@@ -83,11 +83,11 @@ class Rectangle(Base):
     def display(self): #TODO: 5. Display #0
         """ Display the Rectangle """
         for y in range(self.__y):
-            print('|')
+            print(' ')
         for height in range(self.__height):
 
             for x in range(self.__x):
-                print('-', end='')
+                print(' ', end='')
             for width in range(self.__width):
                 print("#", end='')
             print()
@@ -140,7 +140,7 @@ class Rectangle(Base):
                 if count == 4:
                     self.y = args[count]
         elif kwargs and len(kwargs) > 0:    #TODO: 9. Update #1
-            count = 0
+            """ loop accros the dictionary """
             for key in kwargs:
                 if key == "id":
                     if kwargs[key] is None:
@@ -157,4 +157,3 @@ class Rectangle(Base):
                     self.x = kwargs[key]
                 elif key == "y":
                     self.y = kwargs[key]
-                count += 1
