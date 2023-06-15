@@ -149,7 +149,7 @@ class Rectangle(Base):
                                        self.x, self.y)
                     else:
                         self.id = kwargs[key]
-                if key == "width":
+                elif key == "width":
                     self.width = kwargs[key]
                 elif key == "height":
                     self.height = kwargs[key]
