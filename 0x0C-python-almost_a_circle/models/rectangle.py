@@ -100,11 +100,11 @@ class Rectangle(Base):
         s += str(self.__width) + '/' + str(self.__height)
         return s
 
-    def update(self, *args):    # TODO: task 8. Update #0
+    def update(self, *args, **kwargs):    # TODO: task 8. Update #0
         """ update attributes using *args """
-
+        """ we can also use this one
         if args and len(args) > 0:
-            """ we can also use this one
+
             try:
                 if args[0] is not None:
                     self.id = args[0]
@@ -139,3 +139,22 @@ class Rectangle(Base):
                     self.x = args[count]
                 if count == 4:
                     self.y = args[count]
+        elif kwargs and len(kwargs) > 0:    #TODO: 9. Update #1
+            count = 0
+            for key in kwargs:
+                if key == "id":
+                    if kwargs[key] is None:
+                        super.__init__(self.width,
+                                       self.height,
+                                       self.x, self.y)
+                    else:
+                        self.id = kwargs[key]
+                if key == "width":
+                    self.width = kwargs[key]
+                if key == "height":
+                    self.height = kwargs[key]
+                if key == "x":
+                    self.x = kwargs[key]
+                if key == "y":
+                    self.y = kwargs[key]
+                count += 1
