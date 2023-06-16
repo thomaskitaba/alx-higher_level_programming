@@ -27,8 +27,6 @@ class Square(Rectangle):
         self.__width = value
         self.__height = value
 
-
-
     def __str__(self):
         """ print instance of a Square class """
         s = '[' + (str(self.__class__.__name__)) + ']' + ' '
