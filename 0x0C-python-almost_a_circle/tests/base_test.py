@@ -19,7 +19,7 @@ import json
 
 class Intatansitation_test(unittest.TestCase):
     """ 1- Intatansitation test """
-    pass
+
 
 class test_to_json_string(unittest.TestCase):
     """ 2- test to_json_string"""
