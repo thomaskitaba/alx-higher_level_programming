@@ -15,7 +15,6 @@ if __name__ == "__main__":
 
     for rect in list_rectangles_input:
         print("[{}] {}".format(id(rect), rect))
-
     print("---")
 
     for rect in list_rectangles_output:
