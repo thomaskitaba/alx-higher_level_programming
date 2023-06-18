@@ -18,10 +18,49 @@ import json
 from models.base import Base
 
 class Intatansitation_test(unittest.TestCase):
-    """ 1- Intatansitation test """
+    """  Intatansitation test
+        ---1--- Edge cases: None as id, float('inf'), float('nan')
+        ---2--- Test single base, double base
+        ---3--- Test with datastructures as id (dictionary, list, set, tuple)
 
-    def test_if_instance_is_base(self):
-        self.assertIsInstance(Rectangle(2, 3), Base)
+    """
+
+    """ Edge cases: None as id, float('inf'), float('nan')"""
+    def test_with_None_as_id(self):
+        b1 = Base(None)
+        b2 = Base()
+        self.assertEqual(b1.id, b2.id - 1)
+
+    def test_with_float_inf_as_id(self):
+        b1 = Base(float('inf'))
+        self.assertEqual(float('inf'), b1.id)
+
+    def test_with_float_nan_as_id(self):    #TODO: #TODO: #TODO: Read in advance
+        b1 = Base(float('nan'))
+        self.assertNotEqual(float('nan'), b1.id)
+
+    """---2--- Test single base, double base"""
+    def test_with_single_base(self):
+        b1 = Base()
+        self.assertTrue(b1.id > 0)
+
+    def test_with_double_base(self):
+        b1 = Base()
+        b2 = Base()
+        self.assertEqual(b1.id, b2.id - 1)
+
+    """---3--- Test with datastructures as id (tuple, list, dictionary,set)"""
+    def test_with_tuple_as_id(self):  #TODO: #TODO: #TODO:
+        self.assertEqual((2, 3), Base((2, 3)).id)
+
+    def test_with_list_as_id(self):
+        self.assertEqual([2, 3], Base([2, 3]).id)
+
+    def test_with_dictionary_as_id(self):
+        self.assertEqual({"id": 2}, Base({"id": 2}).id)
+
+    def test_with_set_as_id(self):
+        self.assertEqual({2, 3}, Base({2, 3}).id)
 
 class test_to_json_string(unittest.TestCase):
     """ 2- test to_json_string"""
