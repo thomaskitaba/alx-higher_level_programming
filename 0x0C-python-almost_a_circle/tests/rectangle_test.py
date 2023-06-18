@@ -425,7 +425,101 @@ class Test_Rectangle_stdout(unittest.TestCase):
             r1.display(2)
 
 class Test_Rectangle_update_args(unittest.TestCase):
-    pass
+    """ Test update
+        ---1--- test edge cases ( zero args, None(id, w, h, x, y) )
+        ---2--- test 1, 2, 3, 4, 5 arguments
+        ---3--- test with invalid data ( id, w, h, x, y)
+    """
+
+    """ ---1--- test edge cases ( zero args, None(id, w, h, x, y) )"""
+    def test_update_with_no_args(self):
+        r1 = Rectangle(2, 2, 2, 2)
+        r1.update()
+        correct = "[Rectangle] ({}) 2/2 - 2/2".format(r1.id)
+        self.assertEqual(correct, str(r1))
+
+    def test_update_with_none_as_id(self):
+        r = Rectangle(10, 10, 10, 10, 10)
+        r.update(None)
+        correct = "[Rectangle] ({}) 10/10 - 10/10".format(r.id)
+        self.assertEqual(correct, str(r))
+
+    """---2--- test 1, 2, 3, 4, 5 arguments"""
+    def test_update_with_1_arg(self):
+        r1 = Rectangle(2, 2, 2, 2)
+        r1.update(3)
+        correct = "[Rectangle] (3) 2/2 - 2/2"
+        self.assertEqual(correct, str(r1))
+
+    def test_update_with_2_arg(self):
+        r1 = Rectangle(2, 2, 2, 2)
+        r1.update(3, 4)
+        correct = "[Rectangle] (3) 2/2 - 4/2"
+        self.assertEqual(correct, str(r1))
+
+    def test_update_with_3_arg(self):
+        r1 = Rectangle(2, 2, 2, 2)
+        r1.update(3, 4, 5)
+        correct = "[Rectangle] (3) 2/2 - 4/5"
+        self.assertEqual(correct, str(r1))
+
+    def test_update_with_4_arg(self):
+        r1 = Rectangle(2, 2, 2, 2)
+        r1.update(3, 4, 5, 6)
+        correct = "[Rectangle] (3) 6/2 - 4/5"
+        self.assertEqual(correct, str(r1))
+
+    def test_update_with_5_arg(self):
+        r1 = Rectangle(2, 2, 2, 2)
+        r1.update(3, 4, 5, 6, 7)
+        correct = "[Rectangle] (3) 6/7 - 4/5"
+        self.assertEqual(correct, str(r1))
+
+    """---3--- test with invalid data ( id, w, h, x, y)"""
+    def test_update_with_invalid_id(self):
+        r1 = Rectangle(2, 2, 2, 2)
+        r1.update(-1)
+        self.assertEqual(r1.id, -1)
+
+    def test_update_with_invalid_width(self):
+        r1 = Rectangle(2, 2, 2, 2)
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            r1.update(1, "width")
+
+    def test_update_with_zero_width(self):
+        r1 = Rectangle(2, 2, 2, 2)
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            r1.update(2, 0)
+
+    def test_update_with_invalid_height(self):
+        r1 = Rectangle(2, 2, 2, 2)
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            r1.update(1, 2, "height")
+
+    def test_update_with_zero_height(self):
+        r1 = Rectangle(2, 2, 2, 2)
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            r1.update(1, 2, 0)
+
+    def test_update_with_invalid_x(self):
+        r1 = Rectangle(2, 2, 2, 2)
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            r1.update(1, 2, 2, "x")
+
+    def test_update_with_zero_x(self):
+        r1 = Rectangle(1, 2, 2, 2)
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
+            r1.update(1, 2, 2, -1)
+
+    def test_update_with_invalid_y(self):
+        r1 = Rectangle(2, 2, 2, 2)
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            r1.update(1, 2, 2, 2, "y")
+
+    def test_update_with_zero_y(self):
+        r1 = Rectangle(1, 2, 2, 2)
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
+            r1.update(1, 2, 2, 2, -1)
 
 
 class Test_Rectangle_update_kwargs(unittest.TestCase):
@@ -433,7 +527,12 @@ class Test_Rectangle_update_kwargs(unittest.TestCase):
 
 
 class Test_Rectangle_to_dictionary(unittest.TestCase):
-    """ test if dictionary is returned """
+    """ test if dictionary is returned
+        ---1--- test for normal output
+        ---2--- test with argument
+    """
+
+    """ ---1--- test for normal output """
 
     def test_to_dictioary(self):
         r1 = Rectangle(2, 3, 4, 5, 6)
@@ -444,6 +543,10 @@ class Test_Rectangle_to_dictionary(unittest.TestCase):
                 "id": 6}
         self.assertEqual(r1.to_dictionary(), result)
 
-
+    """ ---2--- test with argument """
+    def test_to_dictioary_with_argument(self):
+        r1 = Rectangle(2, 3, 5)
+        with self.assertRaises(TypeError):
+            r1.to_dictionary(2)
 if __name__ == "__main__":
     unitters.main()
