@@ -15,11 +15,13 @@
 import unittest
 import csv
 import json
-
+from models.base import Base
 
 class Intatansitation_test(unittest.TestCase):
     """ 1- Intatansitation test """
 
+    def test_if_instance_is_base(self):
+        self.assertIsInstance(Rectangle(2, 3), Base)
 
 class test_to_json_string(unittest.TestCase):
     """ 2- test to_json_string"""
