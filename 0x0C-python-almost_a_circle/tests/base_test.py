@@ -65,8 +65,14 @@ class Intatansitation_test(unittest.TestCase):
         self.assertEqual({2, 3}, Base({2, 3}).id)
 
 class test_to_json_string(unittest.TestCase):
-    """ 2- test to_json_string"""
-    pass
+    """ test to_json_string
+        ---1--- edge cases: None, as list empty list, empty dict
+        ---2--- list of tupels, list of lists list of tuples
+        ---3---
+    """
+    def test_to_json_string_None_as_arg(self):
+        with self.assertRaises(TypeError):
+            Base.to_json_string(None)
 
 class test_save_to_file(unittest.TestCase):
     """  3- test save_to_file """
