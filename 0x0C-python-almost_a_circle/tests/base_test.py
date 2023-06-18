@@ -30,7 +30,7 @@ class Intatansitation_test(unittest.TestCase):
     """ Edge cases: None as id, float('inf'), float('nan')"""
     def test_with_None_as_id(self):
         b1 = Base(None)
-        b2 = Base()
+        b2 = Base(None)
         self.assertEqual(b1.id, b2.id - 1)
 
     def test_with_float_inf_as_id(self):
@@ -74,10 +74,7 @@ class test_to_json_string(unittest.TestCase):
         with self.assertRaises(TypeError):
             Base.to_json_string()
 
-    def test_to_json_string_id_none(self):
-        b1 = Base(None)
-        b2 =Base(None)
-        self.assertEqual(b1.id, b2.id - 1)
+
 
 class test_save_to_file(unittest.TestCase):
     """  3- test save_to_file """
