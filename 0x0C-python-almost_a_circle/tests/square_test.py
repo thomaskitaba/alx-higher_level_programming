@@ -93,60 +93,60 @@ class Test_Square_instantiation(unittest.TestCase):
         self.assertEqual(10, r.y)
 
 
-# """
-# class Test_Square_width(unittest.TestCase):
-#     """ ---1--- Test None, boolean, complex, range, bytes(b'Python)
-#         bytearray bytearray(b'abcdefg'), memoryview(b'abcedfg')
-#         float('inf'), float('nan'), """
-#     def test_None_width(self):
-#         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-#             Square(None, 4, 0 , 0)
 
-#     # def test_boolean_width(self):
-#     #     with self.assertRaisesRegex(TypeError, "width must be an integer"):
-#     #         Square(True, 4, 0 , 0)
+class Test_Square_width(unittest.TestCase):
+    """ ---1--- Test None, boolean, complex, range, bytes(b'Python)
+        bytearray bytearray(b'abcdefg'), memoryview(b'abcedfg')
+        float('inf'), float('nan'), """
+    def test_None_width(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Square(None, 4, 0 , 0)
 
-#     def test_float_inf_width(self):
-#         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-#             Square(float('inf'), 4, 0 , 0)
+    # def test_boolean_width(self):
+    #     with self.assertRaisesRegex(TypeError, "width must be an integer"):
+    #         Square(True, 4, 0 , 0)
 
-#     def test_float_nan_width(self):
-#         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-#             Square(float('nan'), 4, 0 , 0)
+    def test_float_inf_width(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Square(float('inf'), 4, 0 , 0)
 
-#     """ --2--string, float, negative, zero"""
-#     def test_string_width(self):
-#         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-#             Square("width", 5, 0, 0)
+    def test_float_nan_width(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Square(float('nan'), 4, 0 , 0)
 
-#     def test_float_width(self):
-#         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-#             Square(4.5, 5, 6, 7)
+    """ --2--string, float, negative, zero"""
+    def test_string_width(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Square("width", 5, 0, 0)
 
-#     def test_negative_width(self):
-#         with self.assertRaisesRegex(ValueError, "width must be > 0"):
-#             Square(-4, 5, 6, 7)
+    def test_float_width(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Square(4.5, 5, 6, 7)
 
-#     def test_zero_width(self):
-#         with self.assertRaisesRegex(ValueError, "width must be > 0"):
-#             Square(0, 5, 6, 7)
+    def test_negative_width(self):
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            Square(-4, 5, 6, 7)
 
-#     """ --3-- Test dictionay, set , tuple, list """
-#     def test_tuple_width(self):
-#         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-#             Square((4, 2), 5, 0, 0)
+    def test_zero_width(self):
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            Square(0, 5, 6, 7)
 
-#     def test_list_width(self):
-#         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-#             Square([4], 5, 6, 7)
+    """ --3-- Test dictionay, set , tuple, list """
+    def test_tuple_width(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Square((4, 2), 5, 0, 0)
 
-#     def test_dictionary_width(self):
-#         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-#             Square({"width: 4"}, 5, 6, 7)
+    def test_list_width(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Square([4], 5, 6, 7)
 
-#     def test_set_width(self):
-#         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-#             Square({4, 5}, 5, 6, 7)
+    def test_dictionary_width(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Square({"width: 4"}, 5, 6, 7)
+
+    def test_set_width(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Square({4, 5}, 5, 6, 7)
 
 # class Test_Square_height(unittest.TestCase):
 #     """ ---1--- Test None, boolean, complex, range, bytes(b'Python)
@@ -649,7 +649,7 @@ class Test_Square_instantiation(unittest.TestCase):
 #         s1 = Square(2, 3, 5)
 #         with self.assertRaises(TypeError):
 #             s1.to_dictionary(2)
-# """
+
 
 if __name__ == "__main__":
     unitters.main()
