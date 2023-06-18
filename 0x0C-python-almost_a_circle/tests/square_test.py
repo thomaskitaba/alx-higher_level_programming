@@ -278,7 +278,7 @@ class Test_Square_area(unittest.TestCase):
     """ test large number, small_number, with argument """
 
     def test_small_width_height(self):
-        s1 = Square(3, 4, 0, )
+        s1 = Square(3, 4, 0)
         self.assertEqual(s1.area(), 9)
 
     def test_large_width_height(self):

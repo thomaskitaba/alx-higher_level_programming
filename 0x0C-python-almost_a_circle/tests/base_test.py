@@ -15,6 +15,7 @@
 import unittest
 import csv
 import json
+import os
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
@@ -70,15 +71,64 @@ class test_to_json_string(unittest.TestCase):
         ---2--- list of tupels, list of lists list of tuples
         ---3---
     """
-    def test_to_json_string_with_no_arg(self):
+    def test_rect_to_json_string_with_no_arg(self):
         with self.assertRaises(TypeError):
             Base.to_json_string()
 
+    def test_rect_to_json_string_type(self):
+        br1 = Rectangle(2, 2, 2, 2)
+        self.assertTrue(Base.to_json_string(br1.to_dictionary()), str)
+
+    def test_rect_to_json_string_multiple_list(self):
+        br1 = Rectangle(2, 2, 2, 2)
+        br2 = Rectangle(3, 3, 3, 3)
+        list_dictionary = [br1.to_dictionary(), br2.to_dictionary()]
+        self.assertEqual(len(Base.to_json_string(list_dictionary)), 106)
+
+    def test_square_to_json_string_type(self):
+        bs1 = Square(2, 2, 2)
+        self.assertTrue(Base.to_json_string(bs1.to_dictionary()), str)
+
+    def test_square_to_json_string_multiple_list(self):
+        bs1 = Square(2, 2, 2)
+        bs2 = Square(3, 3, 3)
+        list_dictionary = [bs1.to_dictionary(), bs2.to_dictionary()]
+        self.assertEqual(len(Base.to_json_string(list_dictionary)), 78)
 
 
 class test_save_to_file(unittest.TestCase):
     """  3- test save_to_file """
-    pass
+    @classmethod
+    def tearDown(self):
+        try:
+            os.remove("Base.json")
+            os.remove("Rectangle.json")
+            os.remove("Square.json")
+        except IOError:
+            pass
+
+    def test_rect_to_file(self):
+        br1 = Rectangle(2, 2, 2, 2)
+        Rectangle.save_to_file([br1])
+        with open("Rectangle.json", "r") as f:
+            self.assertEqual(len(f.read()), 52)
+
+    def test_rect_to_file_multiple_list(self):
+        br1 = Rectangle(2, 2, 2, 2)
+        br2 = Rectangle(3, 3, 3, 3)
+        list_dictionary = [br1.to_dictionary(), br2.to_dictionary()]
+        self.assertEqual(len(Base.to_json_string(list_dictionary)), 104)
+
+    def test_square_to_json_string_type(self):
+        bs1 = Square(2, 2, 2)
+        self.assertTrue(Base.to_json_string(bs1.to_dictionary()), str)
+
+    def test_square_to_json_string_multiple_list(self):
+        bs1 = Square(2, 2, 2)
+        bs2 = Square(3, 3, 3)
+        list_dictionary = [bs1.to_dictionary(), bs2.to_dictionary()]
+        self.assertEqual(len(Base.to_json_string(list_dictionary)), 77)
+
 
 class test_from_json_string(unittest.TestCase):
     """ 4- test from_json_string """
