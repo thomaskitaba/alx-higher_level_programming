@@ -520,135 +520,120 @@ class Test_Square_width(unittest.TestCase):
 #             s1.update(1, 2, 2, 2, -1)
 
 
-# class Test_Square_update_kwargs(unittest.TestCase):
-#     """ Test update
-#         ---1--- test edge cases ( zero args, None(id, w, h, x, y) )
-#         ---2--- test 1, 2, 3, 4, 5 arguments
-#         ---3--- test with invalid data ( id, w, h, x, y)
-#     """
+class Test_Square_update_kwargs(unittest.TestCase):
+    """ Test update
+        ---1--- test edge cases ( zero args, None(id, w, h, x, y) )
+        ---2--- test 1, 2, 3, 4, 5 arguments
+        ---3--- test with invalid data ( id, w, h, x, y)
+    """
 
-#     """ ---1--- test edge cases ( zero args, None(id, w, h, x, y) )"""
+    """ ---1--- test edge cases ( zero args, None(id, w, h, x, y) )"""
 
-#     def test_update_with_none_as_id(self):
-#         r = Square(2, 2, 2, 2, 2)
-#         r.update(id=None)
-#         correct = "[Square] ({}) 2/2 - 2/2".format(r.id)
-#         self.assertEqual(correct, str(r))
+    def test_update_with_none_as_id(self):
+        s1 = Square(2, 2, 2, 2)
+        s1.update(id=None)
+        correct = "[Square] ({}) 2/2 - 2".format(s1.id)
+        self.assertEqual(correct, str(s1))
 
-#     """---2--- test 1, 2, 3, 4, 5 arguments"""
-#     def test_update_with_1_kwarg(self):
-#         s1 = Square(2, 2, 2, 2)
-#         kw = {"id": 2}
-#         s1.update(**kw)
-#         correct = "[Square] (2) 2/2 - 2/2"
-#         self.assertEqual(correct, str(s1))
+    """---2--- test 1, 2, 3, 4, 5 arguments"""
+    def test_update_with_1_kwarg(self):
+        s1 = Square(2, 2, 2, 2)
+        kw = {"id": 2}
+        s1.update(**kw)
+        correct = "[Square] (2) 2/2 - 2"
+        self.assertEqual(correct, str(s1))
 
-#     def test_update_with_2_kwarg(self):
-#         s1 = Square(2, 2, 2, 2)
-#         kw = {"id": 3, "width": 4}
-#         s1.update(**kw)
-#         correct = "[Square] (3) 2/2 - 4/2"
-#         self.assertEqual(correct, str(s1))
+    def test_update_with_3_kwarg(self):
+        s1 = Square(2, 2, 2, 2)
+        kw = {"id": 3, "size": 4}
+        s1.update(**kw)
+        correct = "[Square] (3) 2/2 - 4"
+        self.assertEqual(correct, str(s1))
 
-#     def test_update_with_3_kwarg(self):
-#         s1 = Square(2, 2, 2, 2)
-#         kw = {"id": 3, "width": 4, "height": 5}
-#         s1.update(**kw)
-#         correct = "[Square] (3) 2/2 - 4/5"
-#         self.assertEqual(correct, str(s1))
+    def test_update_with_5_kwarg(self):
+        s1 = Square(2, 2, 2, 2)
+        kw = {"id": 3, "size": 4, "x": 6, "y": 7}
+        s1.update(**kw)
+        correct = "[Square] (3) 6/7 - 4"
+        self.assertEqual(correct, str(s1))
 
-#     def test_update_with_4_kwarg(self):
-#         s1 = Square(2, 2, 2, 2)
-#         kw = {"id": 3, "width": 4, "height": 5, "x": 6}
-#         s1.update(**kw)
-#         correct = "[Square] (3) 6/2 - 4/5"
-#         self.assertEqual(correct, str(s1))
+    """---3--- test with invalid data ( id, w, h, x, y)"""
+    def test_update_with_invalid_id_kwargs(self):
+        s1 = Square(2, 2, 2, 2)
+        kw = {"id": -1}
+        s1.update(**kw)
+        self.assertEqual(s1.id, -1)
 
-#     def test_update_with_5_kwarg(self):
-#         s1 = Square(2, 2, 2, 2)
-#         kw = {"id": 3, "width": 4, "height": 5, "x": 6, "y": 7}
-#         s1.update(**kw)
-#         correct = "[Square] (3) 6/7 - 4/5"
-#         self.assertEqual(correct, str(s1))
+    def test_update_with_invalid_width_kwargs(self):
+        s1 = Square(2, 2, 2, 2)
+        kw = {"id": 2, "size": "size"}
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            s1.update(**kw)
 
-#     """---3--- test with invalid data ( id, w, h, x, y)"""
-#     def test_update_with_invalid_id_kwargs(self):
-#         s1 = Square(2, 2, 2, 2)
-#         kw = {"id": -1}
-#         s1.update(**kw)
-#         self.assertEqual(s1.id, -1)
+    def test_update_with_zero_width_kwargs(self):
+        s1 = Square(2, 2, 2, 2)
+        kw = {"id": 2, "size": 0}
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            s1.update(**kw)
 
-#     def test_update_with_invalid_width_kwargs(self):
-#         s1 = Square(2, 2, 2, 2)
-#         kw = {"id": 2, "width": "width"}
-#         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-#             s1.update(**kw)
+    def test_update_with_invalid_height_kwargs(self): # TODO: #TODO: TODO:CHECK width must be  should be height
+        s1 = Square(2, 2, 2, 2)
+        kw = {"id": 2, "width": 2, "height": "height"}
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            s1.update(*kw)
 
-#     def test_update_with_zero_width_kwargs(self):
-#         s1 = Square(2, 2, 2, 2)
-#         kw = {"id": 2, "width": 0}
-#         with self.assertRaisesRegex(ValueError, "width must be > 0"):
-#             s1.update(**kw)
+    def test_update_with_zero_height_kwargs(self):
+        s1 = Square(2, 2, 2, 2)
+        kw = {"id": 2, "size": 0}
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            s1.update(**kw)
 
-#     def test_update_with_invalid_height_kwargs(self): # TODO: #TODO: TODO:CHECK width must be  should be height
-#         s1 = Square(2, 2, 2, 2)
-#         kw = {"id": 2, "width": 2, "height": "height"}
-#         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-#             s1.update(*kw)
+    def test_update_with_invalid_x_kwargs(self):
+        s1 = Square(2, 2, 2, 2)
+        kw = {"id": 2, "width": 2, "height": 2, "x": "x"}
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            s1.update(**kw)
 
-#     def test_update_with_zero_height_kwargs(self):
-#         s1 = Square(2, 2, 2, 2)
-#         kw = {"id": 2, "width": 2, "height": 0}
-#         with self.assertRaisesRegex(ValueError, "height must be > 0"):
-#             s1.update(**kw)
+    def test_update_with_zero_x_kwargs(self):
+        s1 = Square(1, 2, 2, 2)
+        kw = {"id": 2, "width": 2, "height": 2, "x": -1}
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
+            s1.update(**kw)
 
-#     def test_update_with_invalid_x_kwargs(self):
-#         s1 = Square(2, 2, 2, 2)
-#         kw = {"id": 2, "width": 2, "height": 2, "x": "x"}
-#         with self.assertRaisesRegex(TypeError, "x must be an integer"):
-#             s1.update(**kw)
+    def test_update_with_invalid_y_kwargs(self):
+        s1 = Square(1, 2, 2, 2)
+        kw = {"id": 2, "width": 2, "height": 2, "x": 2, "y": "y"}
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            s1.update(**kw)
 
-#     def test_update_with_zero_x_kwargs(self):
-#         s1 = Square(1, 2, 2, 2)
-#         kw = {"id": 2, "width": 2, "height": 2, "x": -1}
-#         with self.assertRaisesRegex(ValueError, "x must be >= 0"):
-#             s1.update(**kw)
-
-#     def test_update_with_invalid_y_kwargs(self):
-#         s1 = Square(1, 2, 2, 2)
-#         kw = {"id": 2, "width": 2, "height": 2, "x": 2, "y": "y"}
-#         with self.assertRaisesRegex(TypeError, "y must be an integer"):
-#             s1.update(**kw)
-
-#     def test_update_with_zero_y_kwargs(self):
-#         s1 = Square(1, 2, 2, 2)
-#         kw = {"id": 2, "width": 2, "height": 2, "x": 2, "y": -1}
-#         with self.assertRaisesRegex(ValueError, "y must be >= 0"):
-#             s1.update(**kw)
+    def test_update_with_zero_y_kwargs(self):
+        s1 = Square(1, 2, 2, 2)
+        kw = {"id": 2, "width": 2, "height": 2, "x": 2, "y": -1}
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
+            s1.update(**kw)
 
 
-# class Test_Square_to_dictionary(unittest.TestCase):
-#     """ test if dictionary is returned
-#         ---1--- test for normal output
-#         ---2--- test with argument
-#     """
+class Test_Square_to_dictionary(unittest.TestCase):
+    """ test if dictionary is returned
+        ---1--- test for normal output
+        ---2--- test with argument
+    """
 
-#     """ ---1--- test for normal output """
+    """ ---1--- test for normal output """
 
-#     def test_to_dictioary(self):
-#         s1 = Square(2, 3, 4, 5, 6)
-#         result = {"width": 2,
-#                 "height": 3,
-#                 "x": 4,
-#                 "y": 5,
-#                 "id": 6}
-#         self.assertEqual(s1.to_dictionary(), result)
+    def test_to_dictioary(self):
+        s1 = Square(3, 4, 5, 6)
+        result = {"size": 3,
+                "x": 4,
+                "y": 5,
+                "id": 6}
+        self.assertEqual(s1.to_dictionary(), result)
 
-#     """ ---2--- test with argument """
-#     def test_to_dictioary_with_argument(self):
-#         s1 = Square(2, 3, 5)
-#         with self.assertRaises(TypeError):
-#             s1.to_dictionary(2)
+    """ ---2--- test with argument """
+    def test_to_dictioary_with_argument(self):
+        s1 = Square(2, 3, 5)
+        with self.assertRaises(TypeError):
+            s1.to_dictionary(2)
 
 
 if __name__ == "__main__":

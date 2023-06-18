@@ -61,7 +61,7 @@ class Square(Rectangle):
             for count, arg in enumerate(args):
                 if count == 0:
                     if arg is None:
-                        super().__init__(self.width,
+                        self.__init__(self.width,
                                          self.height,
                                          self.x, self.y)
                     else:
@@ -78,7 +78,7 @@ class Square(Rectangle):
             for key in kwargs:
                 if key == "id":
                     if kwargs[key] is None:
-                        super.__init__(self.width,
+                        self.__init__(self.width,
                                        self.height,
                                        self.x, self.y)
                     else:
