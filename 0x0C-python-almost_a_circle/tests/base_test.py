@@ -70,9 +70,9 @@ class test_to_json_string(unittest.TestCase):
         ---2--- list of tupels, list of lists list of tuples
         ---3---
     """
-    def test_to_json_string_None_as_arg(self):
+    def test_to_json_string_with_no_arg(self):
         with self.assertRaises(TypeError):
-            Base.to_json_string(None)
+            Base.to_json_string()
 
 class test_save_to_file(unittest.TestCase):
     """  3- test save_to_file """
