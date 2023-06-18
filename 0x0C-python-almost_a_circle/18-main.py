@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ 18-main """
-from models.rectangle import Rectangle
-from models.square import Square
+from rectangle import Rectangle
+from square import Square
 
 if __name__ == "__main__":
 
@@ -15,7 +15,6 @@ if __name__ == "__main__":
 
     for rect in list_rectangles_input:
         print("[{}] {}".format(id(rect), rect))
-
     print("---")
 
     for rect in list_rectangles_output:
