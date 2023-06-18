@@ -523,7 +523,110 @@ class Test_Rectangle_update_args(unittest.TestCase):
 
 
 class Test_Rectangle_update_kwargs(unittest.TestCase):
-    pass
+    """ Test update
+        ---1--- test edge cases ( zero args, None(id, w, h, x, y) )
+        ---2--- test 1, 2, 3, 4, 5 arguments
+        ---3--- test with invalid data ( id, w, h, x, y)
+    """
+
+    """ ---1--- test edge cases ( zero args, None(id, w, h, x, y) )"""
+
+    def test_update_with_none_as_id(self):
+        r = Rectangle(2, 2, 2, 2, 2)
+        r.update(id=None)
+        correct = "[Rectangle] ({}) 2/2 - 2/2".format(r.id)
+        self.assertEqual(correct, str(r))
+
+    """---2--- test 1, 2, 3, 4, 5 arguments"""
+    def test_update_with_1_kwarg(self):
+        r1 = Rectangle(2, 2, 2, 2)
+        kw = {"id": 2}
+        r1.update(**kw)
+        correct = "[Rectangle] (2) 2/2 - 2/2"
+        self.assertEqual(correct, str(r1))
+
+    def test_update_with_2_kwarg(self):
+        r1 = Rectangle(2, 2, 2, 2)
+        kw = {"id": 3, "width": 4}
+        r1.update(**kw)
+        correct = "[Rectangle] (3) 2/2 - 4/2"
+        self.assertEqual(correct, str(r1))
+
+    def test_update_with_3_kwarg(self):
+        r1 = Rectangle(2, 2, 2, 2)
+        kw = {"id": 3, "width": 4, "height": 5}
+        r1.update(**kw)
+        correct = "[Rectangle] (3) 2/2 - 4/5"
+        self.assertEqual(correct, str(r1))
+
+    def test_update_with_4_kwarg(self):
+        r1 = Rectangle(2, 2, 2, 2)
+        kw = {"id": 3, "width": 4, "height": 5, "x": 6}
+        r1.update(**kw)
+        correct = "[Rectangle] (3) 6/2 - 4/5"
+        self.assertEqual(correct, str(r1))
+
+    def test_update_with_5_kwarg(self):
+        r1 = Rectangle(2, 2, 2, 2)
+        kw = {"id": 3, "width": 4, "height": 5, "x": 6, "y": 7}
+        r1.update(**kw)
+        correct = "[Rectangle] (3) 6/7 - 4/5"
+        self.assertEqual(correct, str(r1))
+
+    """---3--- test with invalid data ( id, w, h, x, y)"""
+    def test_update_with_invalid_id_kwargs(self):
+        r1 = Rectangle(2, 2, 2, 2)
+        kw = {"id": -1}
+        r1.update(**kw)
+        self.assertEqual(r1.id, -1)
+
+    def test_update_with_invalid_width_kwargs(self):
+        r1 = Rectangle(2, 2, 2, 2)
+        kw = {"id": 2, "width": "width"}
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            r1.update(**kw)
+
+    def test_update_with_zero_width_kwargs(self):
+        r1 = Rectangle(2, 2, 2, 2)
+        kw = {"id": 2, "width": 0}
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            r1.update(**kw)
+
+    def test_update_with_invalid_height_kwargs(self): # TODO: #TODO: TODO:CHECK width must be  should be height
+        r1 = Rectangle(2, 2, 2, 2)
+        kw = {"id": 2, "width": 2, "height": "height"}
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            r1.update(*kw)
+
+    def test_update_with_zero_height_kwargs(self):
+        r1 = Rectangle(2, 2, 2, 2)
+        kw = {"id": 2, "width": 2, "height": 0}
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            r1.update(**kw)
+
+    def test_update_with_invalid_x_kwargs(self):
+        r1 = Rectangle(2, 2, 2, 2)
+        kw = {"id": 2, "width": 2, "height": 2, "x": "x"}
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            r1.update(**kw)
+
+    def test_update_with_zero_x_kwargs(self):
+        r1 = Rectangle(1, 2, 2, 2)
+        kw = {"id": 2, "width": 2, "height": 2, "x": -1}
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
+            r1.update(**kw)
+
+    def test_update_with_invalid_y_kwargs(self):
+        r1 = Rectangle(1, 2, 2, 2)
+        kw = {"id": 2, "width": 2, "height": 2, "x": 2, "y": "y"}
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            r1.update(**kw)
+
+    def test_update_with_zero_y_kwargs(self):
+        r1 = Rectangle(1, 2, 2, 2)
+        kw = {"id": 2, "width": 2, "height": 2, "x": 2, "y": -1}
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
+            r1.update(**kw)
 
 
 class Test_Rectangle_to_dictionary(unittest.TestCase):
@@ -548,5 +651,7 @@ class Test_Rectangle_to_dictionary(unittest.TestCase):
         r1 = Rectangle(2, 3, 5)
         with self.assertRaises(TypeError):
             r1.to_dictionary(2)
+
+
 if __name__ == "__main__":
     unitters.main()
