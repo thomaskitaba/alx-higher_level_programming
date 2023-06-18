@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ Description goes here """
-Base = __import__('base').Base
+from models.base import Base
 
 
 class Rectangle(Base):
@@ -59,12 +59,12 @@ class Rectangle(Base):
         if not isinstance(value, int):
             raise TypeError("x must be an integer")
         if value < 0:
-            raise ValueError("x must be > 0")
+            raise ValueError("x must be >= 0")
         self.__x = value
 
     @property
     def y(self):
-        """ Setter for y """
+        """ Getter for y """
         return (self.__y)
 
     @y.setter
@@ -73,24 +73,37 @@ class Rectangle(Base):
         if not isinstance(value, int):
             raise TypeError("y must be an integer")
         if value < 0:
-            raise ValueError("y must be > 0")
+            raise ValueError("y must be >= 0")
         self.__y = value
 
     def area(self):     # TODO: 4. Area first
         """ Calculates area of the rectangle """
         return (self.__width * self.__height)
 
-    def display(self):  # TODO: 5. Display #0
-        """ Display the Rectangle """
-        for y in range(self.__y):
-            print(' ')
-        for height in range(self.__height):
+    #
+     # def display(self):  # TODO: 5. Display #0
+    #     """ Display the Rectangle """
+    #     for y in range(self.__y):
+    #         print(' ')
+    #     for height in range(self.__height):
 
-            for x in range(self.__x):
-                print(' ', end='')
-            for width in range(self.__width):
-                print("#", end='')
-            print()
+    #         for x in range(self.__x):
+    #             print(' ', end='')
+    #         for width in range(self.__width):
+    #             print("#", end='')
+    #         print()
+
+    def display(self):
+        """Print the Rectangle using the `#` character."""
+        if self.width == 0 or self.height == 0:
+            print("")
+            return
+
+        [print("") for y in range(self.y)]
+        for h in range(self.height):
+            [print(" ", end="") for x in range(self.x)]
+            [print("#", end="") for w in range(self.width)]
+            print("")
 
     def __str__(self):  # TODO: 6. __str__
         """ print instance of a class """
@@ -140,6 +153,7 @@ class Rectangle(Base):
                 if count == 4:
                     self.y = args[count]
         elif kwargs and len(kwargs) > 0:    # TODO: 9. Update #1
+
             """ loop accros the dictionary """
             for key in kwargs:
                 if key == "id":
