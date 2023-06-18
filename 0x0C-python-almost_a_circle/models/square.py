@@ -3,7 +3,7 @@
     that inherits from
     Rectangle class
 """
-Rectangle = __import__('rectangle').Rectangle
+from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
