@@ -3,6 +3,7 @@
 import json
 import csv
 
+
 class Base:
     """ description goes here """
     __nb_object = 0
@@ -112,7 +113,7 @@ class Base:
                         new_dict[key] = int(value)
                     new_list.append(new_dict)
 
-                #create the object
+                # create the object
                 for row in new_list:
                     created_list.append(cls.create(**row))
                 return created_list

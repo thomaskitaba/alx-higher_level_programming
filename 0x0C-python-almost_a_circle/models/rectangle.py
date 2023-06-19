@@ -81,7 +81,7 @@ class Rectangle(Base):
         return (self.__width * self.__height)
 
     #
-     # def display(self):  # TODO: 5. Display #0
+    # def display(self):  # TODO: 5. Display #0
     #     """ Display the Rectangle """
     #     for y in range(self.__y):
     #         print(' ')
@@ -140,8 +140,8 @@ class Rectangle(Base):
                 if count == 0:
                     if arg is None:
                         self.__init__(self.width,
-                                         self.height,
-                                         self.x, self.y)
+                                      self.height,
+                                      self.x, self.y)
                     else:
                         self.id = args[count]
                 if count == 1:
@@ -159,8 +159,8 @@ class Rectangle(Base):
                 if key == "id":
                     if kwargs[key] is None:
                         self.__init__(self.width,
-                                       self.height,
-                                       self.x, self.y)
+                                      self.height,
+                                      self.x, self.y)
                     else:
                         self.id = kwargs[key]
                 elif key == "width":
