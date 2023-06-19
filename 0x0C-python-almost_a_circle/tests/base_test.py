@@ -295,6 +295,7 @@ class test_load_from_file(unittest.TestCase):
         ---1--- load from single dict
         ---2--- load from multiple dict and check last and first obj
         ---3--- save invalid args
+        ---4--- check instances of loaded data
     """
     def tearDown(self):
         try:
@@ -326,6 +327,13 @@ class test_load_from_file(unittest.TestCase):
         with self.assertRaises(TypeError):
             Rectangle.load_from_file([])
 
+    """ ---4--- check instances of loaded data"""
+    def test_for_type_of_loaded_object(self):
+        r1 = Rectangle(2, 3, 4)
+        r2 = Rectangle(5, 6, 7)
+        Rectangle.save_to_file([r1, r2])
+        r3 = Rectangle.load_from_file()
+        self.assert(type(dict) == Rectangle for dict in r3)
 
 class test_save_to_file_csv(unittest.TestCase):
     """ test save_to_file_csv """
