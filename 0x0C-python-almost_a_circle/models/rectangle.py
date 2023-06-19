@@ -136,21 +136,25 @@ class Rectangle(Base):
                 if count == 4:
                     self.y = args[count]
 
-        elif kwargs and len(kwargs) != 0:
-            for k, v in kwargs.items():
-                if k == "id":
-                    if v is None:
-                        self.__init__(self.width, self.height, self.x, self.y)
+        elif kwargs and len(kwargs) > 0:    # TODO: 9. Update #1
+
+            """ loop accros the dictionary """
+            for key in kwargs:
+                if key == "id":
+                    if kwargs[key] is None:
+                        self.__init__(self.width,
+                                      self.height,
+                                      self.x, self.y)
                     else:
-                        self.id = v
-                elif k == "width":
-                    self.width = v
-                elif k == "height":
-                    self.height = v
-                elif k == "x":
-                    self.x = v
-                elif k == "y":
-                    self.y = v
+                        self.id = kwargs[key]
+                elif key == "width":
+                    self.width = kwargs[key]
+                elif key == "height":
+                    self.height = kwargs[key]
+                elif key == "x":
+                    self.x = kwargs[key]
+                elif key == "y":
+                    self.y = kwargs[key]
 
     def to_dictionary(self):
         """Return the dictionary representation of a Rectangle."""
