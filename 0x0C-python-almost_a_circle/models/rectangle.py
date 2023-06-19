@@ -22,13 +22,12 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """ Getter for width """
-        return (self.__width)
+        """Set/get the width of the Rectangle."""
+        return self.__width
 
     @width.setter
     def width(self, value):
-        """ Setter for width """
-        if type(Value) != int:
+        if type(value) != int:
             raise TypeError("width must be an integer")
         if value <= 0:
             raise ValueError("width must be > 0")
@@ -36,12 +35,11 @@ class Rectangle(Base):
 
     @property
     def height(self):
-        """ Getter for height """
-        return (self.__height)
+        """Set/get the height of the Rectangle."""
+        return self.__height
 
     @height.setter
     def height(self, value):
-        """ Setter for height """
         if type(value) != int:
             raise TypeError("height must be an integer")
         if value <= 0:
@@ -50,13 +48,12 @@ class Rectangle(Base):
 
     @property
     def x(self):
-        """ Getter for x """
-        return (self.__x)
+        """Set/get the x coordinate of the Rectangle."""
+        return self.__x
 
     @x.setter
     def x(self, value):
-        """ Setter for x """
-        if not isinstance(value, int):
+        if type(value) != int:
             raise TypeError("x must be an integer")
         if value < 0:
             raise ValueError("x must be >= 0")
@@ -64,21 +61,20 @@ class Rectangle(Base):
 
     @property
     def y(self):
-        """ Getter for y """
-        return (self.__y)
+        """Set/get the y coordinate of the Rectangle."""
+        return self.__y
 
     @y.setter
     def y(self, value):
-        """ Setter for y """
-        if not isinstance(value, int):
+        if type(value) != int:
             raise TypeError("y must be an integer")
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
 
-    def area(self):     # TODO: 4. Area first
-        """ Calculates area of the rectangle """
-        return (self.__width * self.__height)
+    def area(self):
+        """Return the area of the Rectangle."""
+        return self.width * self.height
 
     #
     # def display(self):  # TODO: 5. Display #0
