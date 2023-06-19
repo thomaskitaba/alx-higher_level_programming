@@ -105,6 +105,7 @@ class Base:
 
                 # convert dict_reader to correct format
                 new_list = []
+
                 for row in dict_reader:
                     new_dict = {}
                     for key, value in row.items():

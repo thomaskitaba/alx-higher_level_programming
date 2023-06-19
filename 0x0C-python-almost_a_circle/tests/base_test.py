@@ -333,10 +333,14 @@ class test_load_from_file(unittest.TestCase):
         r2 = Rectangle(5, 6, 7)
         Rectangle.save_to_file([r1, r2])
         r3 = Rectangle.load_from_file()
-        self.assert(type(dict) == Rectangle for dict in r3)
+        self.assertTrue(all(type(dict) == Rectangle for dict in r3))
 
 class test_save_to_file_csv(unittest.TestCase):
-    """ test save_to_file_csv """
+    """ test save_to_file_csv
+        ---1-- Edge cases: none, emplty list
+        ---2--- with 1 and 2 list arguments
+
+    """
     def tearDown(self):
         try:
             os.remove("Base.json")
@@ -396,4 +400,60 @@ class test_save_to_file_csv(unittest.TestCase):
 
 class test_load_from_file_csv(unittest.TestCase):
     """ 8- test load_from_file_csv """
-    pass
+    """ test save_to_file_csv
+        ---1-- Edge cases: none, emplty list
+        ---2--- with 1 and 2 list arguments
+
+    """
+    def tearDown(self):
+        try:
+            os.remove("Base.json")
+            os.remove("Rectangle.json")
+            os.remove("Square.json")
+        except Exception as e:
+            pass
+
+    @classmethod
+    def tearDown(self):
+        try:
+            os.remove("Base.json")
+            os.remove("Rectangle.json")
+            os.remove("Square.json")
+        except IOError:
+            pass
+
+    """ ---1-- Edge cases: none, emplty list, """
+
+    def test_Rectangle_to_csv_empty_list(self):
+        # with self.assertRaises(TypeError):
+        Rectangle.save_to_file_csv([])
+        with self.assertRaises(ValueError):
+           Rectangle.load_from_file_csv()
+
+    def test_square_to_csv_None(self):
+        # with self.assertRaises(TypeError):
+        pass
+    """ ---2--- with 1 and 2 list arguments """
+
+    def test_rect_to_file_csv_one_arg(self):
+        r1 = Rectangle(10, 7, 2, 8)
+        list_rectangles_input = [r1]
+        Rectangle.save_to_file_csv(list_rectangles_input)
+        loaded = Rectangle.load_from_file_csv()
+        with open("Rectangle.csv", 'r') as f:
+            self.assertEqual(f"{r1.id},10,7,2,8\n", f.read())
+
+    def test_rect_to_csv_multiple_list(self):
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 2, 2, 2)
+        list_rectangles_input = [r1, r2]
+        Rectangle.save_to_file_csv(list_rectangles_input)
+
+        with open("Rectangle.csv", 'r') as f:
+            self.assertEqual(f"{r1.id},10,7,2,8\n{r2.id},2,2,2,2\n", f.read())
+
+    def test_square_to_csv_string_multiple_list(self):
+        bs1 = Square(2, 2, 2)
+        bs2 = Square(3, 3, 3)
+        list_dictionary = [bs1.to_dictionary(), bs2.to_dictionary()]
+        self.assertEqual(len(Base.to_json_string(list_dictionary)), 78)
