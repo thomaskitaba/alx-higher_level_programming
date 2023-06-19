@@ -5,7 +5,6 @@ from models.base import Base
 
 class Rectangle(Base):
     """ Description for function goes here """
-
     def __init__(self, width, height, x=0, y=0, id=None):
         """ initialize a rectangle
             Args:
@@ -14,6 +13,7 @@ class Rectangle(Base):
                 TypeError:
                 ValueError:
         """
+
         self.width = width
         self.height = height
         self.x = x
@@ -28,7 +28,7 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         """ Setter for width """
-        if type(Value) != int:
+        if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value <= 0:
             raise ValueError("width must be > 0")
@@ -42,7 +42,7 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         """ Setter for height """
-        if type(value) != int:
+        if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value <= 0:
             raise ValueError("height must be > 0")
@@ -56,7 +56,7 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         """ Setter for x """
-        if type(value) != int:
+        if not isinstance(value, int):
             raise TypeError("x must be an integer")
         if value < 0:
             raise ValueError("x must be >= 0")
@@ -70,7 +70,7 @@ class Rectangle(Base):
     @y.setter
     def y(self, value):
         """ Setter for y """
-        if type(value) != int:
+        if not isinstance(value, int):
             raise TypeError("y must be an integer")
         if value < 0:
             raise ValueError("y must be >= 0")
@@ -78,20 +78,20 @@ class Rectangle(Base):
 
     def area(self):     # TODO: 4. Area first
         """ Calculates area of the rectangle """
-        return self.width * self.height
+        return (self.__width * self.__height)
 
     #
-    def display(self):  # TODO: 5. Display #0
-        """ Display the Rectangle """
-        for y in range(self.__y):
-            print(' ')
-        for height in range(self.__height):
+    # def display(self):  # TODO: 5. Display #0
+    #     """ Display the Rectangle """
+    #     for y in range(self.__y):
+    #         print(' ')
+    #     for height in range(self.__height):
 
-            for x in range(self.__x):
-                print(' ', end='')
-            for width in range(self.__width):
-                print("#", end='')
-            print()
+    #         for x in range(self.__x):
+    #             print(' ', end='')
+    #         for width in range(self.__width):
+    #             print("#", end='')
+    #         print()
 
     def display(self):
         """Print the Rectangle using the `#` character."""
@@ -105,13 +105,13 @@ class Rectangle(Base):
             [print("#", end="") for w in range(self.width)]
             print("")
 
-    # def __str__(self):  # TODO: 6. __str__
-    #     """ print instance of a class """
-    #     s = '[' + (str(self.__class__.__name__)) + ']' + ' '
-    #     s += '(' + (str(self.id)) + ')' + ' '
-    #     s += str(self.__x) + '/' + str(self.__y) + ' - '
-    #     s += str(self.__width) + '/' + str(self.__height)
-    #     return s
+    def __str__(self):  # TODO: 6. __str__
+        """ print instance of a class """
+        s = '[' + (str(self.__class__.__name__)) + ']' + ' '
+        s += '(' + (str(self.id)) + ')' + ' '
+        s += str(self.__x) + '/' + str(self.__y) + ' - '
+        s += str(self.__width) + '/' + str(self.__height)
+        return s
 
     def update(self, *args, **kwargs):
         """ update attributes using *args """
