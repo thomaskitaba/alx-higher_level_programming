@@ -40,6 +40,7 @@ class Test_Square_instantiation(unittest.TestCase):
     def test_one_argument(self):
         s1 = Square(3)
         self.assertEqual(s1.width, 3)
+
     def test_two_argument(self):
         s1 = Square(2, 3)
         s2 = Square(2, 3)
@@ -93,14 +94,13 @@ class Test_Square_instantiation(unittest.TestCase):
         self.assertEqual(10, r.y)
 
 
-
 class Test_Square_size(unittest.TestCase):
     """ ---1--- Test None, boolean, complex, range, bytes(b'Python)
         bytearray bytearray(b'abcdefg'), memoryview(b'abcedfg')
         float('inf'), float('nan'), """
     def test_None_size(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            Square(None, 4, 0 , 0)
+            Square(None, 4, 0, 0)
 
     # def test_boolean_width(self):
     #     with self.assertRaisesRegex(TypeError, "width must be an integer"):
@@ -108,11 +108,11 @@ class Test_Square_size(unittest.TestCase):
 
     def test_float_inf_size(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            Square(float('inf'), 4, 0 , 0)
+            Square(float('inf'), 4, 0, 0)
 
     def test_float_nan_size(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            Square(float('nan'), 4, 0 , 0)
+            Square(float('nan'), 4, 0, 0)
 
     """ --2--string, float, negative, zero"""
     def test_string_size(self):
@@ -274,6 +274,7 @@ class Test_order_of_initialization(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             Square(4, 0, "y")
 
+
 class Test_Square_area(unittest.TestCase):
     """ test large number, small_number, with argument """
 
@@ -334,12 +335,11 @@ class Test_Square_stdout(unittest.TestCase):
         correct = "##\n##\n"
         self.assertEqual(correct, captured)
 
-    def test_display_with_size_x(self): #TODO: turn it back to 2 , 2, 2
+    def test_display_with_size_x(self):
         s1 = Square(2, 2)
         captured = Test_Square_stdout.capture_the_stdout(s1, "display")
         correct = "  ##\n  ##\n"
         self.assertEqual(correct, captured)
-
 
     def test_display_width_before_height_x_y(self):
         s1 = Square(2, 2, 2, 2)
@@ -358,6 +358,7 @@ class Test_Square_stdout(unittest.TestCase):
         s1 = Square(2, 3)
         with self.assertRaises(TypeError):
             s1.display(2)
+
 
 class Test_Square_update_args(unittest.TestCase):
     """ Test update
@@ -503,7 +504,8 @@ class Test_Square_update_kwargs(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "width must be > 0"):
             s1.update(**kw)
 
-    def test_update_with_invalid_height_kwargs(self): # TODO: #TODO: TODO:CHECK width must be  should be height
+    def test_update_with_invalid_height_kwargs(self):
+        # TODO: CHECK width and height
         s1 = Square(2, 2, 2, 2)
         kw = {"id": 2, "width": 2, "height": "height"}
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
@@ -551,9 +553,9 @@ class Test_Square_to_dictionary(unittest.TestCase):
     def test_to_dictioary(self):
         s1 = Square(3, 4, 5, 6)
         result = {"size": 3,
-                "x": 4,
-                "y": 5,
-                "id": 6}
+                  "x": 4,
+                  "y": 5,
+                  "id": 6}
         self.assertEqual(s1.to_dictionary(), result)
 
     """ ---2--- test with argument """
