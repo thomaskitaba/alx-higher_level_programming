@@ -81,17 +81,17 @@ class Rectangle(Base):
         return self.width * self.height
 
     #
-    # def display(self):  # TODO: 5. Display #0
-    #     """ Display the Rectangle """
-    #     for y in range(self.__y):
-    #         print(' ')
-    #     for height in range(self.__height):
+    def display(self):  # TODO: 5. Display #0
+        """ Display the Rectangle """
+        for y in range(self.__y):
+            print(' ')
+        for height in range(self.__height):
 
-    #         for x in range(self.__x):
-    #             print(' ', end='')
-    #         for width in range(self.__width):
-    #             print("#", end='')
-    #         print()
+            for x in range(self.__x):
+                print(' ', end='')
+            for width in range(self.__width):
+                print("#", end='')
+            print()
 
     def display(self):
         """Print the Rectangle using the `#` character."""
