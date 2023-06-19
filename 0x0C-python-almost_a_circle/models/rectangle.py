@@ -84,9 +84,11 @@ class Rectangle(Base):
 
     def __str__(self):
         """ print instance of a class """
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
-                                                       self.x, self.y,
-                                                       self.width, self.height)
+        s = '[' + (str(self.__class__.__name__)) + ']' + ' '
+        s += '(' + (str(self.id)) + ')' + ' '
+        s += str(self.__x) + '/' + str(self.__y) + ' - '
+        s += str(self.width) + '/' + str(self.height)
+        return s
 
     def display(self):
         """Print the Rectangle using the `#` character."""
