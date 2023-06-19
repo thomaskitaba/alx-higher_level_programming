@@ -105,64 +105,81 @@ class Rectangle(Base):
             [print("#", end="") for w in range(self.width)]
             print("")
 
-    def update(self, *args, **kwargs):
-        """Update the Rectangle.
-
-        Args:
-            *args (ints): New attribute values.
-                - 1st argument represents id attribute
-                - 2nd argument represents width attribute
-                - 3rd argument represent height attribute
-                - 4th argument represents x attribute
-                - 5th argument represents y attribute
-            **kwargs (dict): New key/value pairs of attributes.
-        """
-        if args and len(args) != 0:
-            a = 0
-            for arg in args:
-                if a == 0:
-                    if arg is None:
-                        self.__init__(self.width, self.height, self.x, self.y)
-                    else:
-                        self.id = arg
-                elif a == 1:
-                    self.width = arg
-                elif a == 2:
-                    self.height = arg
-                elif a == 3:
-                    self.x = arg
-                elif a == 4:
-                    self.y = arg
-                a += 1
-
-        elif kwargs and len(kwargs) != 0:
-            for k, v in kwargs.items():
-                if k == "id":
-                    if v is None:
-                        self.__init__(self.width, self.height, self.x, self.y)
-                    else:
-                        self.id = v
-                elif k == "width":
-                    self.width = v
-                elif k == "height":
-                    self.height = v
-                elif k == "x":
-                    self.x = v
-                elif k == "y":
-                    self.y = v
-
-    def to_dictionary(self):
-        """Return the dictionary representation of a Rectangle."""
-        return {
-            "id": self.id,
-            "width": self.width,
-            "height": self.height,
-            "x": self.x,
-            "y": self.y
-        }
-
+    # def __str__(self):  # TODO: 6. __str__
+    #     """ print instance of a class """
+    #     s = '[' + (str(self.__class__.__name__)) + ']' + ' '
+    #     s += '(' + (str(self.id)) + ')' + ' '
+    #     s += str(self.__x) + '/' + str(self.__y) + ' - '
+    #     s += str(self.__width) + '/' + str(self.__height)
+    #     return s
     def __str__(self):
         """Return the print() and str() representation of the Rectangle."""
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
                                                        self.x, self.y,
                                                        self.width, self.height)
+
+    def update(self, *args, **kwargs):
+        """ update attributes using *args """
+        """ we can also use this one
+        if args and len(args) > 0:
+
+            try:
+                if args[0] is not None:
+                    self.id = args[0]
+                else:
+                    super.__init__(self.width, self.height, self.x, self.y)
+                if args[1]:
+                    self.width = args[1]
+                if args[2]:
+                    self.height = args[2]
+                if args[3]:
+                    self.x = args[3]
+                if args[4]:
+                    self.__y = args[4]
+            except:
+                pass
+            """
+        if args and len(args) > 0:  # TODO: task 8. Update #0
+
+            for count, arg in enumerate(args):
+                if count == 0:
+                    if arg is None:
+                        self.__init__(self.width,
+                                      self.height,
+                                      self.x, self.y)
+                    else:
+                        self.id = args[count]
+                if count == 1:
+                    self.width = args[count]
+                if count == 2:
+                    self.height = args[count]
+                if count == 3:
+                    self.x = args[count]
+                if count == 4:
+                    self.y = args[count]
+        elif kwargs and len(kwargs) > 0:    # TODO: 9. Update #1
+
+            """ loop accros the dictionary """
+            for key in kwargs:
+                if key == "id":
+                    if kwargs[key] is None:
+                        self.__init__(self.width,
+                                      self.height,
+                                      self.x, self.y)
+                    else:
+                        self.id = kwargs[key]
+                elif key == "width":
+                    self.width = kwargs[key]
+                elif key == "height":
+                    self.height = kwargs[key]
+                elif key == "x":
+                    self.x = kwargs[key]
+                elif key == "y":
+                    self.y = kwargs[key]
+
+    def to_dictionary(self):
+        return {"id": self.id,
+                "width": self.width,
+                "height": self.height,
+                "x": self.x,
+                "y": self.y}
