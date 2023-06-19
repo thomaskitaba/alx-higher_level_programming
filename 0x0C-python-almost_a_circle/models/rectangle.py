@@ -56,7 +56,7 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         """ Setter for x """
-        if not isinstance(value, int):
+        if type(value) != int:
             raise TypeError("x must be an integer")
         if value < 0:
             raise ValueError("x must be >= 0")
@@ -70,7 +70,7 @@ class Rectangle(Base):
     @y.setter
     def y(self, value):
         """ Setter for y """
-        if not isinstance(value, int):
+        if type(value) != int:
             raise TypeError("y must be an integer")
         if value < 0:
             raise ValueError("y must be >= 0")
@@ -112,11 +112,6 @@ class Rectangle(Base):
     #     s += str(self.__x) + '/' + str(self.__y) + ' - '
     #     s += str(self.__width) + '/' + str(self.__height)
     #     return s
-    def __str__(self):
-        """Return the print() and str() representation of the Rectangle."""
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
-                                                       self.x, self.y,
-                                                       self.width, self.height)
 
     def update(self, *args, **kwargs):
         """ update attributes using *args """
