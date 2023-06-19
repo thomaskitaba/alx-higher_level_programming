@@ -425,14 +425,17 @@ class test_load_from_file_csv(unittest.TestCase):
     """ ---1-- Edge cases: none, emplty list, """
 
     def test_Rectangle_to_csv_empty_list(self):
-        # with self.assertRaises(TypeError):
+
         Rectangle.save_to_file_csv([])
         with self.assertRaises(ValueError):
            Rectangle.load_from_file_csv()
 
     def test_square_to_csv_None(self):
-        # with self.assertRaises(TypeError):
-        pass
+
+        Rectangle.save_to_file_csv(None)
+        with self.assertRaises(ValueError):
+           Rectangle.load_from_file_csv()
+
     """ ---2--- with 1 and 2 list arguments """
 
     def test_rect_to_file_csv_one_arg(self):
