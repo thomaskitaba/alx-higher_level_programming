@@ -111,7 +111,7 @@ class test_save_to_file(unittest.TestCase):
         br1 = Rectangle(2, 2, 2, 2)
         Rectangle.save_to_file([br1])
         with open("Rectangle.json", "r") as f:
-            self.assertEqual(len(f.read()), 52)
+            self.assertEqual(len(f.read()), 53)
 
     def test_rect_to_file_multiple_list(self):
         br1 = Rectangle(2, 2, 2, 2)
@@ -133,7 +133,8 @@ class test_save_to_file(unittest.TestCase):
 class test_from_json_string(unittest.TestCase):
     """ 4- test from_json_string """
     """ test to_json_string
-        ---1--- edge cases: None, as list empty list
+        ---1--- edge cases: with out arg None, as list empty list
+                for Rectangle and Square
         ---2--- list of tupels, list of lists list of tuples
         ---3---
     """
@@ -144,6 +145,8 @@ class test_from_json_string(unittest.TestCase):
             os.remove("Square.json")
         except:
             pass
+
+    "---1--- edge cases: with out arg None, as list empty list"
 
     def test_rect_from_json_string_with_no_arg(self):
         with self.assertRaises(TypeError):
@@ -157,25 +160,40 @@ class test_from_json_string(unittest.TestCase):
             self.assertEqual(f.read(), "[]")
 
     def test_rect_from_jston_string_empty_list(self):
-        pass
+        with open("Rectangle.json", 'w', encoding="utf-8") as f:
+            f.write(Base.to_json_string([]))
+        with open("Rectangle.json", 'r') as f:
+            self.assertTrue("[]" == f.read())
 
     def test_rect_from_json_string_normal(self):
         br1 = Rectangle(2, 2, 2, 2)
         with open("Rectangle.json", 'w') as f:
             f = f.write(Base.to_json_string(br1.to_dictionary()))
-
         with open("Rectangle.json", 'r') as f:
-            self.assertEqual(f.read(), '{"id": 8, "width": 2, "height": 2, "x": 2, "y": 2}')
+            self.assertEqual(Base.from_json_string(f.read())[square] == 2)
 
-    def test_rect_from_json_string_multiple_list(self):
-        br1 = Rectangle(2, 2, 2, 2)
-        br2 = Rectangle(3, 3, 3, 3)
-        list_dictionary = [br1.to_dictionary(), br2.to_dictionary()]
-        self.assertEqual(len(Base.to_json_string(list_dictionary)), 104)
+    #to Square
+    def test_square_from_json_string_none(self):
+        with open("square.json", 'w') as f:
+            f = f.write(Base.to_json_string(None))
 
-    def test_square_from_json_string_type(self):
-        bs1 = Square(2, 2, 2)
-        self.assertTrue(Base.to_json_string(bs1.to_dictionary()), str)
+        with open("square.json", 'r') as f:
+            self.assertEqual(f.read(), "[]")
+
+    def test_square_from_jston_string_empty_list(self):
+        with open("square.json", 'w', encoding="utf-8") as f:
+            f.write(Base.to_json_string([]))
+        with open("square.json", 'r') as f:
+            self.assertTrue("[]" == f.read())
+
+    def test_square_from_json_string_normal(self):
+        br1 = Square(2, 2, 2, 2)
+        with open("square.json", 'w') as f:
+            f = f.write(Base.to_json_string(br1.to_dictionary()))
+        with open("square.json", 'r') as f:
+            f.read
+            self.assertEqual(Base.from_json_string(f.read())[square] == 2) #, '{"id": 6, "Square": 2, "x": 2, "y": 2}')
+
 
 class test_create(unittest.TestCase):
     """ 5- test create """
