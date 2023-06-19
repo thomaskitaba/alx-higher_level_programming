@@ -346,6 +346,22 @@ class test_save_to_file_csv(unittest.TestCase):
         except IOError:
             pass
 
+    """ ---1-- Edge cases: none, emplty list, """
+
+    def test_square_to_csv_empty_list(self):
+        # with self.assertRaises(TypeError):
+        Rectangle.save_to_file_csv([])
+        with open("Rectangle.csv", 'r') as f:
+            self.assertEqual("[]", f.read())
+
+    def test_square_to_csv_None(self):
+        # with self.assertRaises(TypeError):
+        Rectangle.save_to_file_csv([])
+        with open("Rectangle.csv", 'r') as f:
+            self.assertEqual("[]", f.read())
+
+    """ ---2--- with 1 and 2 list arguments """
+
     def test_rect_to_file_csv_one_arg(self):
         r1 = Rectangle(10, 7, 2, 8)
         list_rectangles_input = [r1]
@@ -362,11 +378,6 @@ class test_save_to_file_csv(unittest.TestCase):
 
         with open("Rectangle.csv", 'r') as f:
             self.assertEqual(f"{r1.id},10,7,2,8\n{r2.id},2,2,2,2\n", f.read())
-
-    def test_square_to_csv_empty_list(self):
-        Rectangle.save_to_file_csv()
-        with open("Rectangle.csv", 'r') as f:
-            self.assertEqual("[]", f.read())
 
     def test_square_to_csv_string_multiple_list(self):
         bs1 = Square(2, 2, 2)

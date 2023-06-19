@@ -78,8 +78,10 @@ class Base:
         list_dict = []
         with open(file_name, 'w', newline="") as csv_f:
             if list_objs is None or list_objs == []:
-                return ([])
-            fieldnames = list_objs[0].to_dictionary().keys()
+                csv_f.write("[]")
+                fieldnames = ""
+            else:
+                fieldnames = list_objs[0].to_dictionary().keys()
             dict_writer = csv.DictWriter(csv_f, fieldnames=fieldnames)
 
             for obj in list_objs:
