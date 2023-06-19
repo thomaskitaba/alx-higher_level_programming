@@ -117,7 +117,7 @@ class test_save_to_file(unittest.TestCase):
         br1 = Rectangle(2, 2, 2, 2)
         br2 = Rectangle(3, 3, 3, 3)
         list_dictionary = [br1.to_dictionary(), br2.to_dictionary()]
-        self.assertEqual(len(Base.to_json_string(list_dictionary)), 104)
+        self.assertEqual(len(Base.to_json_string(list_dictionary)), 106)
 
     def test_square_to_json_string_type(self):
         bs1 = Square(2, 2, 2)
@@ -127,12 +127,52 @@ class test_save_to_file(unittest.TestCase):
         bs1 = Square(2, 2, 2)
         bs2 = Square(3, 3, 3)
         list_dictionary = [bs1.to_dictionary(), bs2.to_dictionary()]
-        self.assertEqual(len(Base.to_json_string(list_dictionary)), 77)
+        self.assertEqual(len(Base.to_json_string(list_dictionary)), 78)
 
 
 class test_from_json_string(unittest.TestCase):
     """ 4- test from_json_string """
-    pass
+    """ test to_json_string
+        ---1--- edge cases: None, as list empty list
+        ---2--- list of tupels, list of lists list of tuples
+        ---3---
+    """
+    def tearDown(self):
+        try:
+            os.remove("Base.json")
+            os.remove("Rectangle.json")
+            os.remove("Square.json")
+        except:
+            pass
+
+    def test_rect_from_json_string_with_no_arg(self):
+        with self.assertRaises(TypeError):
+            Base.from_json_string()
+
+    def test_rect_from_json_string_type(self):
+        br1 = Rectangle(2, 2, 2, 2)
+        with open("Rectangle.json", 'w') as f:
+            f = f.write(Base.to_json_string(br1.to_dictionary()))
+
+        with open("Rectangle.json", 'r') as f:
+            self.assertEqual(f.read(), '{"id": 8, "width": 2, "height": 2, "x": 2, "y": 2}')
+
+    def test_rect_from_json_string_type(self):
+        with open("Rectangle.json", 'w') as f:
+            f = f.write(Base.to_json_string(None))
+
+        with open("Rectangle.json", 'r') as f:
+            self.assertEqual(f.read(), "[]")
+
+    def test_rect_from_json_string_multiple_list(self):
+        br1 = Rectangle(2, 2, 2, 2)
+        br2 = Rectangle(3, 3, 3, 3)
+        list_dictionary = [br1.to_dictionary(), br2.to_dictionary()]
+        self.assertEqual(len(Base.to_json_string(list_dictionary)), 104)
+
+    def test_square_from_json_string_type(self):
+        bs1 = Square(2, 2, 2)
+        self.assertTrue(Base.to_json_string(bs1.to_dictionary()), str)
 
 class test_create(unittest.TestCase):
     """ 5- test create """
