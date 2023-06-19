@@ -149,20 +149,23 @@ class test_from_json_string(unittest.TestCase):
         with self.assertRaises(TypeError):
             Base.from_json_string()
 
-    def test_rect_from_json_string_type(self):
+    def test_rect_from_json_string_none(self):
+        with open("Rectangle.json", 'w') as f:
+            f = f.write(Base.to_json_string(None))
+
+        with open("Rectangle.json", 'r') as f:
+            self.assertEqual(f.read(), "[]")
+
+    def test_rect_from_jston_string_empty_list(self):
+        pass
+
+    def test_rect_from_json_string_normal(self):
         br1 = Rectangle(2, 2, 2, 2)
         with open("Rectangle.json", 'w') as f:
             f = f.write(Base.to_json_string(br1.to_dictionary()))
 
         with open("Rectangle.json", 'r') as f:
             self.assertEqual(f.read(), '{"id": 8, "width": 2, "height": 2, "x": 2, "y": 2}')
-
-    def test_rect_from_json_string_type(self):
-        with open("Rectangle.json", 'w') as f:
-            f = f.write(Base.to_json_string(None))
-
-        with open("Rectangle.json", 'r') as f:
-            self.assertEqual(f.read(), "[]")
 
     def test_rect_from_json_string_multiple_list(self):
         br1 = Rectangle(2, 2, 2, 2)
