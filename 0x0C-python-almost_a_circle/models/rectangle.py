@@ -58,12 +58,13 @@ class Rectangle(Base):
 
     @property
     def x(self):
-        """Set/get the x coordinate of the Rectangle."""
+        """ Getter for x """
         return self.__x
 
     @x.setter
     def x(self, value):
-        if type(value) != int:
+        """ Setter for x """
+        if not isinstance(value, int):
             raise TypeError("x must be an integer")
         if value < 0:
             raise ValueError("x must be >= 0")
@@ -71,12 +72,13 @@ class Rectangle(Base):
 
     @property
     def y(self):
-        """Set/get the y coordinate of the Rectangle."""
+        """ Getter for y """
         return self.__y
 
     @y.setter
     def y(self, value):
-        if type(value) != int:
+        """ Setter for y """
+        if not isinstance(value, int):
             raise TypeError("y must be an integer")
         if value < 0:
             raise ValueError("y must be >= 0")
