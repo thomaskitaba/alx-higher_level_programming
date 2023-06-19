@@ -97,34 +97,44 @@ class Rectangle(Base):
             print("")
 
     def update(self, *args, **kwargs):
-        """Update the Rectangle.
+        """ update attributes using *args """
+        """ we can also use this one
+        if args and len(args) > 0:
 
-        Args:
-            *args (ints): New attribute values.
-                - 1st argument represents id attribute
-                - 2nd argument represents width attribute
-                - 3rd argument represent height attribute
-                - 4th argument represents x attribute
-                - 5th argument represents y attribute
-            **kwargs (dict): New key/value pairs of attributes.
-        """
-        if args and len(args) != 0:
-            a = 0
-            for arg in args:
-                if a == 0:
+            try:
+                if args[0] is not None:
+                    self.id = args[0]
+                else:
+                    super.__init__(self.width, self.height, self.x, self.y)
+                if args[1]:
+                    self.width = args[1]
+                if args[2]:
+                    self.height = args[2]
+                if args[3]:
+                    self.x = args[3]
+                if args[4]:
+                    self.__y = args[4]
+            except:
+                pass
+            """
+        if args and len(args) > 0:  # TODO: task 8. Update #0
+
+            for count, arg in enumerate(args):
+                if count == 0:
                     if arg is None:
-                        self.__init__(self.width, self.height, self.x, self.y)
+                        self.__init__(self.width,
+                                      self.height,
+                                      self.x, self.y)
                     else:
-                        self.id = arg
-                elif a == 1:
-                    self.width = arg
-                elif a == 2:
-                    self.height = arg
-                elif a == 3:
-                    self.x = arg
-                elif a == 4:
-                    self.y = arg
-                a += 1
+                        self.id = args[count]
+                if count == 1:
+                    self.width = args[count]
+                if count == 2:
+                    self.height = args[count]
+                if count == 3:
+                    self.x = args[count]
+                if count == 4:
+                    self.y = args[count]
 
         elif kwargs and len(kwargs) != 0:
             for k, v in kwargs.items():
