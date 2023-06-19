@@ -168,8 +168,6 @@ class Rectangle(Base):
 
     def __str__(self):
          """ print instance of a class """
-        s = '[' + (str(self.__class__.__name__)) + ']' + ' '
-        s += '(' + (str(self.id)) + ')' + ' '
-        s += str(self.__x) + '/' + str(self.__y) + ' - '
-        s += str(self.__width) + '/' + str(self.__height)
-        return s
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
+                                                       self.x, self.y,
+                                                       self.width, self.height)
