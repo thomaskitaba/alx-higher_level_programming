@@ -106,6 +106,7 @@ class Rectangle(Base):
             [print("#", end="") for w in range(self.width)]
             print("")
 
+
     def __str__(self):  # TODO: 6. __str__
         """ print instance of a class """
         s = '[' + (str(self.__class__.__name__)) + ']' + ' '

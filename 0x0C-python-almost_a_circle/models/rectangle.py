@@ -82,6 +82,19 @@ class Rectangle(Base):
         """ Calculates area of the rectangle """
         return self.width * self.height
 
+    def __str__(self):  # TODO: 6. __str__
+        """ print instance of a class """
+        s = '[' + (str(self.__class__.__name__)) + ']' + ' '
+        s += '(' + (str(self.id)) + ')' + ' '
+        s += str(self.x) + '/' + str(self.y) + ' - '
+        s += str(self.width) + '/' + str(self.height)
+        return s
+    # def __str__(self):
+    #     """ print instance of a class """
+    #     return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
+    #                                                    self.x, self.y,
+    #                                                    self.width, self.height)
+
     def display(self):
         """Print the Rectangle using the `#` character."""
         if self.width == 0 or self.height == 0:
@@ -163,9 +176,3 @@ class Rectangle(Base):
             "x": self.x,
             "y": self.y
         }
-
-    def __str__(self):
-        """ print instance of a class """
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
-                                                       self.x, self.y,
-                                                       self.width, self.height)
