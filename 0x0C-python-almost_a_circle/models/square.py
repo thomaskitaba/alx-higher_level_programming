@@ -56,14 +56,14 @@ class Square(Rectangle):
             except:
                 pass
             """
-        if args and len(args) > 0: # TODO: task 8. Update #0
+        if args and len(args) > 0:  # TODO: task 8. Update #0
 
             for count, arg in enumerate(args):
                 if count == 0:
                     if arg is None:
                         self.__init__(self.width,
-                                         self.height,
-                                         self.x, self.y)
+                                      self.height,
+                                      self.x, self.y)
                     else:
                         self.id = args[count]
                 if count == 1:
@@ -73,14 +73,14 @@ class Square(Rectangle):
                     self.x = args[count]
                 if count == 3:
                     self.y = args[count]
-        elif kwargs and len(kwargs) > 0:    #TODO: 9. Update #1
+        elif kwargs and len(kwargs) > 0:    # TODO: 9. Update #1
             """ loop accros the dictionary """
             for key in kwargs:
                 if key == "id":
                     if kwargs[key] is None:
                         self.__init__(self.width,
-                                       self.height,
-                                       self.x, self.y)
+                                      self.height,
+                                      self.x, self.y)
                     else:
                         self.id = kwargs[key]
                 elif key == "size":
