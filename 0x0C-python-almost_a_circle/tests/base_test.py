@@ -365,7 +365,6 @@ class test_save_to_file_csv(unittest.TestCase):
 
     def test_square_to_csv_empty_list(self):
         Rectangle.save_to_file_csv()
-
         with open("Rectangle.csv", 'r') as f:
             self.assertEqual("[]", f.read())
 
