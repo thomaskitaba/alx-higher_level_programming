@@ -20,6 +20,7 @@ from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 
+
 class Intatansitation_test(unittest.TestCase):
     """  Intatansitation test
         ---1--- Edge cases: None as id, float('inf'), float('nan')
@@ -38,7 +39,7 @@ class Intatansitation_test(unittest.TestCase):
         b1 = Base(float('inf'))
         self.assertEqual(float('inf'), b1.id)
 
-    def test_with_float_nan_as_id(self):    #TODO: #TODO: #TODO: Read in advance
+    def test_with_float_nan_as_id(self):    # TODO:  Read in advance
         b1 = Base(float('nan'))
         self.assertNotEqual(float('nan'), b1.id)
 
@@ -53,7 +54,7 @@ class Intatansitation_test(unittest.TestCase):
         self.assertEqual(b1.id, b2.id - 1)
 
     """---3--- Test with datastructures as id (tuple, list, dictionary,set)"""
-    def test_with_tuple_as_id(self):  #TODO: #TODO: #TODO:
+    def test_with_tuple_as_id(self):  # TODO:
         self.assertEqual((2, 3), Base((2, 3)).id)
 
     def test_with_list_as_id(self):
@@ -64,6 +65,7 @@ class Intatansitation_test(unittest.TestCase):
 
     def test_with_set_as_id(self):
         self.assertEqual({2, 3}, Base({2, 3}).id)
+
 
 class test_to_json_string(unittest.TestCase):
     """ test to_json_string
@@ -142,7 +144,7 @@ class test_from_json_string(unittest.TestCase):
             os.remove("Base.json")
             os.remove("Rectangle.json")
             os.remove("Square.json")
-        except:
+        except Exception as e:
             pass
 
     "---1--- edge cases: with out arg None, as list empty list"
@@ -171,7 +173,7 @@ class test_from_json_string(unittest.TestCase):
         with open("Rectangle.json", 'r') as f:
             self.assertEqual(len(Base.from_json_string(f.read())), 5)
 
-    #to Square
+    # to Square
     def test_square_from_json_string_none(self):
         with open("square.json", 'w') as f:
             f = f.write(Base.to_json_string(None))
@@ -190,7 +192,7 @@ class test_from_json_string(unittest.TestCase):
         with open("Square.json", 'w') as f:
             f = f.write(Base.to_json_string(s1.to_dictionary()))
         with open("Square.json", 'r') as f:
-            self.assertEqual(Base.from_json_string(f.read())["size"], 2) #, '{"id": 6, "Square": 2, "x": 2, "y": 2}')
+            self.assertEqual(Base.from_json_string(f.read())["size"], 2)
 
 
 class test_create(unittest.TestCase):
@@ -222,7 +224,8 @@ class test_create(unittest.TestCase):
 
     def test_create_with_list_kwarg(self):
 
-        my_dict = [{'height': 4, 'width': 10, 'id': 89}, {'height': 7, 'width': 1, 'id': 7}]
+        my_dict = [{'height': 4, 'width': 10, 'id': 89},
+                   {'height': 7, 'width': 1, 'id': 7}]
         with self.assertRaises(TypeError):
             r2 = Rectangle.create(**my_dict)
 
@@ -285,9 +288,8 @@ class test_create(unittest.TestCase):
         with open("Rectangle.json", 'w') as f:
             f = f.write(Base.to_json_string(r2.to_dictionary()))
         with open("Rectangle.json", 'r') as f:
-           with self.assertRaises(KeyError):
-               Base.from_json_string(f.read())['']
-
+            with self.assertRaises(KeyError):
+                Base.from_json_string(f.read())['']
 
 
 class test_load_from_file(unittest.TestCase):
@@ -334,6 +336,7 @@ class test_load_from_file(unittest.TestCase):
         Rectangle.save_to_file([r1, r2])
         r3 = Rectangle.load_from_file()
         self.assertTrue(all(type(dict) == Rectangle for dict in r3))
+
 
 class test_save_to_file_csv(unittest.TestCase):
     """ test save_to_file_csv
@@ -428,7 +431,7 @@ class test_load_from_file_csv(unittest.TestCase):
 
         Rectangle.save_to_file_csv([])
         with self.assertRaises(ValueError):
-           Rectangle.load_from_file_csv()
+            Rectangle.load_from_file_csv()
 
     """ ---2--- with 1 and 2 list arguments """
 
@@ -444,7 +447,6 @@ class test_load_from_file_csv(unittest.TestCase):
         Square.save_to_file_csv([r1, r2])
         loaded = Square.load_from_file_csv()
         self.assertEqual(str(r1), str(loaded[0]))
-
 
     def test_square_to_csv_string_multiple_list(self):
         r1 = Square(5, 1, 3, 3)
