@@ -99,10 +99,7 @@ class test_to_json_string(unittest.TestCase):
 
 
 class test_save_to_file(unittest.TestCase):
-    """ test save_to_file
-        ---1--- Edge Cases: Rectangle.save_to_file(None)
-        ---2--- valid arguments: 1
-    """
+    """  3- test save_to_file """
     @classmethod
     def tearDown(self):
         try:
@@ -111,14 +108,6 @@ class test_save_to_file(unittest.TestCase):
             os.remove("Square.json")
         except IOError:
             pass
-
-    """---1--- Edge Cases: Rectangle.save_to_file(None)"""
-    def test_rect_save_to_file_none(self):
-        Rectangle.save_to_file(None)
-        with open("Rectagle.json", 'r') as f:
-            self.assertEqual(f.open(), '[]')
-
-    """---2--- valid arguments: 1"""
 
     def test_rect_to_file(self):
         br1 = Rectangle(2, 2, 2, 2)
