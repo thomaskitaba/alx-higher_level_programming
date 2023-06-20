@@ -140,10 +140,10 @@ class test_save_to_file(unittest.TestCase):
             self.assertEqual(len(f.read()), 53)
 
     def test_square_to_file_square_1(self):
-        br1 = Rectangle(2, 2, 2, 2)
+
         Square.save_to_file([Square(1)])
         with open("Square.json", "r") as f:
-            self.assertEqual(len(f.read()), 53)
+            self.assertEqual(f.read(), "[]")
 
     def test_rect_to_file_multiple_list(self):
         br1 = Rectangle(2, 2, 2, 2)
