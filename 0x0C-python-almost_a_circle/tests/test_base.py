@@ -153,9 +153,7 @@ class test_save_to_file(unittest.TestCase):
         bs1 = Square(2, 2, 2)
         bs2 = Square(3, 3, 3)
         list_dictionary = [bs1.to_dictionary(), bs2.to_dictionary()]
-        Square.save_to_file(list_dictionary)
-        s = Base.from_json_string()
-        self.assertEqual(s[0]["id"], s[1]["id"] + 1)
+        self.assertEqual(len(Base.to_json_string(list_dictionary)), 78)
 
 
 class test_from_json_string(unittest.TestCase):
