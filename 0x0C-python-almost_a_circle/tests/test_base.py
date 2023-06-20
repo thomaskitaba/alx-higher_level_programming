@@ -331,7 +331,7 @@ class test_load_from_file(unittest.TestCase):
         except Exception as e:
             pass
 
-    """---1--- load from single dict"""
+    """---1--- Edge cases None, []"""
     def test_load_from_file_single_obj(self):
         r1 = Rectangle(2, 3, 4)
         Rectangle.save_to_file([r1])
@@ -339,6 +339,12 @@ class test_load_from_file(unittest.TestCase):
         self.assertEqual(str(r1), str(r2[0]))
 
     """---2--- load from multiple dict and check last and first obj"""
+    def test_load_from_file_single_obj(self):
+        r1 = Rectangle(2, 3, 4)
+        Rectangle.save_to_file([r1])
+        r2 = Rectangle.load_from_file()
+        self.assertEqual(str(r1), str(r2[0]))
+
     def test_load_from_file_single_obj(self):
         r1 = Rectangle(2, 3, 4)
         r2 = Rectangle(5, 6, 7)
