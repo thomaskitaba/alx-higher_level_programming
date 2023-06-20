@@ -332,11 +332,10 @@ class test_load_from_file(unittest.TestCase):
             pass
 
     """---1--- Edge cases None, []"""
-    def test_load_from_file_single_obj(self):
-        r1 = Rectangle(2, 3, 4)
-        Rectangle.save_to_file([r1])
-        r2 = Rectangle.load_from_file()
-        self.assertEqual(str(r1), str(r2[0]))
+    def test_load_from_file_not_existing_file(self):
+        os.remove("Square.json")
+        with self.assertRaises(TypeError):
+            Square.load_from_file([])
 
     """---2--- load from multiple dict and check last and first obj"""
     def test_load_from_file_single_obj(self):
