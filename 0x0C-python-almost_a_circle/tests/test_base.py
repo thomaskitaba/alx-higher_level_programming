@@ -100,7 +100,7 @@ class test_to_json_string(unittest.TestCase):
 
 class test_save_to_file(unittest.TestCase):
     """ test save_to_file
-        ---1--- Edge Cases: Rectangle.save_to_file(None)
+        ---1--- Edge Cases:None, []
         ---2--- valid arguments: 1
     """
     @classmethod
@@ -111,9 +111,14 @@ class test_save_to_file(unittest.TestCase):
             os.remove("Square.json")
         except IOError:
             pass
-
+    """---1--- Edge Cases:None, []"""
     def test_rect_to_file_none(self):
         Rectangle.save_to_file(None)
+        with open("Rectangle.json", "r") as f:
+            self.assertEqual(f.read(), "[]")
+
+    def test_rect_to_file_empty(self):
+        Rectangle.save_to_file([])
         with open("Rectangle.json", "r") as f:
             self.assertEqual(f.read(), "[]")
 
