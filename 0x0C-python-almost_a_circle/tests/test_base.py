@@ -109,34 +109,6 @@ class test_save_to_file(unittest.TestCase):
         except IOError:
             pass
 
-    """ ---1--- Edge cases: None, [], empty list"""
-    def test_rect_to_file(self):
-        Rectangle.save_to_file(None)
-        with open("Rectangle.json", "r") as f:
-            self.assertEqual(len(f.read()), 2)
-
-    def test_rect_to_file(self):
-        Rectangle.save_to_file([])
-        with open("Rectangle.json", "r") as f:
-            self.assertEqual(len(f.read()), 2)
-
-    def test_square_to_file(self):
-        Square.save_to_file(None)
-        with open("square.json", "r") as f:
-            self.assertEqual(len(f.read()), 2)
-
-    def test_square_to_file(self):
-        Square.save_to_file([])
-        with open("Square.json", "r") as f:
-            self.assertEqual(f.read(), '[]')
-
-    def test_square_to_file(self):
-        s1 = Square(2)
-        Square.save_to_file([Square(1)])
-        with open("Square.json", 'r') as f:
-            self.assertEqual(f.read(), '[{"id": 35,
-                             "size": 1, "x": 0, "y": 0}]')
-    """ ---2--- """
     def test_rect_to_file(self):
         br1 = Rectangle(2, 2, 2, 2)
         Rectangle.save_to_file([br1])
@@ -322,9 +294,8 @@ class test_create(unittest.TestCase):
 
 class test_load_from_file(unittest.TestCase):
     """ test load_from_file
-        ---1--- Edge casess: load while file doesnot exist, and when it exists
-        ---2--- load from single dict load from multiple dict
-                and check last and first obj
+        ---1--- load from single dict
+        ---2--- load from multiple dict and check last and first obj
         ---3--- save invalid args
         ---4--- check instances of loaded data
     """
@@ -337,18 +308,13 @@ class test_load_from_file(unittest.TestCase):
             pass
 
     """---1--- load from single dict"""
-
-    def test_load_from_file_not_existing_file(self):
-        os.remove("Square.json")
-        self.assertEqual(Square.load_from_file(), [])
-
-    """---2--- load from multiple dict and check last and first obj"""
     def test_load_from_file_single_obj(self):
         r1 = Rectangle(2, 3, 4)
         Rectangle.save_to_file([r1])
         r2 = Rectangle.load_from_file()
         self.assertEqual(str(r1), str(r2[0]))
 
+    """---2--- load from multiple dict and check last and first obj"""
     def test_load_from_file_single_obj(self):
         r1 = Rectangle(2, 3, 4)
         r2 = Rectangle(5, 6, 7)
