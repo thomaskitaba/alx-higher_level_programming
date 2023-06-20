@@ -112,6 +112,11 @@ class test_save_to_file(unittest.TestCase):
         except IOError:
             pass
 
+    def test_rect_to_file_none(self):
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", "r") as f:
+            self.assertEqual(f.read(), "[]")
+
     def test_rect_to_file(self):
         br1 = Rectangle(2, 2, 2, 2)
         Rectangle.save_to_file([br1])
