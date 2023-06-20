@@ -115,7 +115,7 @@ class test_save_to_file(unittest.TestCase):
     """---1--- Edge Cases: Rectangle.save_to_file(None)"""
     def test_rect_save_to_file_none(self):
         Rectangle.save_to_file(None)
-        with open("Rectagle.json", 'r') as f:
+        with open("Rectangle.json", 'r') as f:
             self.assertEqual(f.open(), '[]')
 
     """---2--- valid arguments: 1"""
