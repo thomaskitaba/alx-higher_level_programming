@@ -432,6 +432,13 @@ class test_load_from_file_csv(unittest.TestCase):
         ---2--- with 1 and 2 list arguments
 
     """
+    def tearDown(self):
+        try:
+            os.remove("Base.json")
+            os.remove("Rectangle.json")
+            os.remove("Square.json")
+        except Exception as e:
+            pass
 
     @classmethod
     def tearDown(self):
