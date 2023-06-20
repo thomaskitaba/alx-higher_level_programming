@@ -139,9 +139,9 @@ class test_save_to_file(unittest.TestCase):
         with open("Rectangle.json", "r") as f:
             self.assertEqual(len(f.read()), 53)
 
-    def test_square_to_file_(self):
+    def test_square_to_file_square_1(self):
         br1 = Rectangle(2, 2, 2, 2)
-        Square.save_to_file_square_1([Square(1)])
+        Square.save_to_file([Square(1)])
         with open("Square.json", "r") as f:
             self.assertEqual(len(f.read()), 53)
 
