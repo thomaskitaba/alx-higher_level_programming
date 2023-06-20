@@ -117,14 +117,14 @@ class test_save_to_file(unittest.TestCase):
         with open("Rectangle.json", "r") as f:
             self.assertEqual(f.read(), "[]")
 
-    def test_square_to_file_empty(self):
-        Square.save_to_file(None)
-        with open("Square.json", "r") as f:
+    def test_rect_to_file_empty(self):
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", "r") as f:
             self.assertEqual(f.read(), "[]")
 
     def test_square_to_file_none(self):
-        Square.save_to_file([Square(1)])
-        with open("Square.json", "r") as f:
+        Rectangle.save_to_file([])
+        with open("Rectangle.json", "r") as f:
             self.assertEqual(f.read(), "[]")
 
     def test_rect_to_file_empty(self):
@@ -132,7 +132,6 @@ class test_save_to_file(unittest.TestCase):
         with open("Rectangle.json", "r") as f:
             self.assertEqual(f.read(), "[]")
 
-    """---2--- valid arguments: 1"""
     def test_rect_to_file(self):
         br1 = Rectangle(2, 2, 2, 2)
         Rectangle.save_to_file([br1])
